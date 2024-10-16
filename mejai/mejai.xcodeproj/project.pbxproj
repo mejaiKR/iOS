@@ -11,7 +11,6 @@
 		903DEE2D2CC0337A0037BA03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DEE2C2CC0337A0037BA03 /* SceneDelegate.swift */; };
 		903DEE2F2CC0337A0037BA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DEE2E2CC0337A0037BA03 /* ViewController.swift */; };
 		903DEE342CC0337B0037BA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 903DEE332CC0337B0037BA03 /* Assets.xcassets */; };
-		903DEE372CC0337B0037BA03 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 903DEE362CC0337B0037BA03 /* Base */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +19,6 @@
 		903DEE2C2CC0337A0037BA03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		903DEE2E2CC0337A0037BA03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		903DEE332CC0337B0037BA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		903DEE362CC0337B0037BA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		903DEE382CC0337B0037BA03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,14 +52,61 @@
 		903DEE292CC0337A0037BA03 /* mejai */ = {
 			isa = PBXGroup;
 			children = (
-				903DEE2A2CC0337A0037BA03 /* AppDelegate.swift */,
-				903DEE2C2CC0337A0037BA03 /* SceneDelegate.swift */,
-				903DEE2E2CC0337A0037BA03 /* ViewController.swift */,
-				903DEE332CC0337B0037BA03 /* Assets.xcassets */,
-				903DEE352CC0337B0037BA03 /* LaunchScreen.storyboard */,
-				903DEE382CC0337B0037BA03 /* Info.plist */,
+				903DEE3E2CC035180037BA03 /* Applicatioin */,
+				903DEE412CC035260037BA03 /* Common */,
+				903DEE402CC035220037BA03 /* Data */,
+				903DEE3F2CC0351E0037BA03 /* Domain */,
+				903DEE422CC0352D0037BA03 /* Presentation */,
+				903DEE432CC035560037BA03 /* Resource */,
 			);
 			path = mejai;
+			sourceTree = "<group>";
+		};
+		903DEE3E2CC035180037BA03 /* Applicatioin */ = {
+			isa = PBXGroup;
+			children = (
+				903DEE2A2CC0337A0037BA03 /* AppDelegate.swift */,
+				903DEE2C2CC0337A0037BA03 /* SceneDelegate.swift */,
+			);
+			path = Applicatioin;
+			sourceTree = "<group>";
+		};
+		903DEE3F2CC0351E0037BA03 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		903DEE402CC035220037BA03 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		903DEE412CC035260037BA03 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		903DEE422CC0352D0037BA03 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				903DEE2E2CC0337A0037BA03 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		903DEE432CC035560037BA03 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				903DEE332CC0337B0037BA03 /* Assets.xcassets */,
+				903DEE382CC0337B0037BA03 /* Info.plist */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				903DEE342CC0337B0037BA03 /* Assets.xcassets in Resources */,
-				903DEE372CC0337B0037BA03 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,17 +185,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		903DEE352CC0337B0037BA03 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				903DEE362CC0337B0037BA03 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		903DEE392CC0337B0037BA03 /* Debug */ = {
@@ -282,7 +315,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mejai/Info.plist;
+				INFOPLIST_FILE = mejai/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -314,7 +347,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mejai/Info.plist;
+				INFOPLIST_FILE = mejai/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
