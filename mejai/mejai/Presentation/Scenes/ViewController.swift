@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = Constants.Spacing.sm
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundPrimary
         view.addSubview(stackView)
 
         NSLayoutConstraint.activate([
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             let label = UILabel()
             label.text = text
             label.applyTypography(with: font)
-            label.textColor = .black
+            label.textColor = .gray04
             stackView.addArrangedSubview(label)
         }
     }
