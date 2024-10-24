@@ -23,6 +23,7 @@
 		900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894242CCAE4D70000B6FE /* UILabel+.swift */; };
 		900894272CCAEA700000B6FE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900894262CCAEA700000B6FE /* Colors.xcassets */; };
 		900894292CCAF0190000B6FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900894282CCAF0180000B6FE /* Images.xcassets */; };
+		9008942B2CCAF3C30000B6FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008942A2CCAF3C30000B6FE /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		900894242CCAE4D70000B6FE /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		900894262CCAEA700000B6FE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		900894282CCAF0180000B6FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9008942A2CCAF3C30000B6FE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +78,12 @@
 		900893E02CCAD0C60000B6FE /* mejai */ = {
 			isa = PBXGroup;
 			children = (
+				900893F52CCAD2920000B6FE /* Application */,
 				900893FA2CCAD2EB0000B6FE /* Common */,
 				900893F92CCAD2E30000B6FE /* Data */,
 				900893F82CCAD2DD0000B6FE /* Domain */,
-				900893F72CCAD2B90000B6FE /* Resources */,
 				900893F62CCAD2B00000B6FE /* Presentation */,
-				900893F52CCAD2920000B6FE /* Application */,
+				900893F72CCAD2B90000B6FE /* Resources */,
 			);
 			path = mejai;
 			sourceTree = "<group>";
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				900893E52CCAD0C60000B6FE /* ViewController.swift */,
+				9008942A2CCAF3C30000B6FE /* TabBarController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* ViewController.swift in Sources */,
+				9008942B2CCAF3C30000B6FE /* TabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
 			);
