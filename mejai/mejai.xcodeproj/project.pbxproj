@@ -11,6 +11,9 @@
 		900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900893E32CCAD0C60000B6FE /* SceneDelegate.swift */; };
 		900893E62CCAD0C60000B6FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900893E52CCAD0C60000B6FE /* ViewController.swift */; };
 		900893EB2CCAD0C80000B6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900893EA2CCAD0C80000B6FE /* Assets.xcassets */; };
+		9008940C2CCAD9260000B6FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9008940B2CCAD9260000B6FE /* SnapKit */; };
+		9008940E2CCAD9260000B6FE /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9008940D2CCAD9260000B6FE /* SnapKit-Dynamic */; };
+		900894112CCAD9640000B6FE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 900894102CCAD9640000B6FE /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900894112CCAD9640000B6FE /* Kingfisher in Frameworks */,
+				9008940C2CCAD9260000B6FE /* SnapKit in Frameworks */,
+				9008940E2CCAD9260000B6FE /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +251,11 @@
 			dependencies = (
 			);
 			name = mejai;
+			packageProductDependencies = (
+				9008940B2CCAD9260000B6FE /* SnapKit */,
+				9008940D2CCAD9260000B6FE /* SnapKit-Dynamic */,
+				900894102CCAD9640000B6FE /* Kingfisher */,
+			);
 			productName = mejai;
 			productReference = 900893DE2CCAD0C60000B6FE /* mejai.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +284,10 @@
 				Base,
 			);
 			mainGroup = 900893D52CCAD0C60000B6FE;
+			packageReferences = (
+				9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */,
+				9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 900893DF2CCAD0C60000B6FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -512,6 +527,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/snapkit/snapkit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9008940B2CCAD9260000B6FE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */;
+			productName = SnapKit;
+		};
+		9008940D2CCAD9260000B6FE /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		900894102CCAD9640000B6FE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 900893D62CCAD0C60000B6FE /* Project object */;
 }
