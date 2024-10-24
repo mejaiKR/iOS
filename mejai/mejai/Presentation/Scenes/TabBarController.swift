@@ -41,13 +41,13 @@ final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabBar()
-        setupViewControllers()
+        configureTabBar()
+        configureViewControllers()
     }
     
-    // MARK: - Setup Methods
+    // MARK: - Configure Methods
     
-    private func setupTabBar() {
+    private func configureTabBar() {
         tabBar.tintColor = .gray09
         tabBar.unselectedItemTintColor = .gray09
         tabBar.backgroundColor = .backgroundPrimary
@@ -59,13 +59,13 @@ final class TabBarController: UITabBarController {
         }
     }
     
-    private func setupViewControllers() {
+    private func configureViewControllers() {
         viewControllers = Tab.allCases.map { tab in
             let viewController: UIViewController
             
             switch tab {
-            case .home:     viewController = ViewController()
-            case .settings: viewController = ViewController()
+            case .home:     viewController = MyViewController()
+            case .settings: viewController = MyViewController()
             }
             
             viewController.tabBarItem = UITabBarItem(

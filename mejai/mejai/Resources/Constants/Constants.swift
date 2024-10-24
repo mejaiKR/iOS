@@ -8,6 +8,10 @@
 import Foundation
 
 struct Constants {
+    struct Height {
+        static let navigationBar = 44.0
+    }
+    
     struct LineHeight {
         static let logo = 32.0
         static let heading1 = 32.0
@@ -22,6 +26,7 @@ struct Constants {
         static let caption1 = 16.0
         static let caption2 = 14.0
     }
+    
     struct Spacing {
         static let xs = 8.0
         static let sm = 16.0
