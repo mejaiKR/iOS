@@ -52,13 +52,181 @@
 		900893E02CCAD0C60000B6FE /* mejai */ = {
 			isa = PBXGroup;
 			children = (
-				900893E12CCAD0C60000B6FE /* AppDelegate.swift */,
-				900893E32CCAD0C60000B6FE /* SceneDelegate.swift */,
-				900893E52CCAD0C60000B6FE /* ViewController.swift */,
-				900893EA2CCAD0C80000B6FE /* Assets.xcassets */,
-				900893EF2CCAD0C80000B6FE /* Info.plist */,
+				900893FA2CCAD2EB0000B6FE /* Common */,
+				900893F92CCAD2E30000B6FE /* Data */,
+				900893F82CCAD2DD0000B6FE /* Domain */,
+				900893F72CCAD2B90000B6FE /* Resources */,
+				900893F62CCAD2B00000B6FE /* Presentation */,
+				900893F52CCAD2920000B6FE /* Application */,
 			);
 			path = mejai;
+			sourceTree = "<group>";
+		};
+		900893F52CCAD2920000B6FE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				900894052CCAD7620000B6FE /* DIContainer */,
+				900893E12CCAD0C60000B6FE /* AppDelegate.swift */,
+				900893E32CCAD0C60000B6FE /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		900893F62CCAD2B00000B6FE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				900894042CCAD3D40000B6FE /* Common */,
+				900894032CCAD3CB0000B6FE /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		900893F72CCAD2B90000B6FE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				900894092CCAD7F50000B6FE /* Plists */,
+				900894082CCAD7E40000B6FE /* Constants */,
+				900894072CCAD7DD0000B6FE /* Fonts */,
+				900894062CCAD7D40000B6FE /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		900893F82CCAD2DD0000B6FE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				900893FD2CCAD3840000B6FE /* Interfaces */,
+				900893FC2CCAD37D0000B6FE /* UseCases */,
+				900893FB2CCAD3770000B6FE /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		900893F92CCAD2E30000B6FE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				900894002CCAD3A60000B6FE /* Repositories */,
+				900893FF2CCAD39C0000B6FE /* Storage */,
+				900893FE2CCAD3940000B6FE /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		900893FA2CCAD2EB0000B6FE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				900894022CCAD3BF0000B6FE /* Utils */,
+				900894012CCAD3B90000B6FE /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		900893FB2CCAD3770000B6FE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		900893FC2CCAD37D0000B6FE /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		900893FD2CCAD3840000B6FE /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		900893FE2CCAD3940000B6FE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		900893FF2CCAD39C0000B6FE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		900894002CCAD3A60000B6FE /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		900894012CCAD3B90000B6FE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		900894022CCAD3BF0000B6FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		900894032CCAD3CB0000B6FE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				900893E52CCAD0C60000B6FE /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		900894042CCAD3D40000B6FE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		900894052CCAD7620000B6FE /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		900894062CCAD7D40000B6FE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				900893EA2CCAD0C80000B6FE /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		900894072CCAD7DD0000B6FE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		900894082CCAD7E40000B6FE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		900894092CCAD7F50000B6FE /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				900893EF2CCAD0C80000B6FE /* Info.plist */,
+			);
+			path = Plists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +435,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mejai/Info.plist;
+				INFOPLIST_FILE = mejai/Resources/Plists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -299,7 +467,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mejai/Info.plist;
+				INFOPLIST_FILE = mejai/Resources/Plists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
