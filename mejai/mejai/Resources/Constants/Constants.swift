@@ -10,6 +10,7 @@ import Foundation
 struct Constants {
     struct Height {
         static let navigationBar = 44.0
+        static let button = 52.0
     }
     
     struct LineHeight {
@@ -34,5 +35,11 @@ struct Constants {
         static let lg = 42.0
         static let horizontal = 20.0
         static let cell = 10.0
+    }
+    
+    struct Radius {
+        static let sm = 8.0
+        static let md = 16.0
+        static let lg = 20.0
     }
 }

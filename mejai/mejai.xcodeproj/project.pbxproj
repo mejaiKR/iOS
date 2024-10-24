@@ -25,6 +25,7 @@
 		900894292CCAF0190000B6FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900894282CCAF0180000B6FE /* Images.xcassets */; };
 		9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */; };
 		900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894342CCAF8320000B6FE /* BaseViewController.swift */; };
+		900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894382CCB06800000B6FE /* ConfirmButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		900894282CCAF0180000B6FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		900894342CCAF8320000B6FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		900894382CCB06800000B6FE /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				900894342CCAF8320000B6FE /* BaseViewController.swift */,
+				900894382CCB06800000B6FE /* ConfirmButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
+				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* MyViewController.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,

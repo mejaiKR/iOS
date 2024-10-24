@@ -7,7 +7,7 @@
 
 import UIKit
 
-import UIKit
+import SnapKit
 
 class MyViewController: BaseViewController<UIView> {
     override func viewDidLoad() {
@@ -15,5 +15,13 @@ class MyViewController: BaseViewController<UIView> {
 //        configureDefaultNavigationBar(title: "타이틀", actionTitle: "다음")
 //        configureLargeTitleNavigationBar(title: "mejai", font: .logo, image: .refresh)
 //        configureLargeTitleNavigationBar(title: "설정", font: .heading1)
+        
+        let button = ConfirmButton(initialStateEnabled: false, title: "버튼")
+        view.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.horizontal)
+            make.height.equalTo(Constants.Height.button)
+            make.center.equalToSuperview()
+        }
     }
 }
