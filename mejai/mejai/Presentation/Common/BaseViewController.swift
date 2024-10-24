@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseViewController.swift
 //  mejai
 //
 //  Created by 지연 on 10/25/24.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class ViewController<View: UIView>: UIViewController, UIGestureRecognizerDelegate {
+class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Components
     
     private let gradientView = UIView()
@@ -139,16 +139,6 @@ class ViewController<View: UIView>: UIViewController, UIGestureRecognizerDelegat
         actionButton = button
     }
     
-    // MARK: - Helper Methods
-    
-    private func makeLabel(text: String, font: UIFont) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.applyTypography(with: font)
-        label.textColor = .gray09
-        return label
-    }
-    
     private func configureGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.secondary.cgColor,
@@ -158,5 +148,15 @@ class ViewController<View: UIView>: UIViewController, UIGestureRecognizerDelegat
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
         gradientView.layer.addSublayer(gradientLayer)
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func makeLabel(text: String, font: UIFont) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.applyTypography(with: font)
+        label.textColor = .gray09
+        return label
     }
 }

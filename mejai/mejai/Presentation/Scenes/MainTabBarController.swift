@@ -1,5 +1,5 @@
 //
-//  TabBarController.swift
+//  MainTabBarController.swift
 //  mejai
 //
 //  Created by 지연 on 10/25/24.
@@ -9,8 +9,8 @@ import UIKit
 
 import SnapKit
 
-final class TabBarController: UITabBarController {
-    private enum Tab: CaseIterable {
+final class MainTabBarController: UITabBarController {
+    private enum MainTab: CaseIterable {
         case home
         case settings
         
@@ -60,7 +60,7 @@ final class TabBarController: UITabBarController {
     }
     
     private func configureViewControllers() {
-        viewControllers = Tab.allCases.map { tab in
+        viewControllers = MainTab.allCases.map { tab in
             let viewController: UIViewController
             
             switch tab {
