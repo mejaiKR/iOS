@@ -18,6 +18,9 @@
 		9008941A2CCADD5C0000B6FE /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894162CCADD5C0000B6FE /* Pretendard-Regular.otf */; };
 		9008941B2CCADD5C0000B6FE /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894172CCADD5C0000B6FE /* Pretendard-Bold.otf */; };
 		9008941E2CCADDE50000B6FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9008941D2CCADDE50000B6FE /* SnapKit */; };
+		900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894202CCAE07E0000B6FE /* UIFont+.swift */; };
+		900894232CCAE3FC0000B6FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894222CCAE3FB0000B6FE /* Constants.swift */; };
+		900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894242CCAE4D70000B6FE /* UILabel+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		900894152CCADD5C0000B6FE /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		900894162CCADD5C0000B6FE /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		900894172CCADD5C0000B6FE /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		900894202CCAE07E0000B6FE /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		900894222CCAE3FB0000B6FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		900894242CCAE4D70000B6FE /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,8 @@
 		900894012CCAD3B90000B6FE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				900894202CCAE07E0000B6FE /* UIFont+.swift */,
+				900894242CCAE4D70000B6FE /* UILabel+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 		900894082CCAD7E40000B6FE /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				900894222CCAE3FB0000B6FE /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -330,6 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
+				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
+				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* ViewController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
