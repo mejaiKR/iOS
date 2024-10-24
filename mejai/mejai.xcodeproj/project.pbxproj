@@ -21,6 +21,7 @@
 		900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894202CCAE07E0000B6FE /* UIFont+.swift */; };
 		900894232CCAE3FC0000B6FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894222CCAE3FB0000B6FE /* Constants.swift */; };
 		900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894242CCAE4D70000B6FE /* UILabel+.swift */; };
+		900894272CCAEA700000B6FE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900894262CCAEA700000B6FE /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		900894202CCAE07E0000B6FE /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		900894222CCAE3FB0000B6FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		900894242CCAE4D70000B6FE /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		900894262CCAEA700000B6FE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				900893EA2CCAD0C80000B6FE /* Assets.xcassets */,
+				900894262CCAEA700000B6FE /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				9008941A2CCADD5C0000B6FE /* Pretendard-Regular.otf in Resources */,
 				900894182CCADD5C0000B6FE /* Pretendard-Medium.otf in Resources */,
 				900894192CCADD5C0000B6FE /* Pretendard-SemiBold.otf in Resources */,
+				900894272CCAEA700000B6FE /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
