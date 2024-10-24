@@ -11,9 +11,13 @@
 		900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900893E32CCAD0C60000B6FE /* SceneDelegate.swift */; };
 		900893E62CCAD0C60000B6FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900893E52CCAD0C60000B6FE /* ViewController.swift */; };
 		900893EB2CCAD0C80000B6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900893EA2CCAD0C80000B6FE /* Assets.xcassets */; };
-		9008940C2CCAD9260000B6FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9008940B2CCAD9260000B6FE /* SnapKit */; };
-		9008940E2CCAD9260000B6FE /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9008940D2CCAD9260000B6FE /* SnapKit-Dynamic */; };
 		900894112CCAD9640000B6FE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 900894102CCAD9640000B6FE /* Kingfisher */; };
+		900894132CCADD3E0000B6FE /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894122CCADD3E0000B6FE /* GmarketSansBold.otf */; };
+		900894182CCADD5C0000B6FE /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894142CCADD5C0000B6FE /* Pretendard-Medium.otf */; };
+		900894192CCADD5C0000B6FE /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894152CCADD5C0000B6FE /* Pretendard-SemiBold.otf */; };
+		9008941A2CCADD5C0000B6FE /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894162CCADD5C0000B6FE /* Pretendard-Regular.otf */; };
+		9008941B2CCADD5C0000B6FE /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900894172CCADD5C0000B6FE /* Pretendard-Bold.otf */; };
+		9008941E2CCADDE50000B6FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9008941D2CCADDE50000B6FE /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,11 @@
 		900893E52CCAD0C60000B6FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		900893EA2CCAD0C80000B6FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		900893EF2CCAD0C80000B6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		900894122CCADD3E0000B6FE /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
+		900894142CCADD5C0000B6FE /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		900894152CCADD5C0000B6FE /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		900894162CCADD5C0000B6FE /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		900894172CCADD5C0000B6FE /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,8 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				900894112CCAD9640000B6FE /* Kingfisher in Frameworks */,
-				9008940C2CCAD9260000B6FE /* SnapKit in Frameworks */,
-				9008940E2CCAD9260000B6FE /* SnapKit-Dynamic in Frameworks */,
+				9008941E2CCADDE50000B6FE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,10 +98,10 @@
 		900893F72CCAD2B90000B6FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				900894092CCAD7F50000B6FE /* Plists */,
+				900894062CCAD7D40000B6FE /* Assets */,
 				900894082CCAD7E40000B6FE /* Constants */,
 				900894072CCAD7DD0000B6FE /* Fonts */,
-				900894062CCAD7D40000B6FE /* Assets */,
+				900894092CCAD7F50000B6FE /* Plists */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -101,9 +109,9 @@
 		900893F82CCAD2DD0000B6FE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				900893FB2CCAD3770000B6FE /* Entities */,
 				900893FD2CCAD3840000B6FE /* Interfaces */,
 				900893FC2CCAD37D0000B6FE /* UseCases */,
-				900893FB2CCAD3770000B6FE /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -111,9 +119,9 @@
 		900893F92CCAD2E30000B6FE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				900893FE2CCAD3940000B6FE /* Network */,
 				900894002CCAD3A60000B6FE /* Repositories */,
 				900893FF2CCAD39C0000B6FE /* Storage */,
-				900893FE2CCAD3940000B6FE /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -121,8 +129,8 @@
 		900893FA2CCAD2EB0000B6FE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				900894022CCAD3BF0000B6FE /* Utils */,
 				900894012CCAD3B90000B6FE /* Extensions */,
+				900894022CCAD3BF0000B6FE /* Utils */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -216,6 +224,11 @@
 		900894072CCAD7DD0000B6FE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				900894122CCADD3E0000B6FE /* GmarketSansBold.otf */,
+				900894172CCADD5C0000B6FE /* Pretendard-Bold.otf */,
+				900894142CCADD5C0000B6FE /* Pretendard-Medium.otf */,
+				900894162CCADD5C0000B6FE /* Pretendard-Regular.otf */,
+				900894152CCADD5C0000B6FE /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -252,9 +265,8 @@
 			);
 			name = mejai;
 			packageProductDependencies = (
-				9008940B2CCAD9260000B6FE /* SnapKit */,
-				9008940D2CCAD9260000B6FE /* SnapKit-Dynamic */,
 				900894102CCAD9640000B6FE /* Kingfisher */,
+				9008941D2CCADDE50000B6FE /* SnapKit */,
 			);
 			productName = mejai;
 			productReference = 900893DE2CCAD0C60000B6FE /* mejai.app */;
@@ -285,8 +297,8 @@
 			);
 			mainGroup = 900893D52CCAD0C60000B6FE;
 			packageReferences = (
-				9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */,
 				9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9008941C2CCADDE50000B6FE /* XCRemoteSwiftPackageReference "snapkit" */,
 			);
 			productRefGroup = 900893DF2CCAD0C60000B6FE /* Products */;
 			projectDirPath = "";
@@ -303,6 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				900893EB2CCAD0C80000B6FE /* Assets.xcassets in Resources */,
+				9008941B2CCADD5C0000B6FE /* Pretendard-Bold.otf in Resources */,
+				900894132CCADD3E0000B6FE /* GmarketSansBold.otf in Resources */,
+				9008941A2CCADD5C0000B6FE /* Pretendard-Regular.otf in Resources */,
+				900894182CCADD5C0000B6FE /* Pretendard-Medium.otf in Resources */,
+				900894192CCADD5C0000B6FE /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,14 +546,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/snapkit/snapkit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
 		9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -545,23 +554,26 @@
 				minimumVersion = 8.1.0;
 			};
 		};
+		9008941C2CCADDE50000B6FE /* XCRemoteSwiftPackageReference "snapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/snapkit/snapkit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9008940B2CCAD9260000B6FE /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */;
-			productName = SnapKit;
-		};
-		9008940D2CCAD9260000B6FE /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9008940A2CCAD9260000B6FE /* XCRemoteSwiftPackageReference "snapkit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		900894102CCAD9640000B6FE /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		9008941D2CCADDE50000B6FE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9008941C2CCADDE50000B6FE /* XCRemoteSwiftPackageReference "snapkit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
