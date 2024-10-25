@@ -26,6 +26,9 @@
 		9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */; };
 		900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894342CCAF8320000B6FE /* BaseViewController.swift */; };
 		900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894382CCB06800000B6FE /* ConfirmButton.swift */; };
+		90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */; };
+		90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */; };
+		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		900894342CCAF8320000B6FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		900894382CCB06800000B6FE /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
+		90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +218,7 @@
 		900894032CCAD3CB0000B6FE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				90F6B9ED2CCC12CD001FA67B /* Welcome */,
 				9008942F2CCAF7EC0000B6FE /* Settings */,
 				9008942E2CCAF7E50000B6FE /* Home */,
 				9008942D2CCAF7E00000B6FE /* SummonerRelationship */,
@@ -264,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				900894222CCAE3FB0000B6FE /* Constants.swift */,
+				90F6B9F22CCC1313001FA67B /* Strings.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -334,6 +342,15 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		90F6B9ED2CCC12CD001FA67B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */,
+				90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,12 +439,15 @@
 			files = (
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
+				90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* MyViewController.swift in Sources */,
+				90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
+				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
