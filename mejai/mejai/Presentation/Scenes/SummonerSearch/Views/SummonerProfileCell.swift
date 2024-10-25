@@ -19,14 +19,14 @@ final class SummonerProfileCell: UICollectionViewCell, Reusable {
     private let profileStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = Constants.Spacing.xs
+        stackView.spacing = Constants.Spacing.Content.summonerStackViewSpacing
         return stackView
     }()
     
     private let riotIDStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = Constants.Spacing.xs
+        stackView.spacing = Constants.Spacing.Content.summonerStackViewSpacing
         return stackView
     }()
     
@@ -100,12 +100,12 @@ final class SummonerProfileCell: UICollectionViewCell, Reusable {
         [riotIDStackView, rankTierLabel].forEach { profileStackView.addArrangedSubview($0) }
         
         summonerImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.imageSize)
+            make.width.height.equalTo(Constants.Layout.IconImage.small)
         }
         
         addSubview(checkmarkImageView)
         checkmarkImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.iconSize)
+            make.width.height.equalTo(Constants.Layout.IconImage.normal)
             make.trailing.equalToSuperview().inset(Constants.Spacing.sm)
             make.centerY.equalToSuperview()
         }

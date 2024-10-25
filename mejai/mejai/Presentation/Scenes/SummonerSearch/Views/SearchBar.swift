@@ -51,7 +51,7 @@ final class SearchBar: UIView {
     private func configureLayout() {
         addSubview(searchImageView)
         searchImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.iconSize)
+            make.width.height.equalTo(Constants.Layout.IconImage.normal)
             make.leading.equalToSuperview().inset(Constants.Spacing.sm)
             make.centerY.equalToSuperview()
         }

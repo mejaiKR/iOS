@@ -49,26 +49,26 @@ final class SummonerSearchView: UIView {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Constants.Spacing.sm)
-            make.leading.equalToSuperview().inset(Constants.Spacing.contentInset)
+            make.leading.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
         
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Spacing.xs)
-            make.leading.equalToSuperview().inset(Constants.Spacing.contentInset)
+            make.leading.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
         
         addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(Constants.Spacing.lg)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.contentInset)
-            make.height.equalTo(Constants.Height.searchBar)
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.height.equalTo(Constants.Layout.Component.searchBar)
         }
         
         addSubview(searchResultView)
         searchResultView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(Constants.Spacing.md)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.contentInset)
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
             make.bottom.equalToSuperview()
         }
     }

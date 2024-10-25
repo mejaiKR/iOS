@@ -70,14 +70,14 @@ final class WelcomeView: UIView {
         
         addSubview(bubbleImageView)
         bubbleImageView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.contentInset * 2)
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding * 2)
             make.bottom.equalTo(descriptionLabel.snp.top).offset(0 - Constants.Spacing.lg)
         }
         
         addSubview(startButton)
         startButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Height.button)
-            make.leading.bottom.trailing.equalToSuperview().inset(Constants.Spacing.contentInset)
+            make.height.equalTo(Constants.Layout.Component.button)
+            make.leading.bottom.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
     }
 }

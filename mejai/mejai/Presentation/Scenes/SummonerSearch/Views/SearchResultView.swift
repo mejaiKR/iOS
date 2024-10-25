@@ -15,7 +15,7 @@ final class SearchResultView: UIView {
     
     lazy var resultCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = Constants.Spacing.cell
+        layout.minimumLineSpacing = Constants.Spacing.Content.cellSpacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(cellType: SummonerProfileCell.self)
         collectionView.backgroundColor = .clear
@@ -53,9 +53,11 @@ final class SearchResultView: UIView {
     }
 }
 
+// TODO: 임시
+
 extension SearchResultView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: Constants.Height.summonerCell)
+        return CGSize(width: collectionView.frame.width, height: Constants.Layout.Component.summonerProfileCell)
     }
 }
 
