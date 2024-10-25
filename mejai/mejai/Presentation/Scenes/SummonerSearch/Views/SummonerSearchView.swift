@@ -68,7 +68,8 @@ final class SummonerSearchView: UIView {
         addSubview(searchResultView)
         searchResultView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(Constants.Spacing.md)
-            make.leading.bottom.trailing.equalToSuperview().inset(Constants.Spacing.contentInset)
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.contentInset)
+            make.bottom.equalToSuperview()
         }
     }
 }

@@ -13,6 +13,18 @@ final class SearchResultView: UIView {
         message: Strings.SummonerSearch.emptyMessage
     )
     
+    lazy var resultCollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = Constants.Spacing.cell
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(cellType: SummonerProfileCell.self)
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -30,7 +42,29 @@ final class SearchResultView: UIView {
     private func configureLayout() {
         addSubview(emptyView)
         emptyView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(0 - Constants.Spacing.lg)
         }
+        
+        addSubview(resultCollectionView)
+        resultCollectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+}
+
+extension SearchResultView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: Constants.Height.summonerCell)
+    }
+}
+
+extension SearchResultView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(for: indexPath, cellType: SummonerProfileCell.self)
     }
 }

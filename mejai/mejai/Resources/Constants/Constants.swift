@@ -9,11 +9,13 @@ import Foundation
 
 struct Constants {
     static let iconSize = 24.0
+    static let imageSize = 20.0
     
     struct Height {
         static let navigationBar = 44.0
         static let button = 52.0
         static let searchBar = 44.0
+        static let summonerCell = 75.0
     }
     
     struct Spacing {

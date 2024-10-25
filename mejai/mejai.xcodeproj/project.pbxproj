@@ -34,6 +34,9 @@
 		90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F82CCC19AE001FA67B /* SearchBar.swift */; };
 		90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */; };
 		90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FC2CCC1E09001FA67B /* StateView.swift */; };
+		90F6B9FF2CCC2620001FA67B /* SummonerProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FE2CCC2620001FA67B /* SummonerProfileCell.swift */; };
+		90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA002CCC290B001FA67B /* Reusable.swift */; };
+		90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		90F6B9F82CCC19AE001FA67B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		90F6B9FC2CCC1E09001FA67B /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		90F6B9FE2CCC2620001FA67B /* SummonerProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerProfileCell.swift; sourceTree = "<group>"; };
+		90F6BA002CCC290B001FA67B /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +220,7 @@
 			children = (
 				900894202CCAE07E0000B6FE /* UIFont+.swift */,
 				900894242CCAE4D70000B6FE /* UILabel+.swift */,
+				90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -221,6 +228,7 @@
 		900894022CCAD3BF0000B6FE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				90F6BA002CCC290B001FA67B /* Reusable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -355,6 +363,7 @@
 				90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */,
 				90F6B9F82CCC19AE001FA67B /* SearchBar.swift */,
 				90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */,
+				90F6B9FE2CCC2620001FA67B /* SummonerProfileCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,10 +462,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
+				90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */,
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
 				90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */,
+				90F6B9FF2CCC2620001FA67B /* SummonerProfileCell.swift in Sources */,
 				90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
@@ -467,6 +478,7 @@
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
+				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,
 				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
 			);
