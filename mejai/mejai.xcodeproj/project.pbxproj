@@ -33,6 +33,7 @@
 		90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */; };
 		90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F82CCC19AE001FA67B /* SearchBar.swift */; };
 		90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */; };
+		90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FC2CCC1E09001FA67B /* StateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchView.swift; sourceTree = "<group>"; };
 		90F6B9F82CCC19AE001FA67B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		90F6B9FC2CCC1E09001FA67B /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				900894342CCAF8320000B6FE /* BaseViewController.swift */,
 				900894382CCB06800000B6FE /* ConfirmButton.swift */,
+				90F6B9FC2CCC1E09001FA67B /* StateView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
 				90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */,
+				90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,

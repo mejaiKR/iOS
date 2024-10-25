@@ -8,6 +8,11 @@
 import UIKit
 
 final class SearchResultView: UIView {
+    let emptyView = StateView(
+        state: .empty,
+        message: Strings.SummonerSearch.emptyMessage
+    )
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -23,6 +28,9 @@ final class SearchResultView: UIView {
     // MARK: - Configure Methods
     
     private func configureLayout() {
-        backgroundColor = .primary
+        addSubview(emptyView)
+        emptyView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
 }
