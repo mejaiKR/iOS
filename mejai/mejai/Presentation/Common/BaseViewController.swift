@@ -12,7 +12,6 @@ import SnapKit
 class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Components
     
-    private let gradientView = UIView()
     private let navigationBar = UIView()
     let contentView = View()
     private(set) var titleLabel: UILabel?
@@ -25,12 +24,8 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        configureLayout()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         configureGradient()
+        configureLayout()
     }
     
     // MARK: - Public Configure Methods
@@ -70,13 +65,18 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
+    private func configureGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.secondary.cgColor,
+                                UIColor.backgroundPrimary.cgColor]
+        gradientLayer.frame = view.bounds
+        gradientLayer.locations = [0.0, 0.5]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        view.layer.addSublayer(gradientLayer)
+    }
+    
     private func configureLayout() {
-        view.addSubview(gradientView)
-        gradientView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(2)
-        }
-        
         view.addSubview(navigationBar)
         navigationBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -137,17 +137,6 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         }
         
         actionButton = button
-    }
-    
-    private func configureGradient() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.secondary.cgColor,
-                                UIColor.backgroundPrimary.cgColor]
-        gradientLayer.frame = gradientView.bounds
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientView.layer.addSublayer(gradientLayer)
     }
     
     // MARK: - Helper Methods
