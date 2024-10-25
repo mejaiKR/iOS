@@ -20,50 +20,50 @@ extension UIFont {
     }
     
     static var logo: UIFont {
-        return UIFont(name: "GmarketSansBold", size: 24)!
+        return UIFont(name: "GmarketSansBold", size: Constants.Font.Size.logo)!
     }
 
     static var heading1: UIFont {
-        return pretendard(weight: .bold, size: 24)
+        return pretendard(weight: .bold, size: Constants.Font.Size.heading1)
     }
 
     static var heading2: UIFont {
-        return pretendard(weight: .bold, size: 20)
+        return pretendard(weight: .bold, size: Constants.Font.Size.heading2)
     }
 
     static var heading3: UIFont {
-        return pretendard(weight: .bold, size: 18)
+        return pretendard(weight: .bold, size: Constants.Font.Size.heading3)
     }
 
     static var title1: UIFont {
-        return pretendard(weight: .semibold, size: 20)
+        return pretendard(weight: .semibold, size: Constants.Font.Size.title1)
     }
 
     static var title2: UIFont {
-        return pretendard(weight: .semibold, size: 16)
+        return pretendard(weight: .semibold, size: Constants.Font.Size.title2)
     }
 
     static var title3: UIFont {
-        return pretendard(weight: .semibold, size: 14)
+        return pretendard(weight: .semibold, size: Constants.Font.Size.title3)
     }
 
     static var body1: UIFont {
-        return pretendard(weight: .regular, size: 16)
+        return pretendard(weight: .regular, size: Constants.Font.Size.body1)
     }
 
     static var body2: UIFont {
-        return pretendard(weight: .medium, size: 14)
+        return pretendard(weight: .medium, size: Constants.Font.Size.body2)
     }
 
     static var body3: UIFont {
-        return pretendard(weight: .regular, size: 14)
+        return pretendard(weight: .regular, size: Constants.Font.Size.body3)
     }
 
     static var caption1: UIFont {
-        return pretendard(weight: .regular, size: 12)
+        return pretendard(weight: .regular, size: Constants.Font.Size.caption1)
     }
 
     static var caption2: UIFont {
-        return pretendard(weight: .regular, size: 10)
+        return pretendard(weight: .regular, size: Constants.Font.Size.caption2)
     }
 }

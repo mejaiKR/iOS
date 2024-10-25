@@ -31,29 +31,29 @@ extension UILabel {
         
         switch font {
         case .logo:
-            setLineHeight(Constants.LineHeight.logo)
+            setLineHeight(Constants.Font.LineHeight.logo)
         case .heading1:
-            setLineHeight(Constants.LineHeight.heading1)
+            setLineHeight(Constants.Font.LineHeight.heading1)
         case .heading2:
-            setLineHeight(Constants.LineHeight.heading2)
+            setLineHeight(Constants.Font.LineHeight.heading2)
         case .heading3:
-            setLineHeight(Constants.LineHeight.heading3)
+            setLineHeight(Constants.Font.LineHeight.heading3)
         case .title1:
-            setLineHeight(Constants.LineHeight.title1)
+            setLineHeight(Constants.Font.LineHeight.title1)
         case .title2:
-            setLineHeight(Constants.LineHeight.title2)
+            setLineHeight(Constants.Font.LineHeight.title2)
         case .title3:
-            setLineHeight(Constants.LineHeight.title3)
+            setLineHeight(Constants.Font.LineHeight.title3)
         case .body1:
-            setLineHeight(Constants.LineHeight.body1)
+            setLineHeight(Constants.Font.LineHeight.body1)
         case .body2:
-            setLineHeight(Constants.LineHeight.body2)
+            setLineHeight(Constants.Font.LineHeight.body2)
         case .body3:
-            setLineHeight(Constants.LineHeight.body3)
+            setLineHeight(Constants.Font.LineHeight.body3)
         case .caption1:
-            setLineHeight(Constants.LineHeight.caption1)
+            setLineHeight(Constants.Font.LineHeight.caption1)
         case .caption2:
-            setLineHeight(Constants.LineHeight.caption2)
+            setLineHeight(Constants.Font.LineHeight.caption2)
         default:
             break
         }
