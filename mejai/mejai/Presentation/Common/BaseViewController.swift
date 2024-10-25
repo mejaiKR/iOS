@@ -30,9 +30,12 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
     
     // MARK: - Public Configure Methods
     
-    func configureDefaultNavigationBar(title: String, actionTitle: String? = nil) {
+    func configureDefaultNavigationBar(title: String? = nil, actionTitle: String? = nil) {
         configureBackButton()
-        configureDefaultTitle(with: title)
+        
+        if let title = title {
+            configureDefaultTitle(with: title)
+        }
         
         if let actionTitle = actionTitle {
             var attributedTitle = AttributedString(actionTitle)
@@ -105,7 +108,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         let label = makeLabel(text: title, font: font)
         navigationBar.addSubview(label)
         label.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(Constants.Spacing.horizontal)
+            make.leading.equalToSuperview().inset(Constants.Spacing.contentInset)
             make.centerY.equalToSuperview()
         }
         titleLabel = label
@@ -118,7 +121,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         
         navigationBar.addSubview(button)
         button.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(Constants.Spacing.horizontal)
+            make.leading.equalToSuperview().inset(Constants.Spacing.contentInset)
             make.centerY.equalToSuperview()
         }
         
@@ -132,7 +135,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         
         navigationBar.addSubview(button)
         button.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(Constants.Spacing.horizontal)
+            make.trailing.equalToSuperview().inset(Constants.Spacing.contentInset)
             make.centerY.equalToSuperview()
         }
         

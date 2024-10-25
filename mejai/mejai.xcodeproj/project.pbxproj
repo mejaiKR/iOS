@@ -29,6 +29,10 @@
 		90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
+		90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F42CCC1796001FA67B /* SummonerSearchViewController.swift */; };
+		90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */; };
+		90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F82CCC19AE001FA67B /* SearchBar.swift */; };
+		90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		90F6B9F42CCC1796001FA67B /* SummonerSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchViewController.swift; sourceTree = "<group>"; };
+		90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchView.swift; sourceTree = "<group>"; };
+		90F6B9F82CCC19AE001FA67B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +229,7 @@
 				90F6B9ED2CCC12CD001FA67B /* Welcome */,
 				9008942F2CCAF7EC0000B6FE /* Settings */,
 				9008942E2CCAF7E50000B6FE /* Home */,
-				9008942D2CCAF7E00000B6FE /* SummonerRelationship */,
+				9008942D2CCAF7E00000B6FE /* Relationship */,
 				9008942C2CCAF7BF0000B6FE /* SummonerSearch */,
 				900893E52CCAD0C60000B6FE /* MyViewController.swift */,
 				9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */,
@@ -288,16 +296,17 @@
 			isa = PBXGroup;
 			children = (
 				900894332CCAF8150000B6FE /* Views */,
+				90F6B9F42CCC1796001FA67B /* SummonerSearchViewController.swift */,
 			);
 			path = SummonerSearch;
 			sourceTree = "<group>";
 		};
-		9008942D2CCAF7E00000B6FE /* SummonerRelationship */ = {
+		9008942D2CCAF7E00000B6FE /* Relationship */ = {
 			isa = PBXGroup;
 			children = (
 				900894322CCAF8100000B6FE /* Views */,
 			);
-			path = SummonerRelationship;
+			path = Relationship;
 			sourceTree = "<group>";
 		};
 		9008942E2CCAF7E50000B6FE /* Home */ = {
@@ -340,6 +349,9 @@
 		900894332CCAF8150000B6FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */,
+				90F6B9F82CCC19AE001FA67B /* SearchBar.swift */,
+				90F6B9FA2CCC1C52001FA67B /* SearchResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,9 +450,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
+				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
+				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
 				90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
+				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* MyViewController.swift in Sources */,
 				90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */,
@@ -448,6 +463,7 @@
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
+				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

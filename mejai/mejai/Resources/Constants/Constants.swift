@@ -8,9 +8,12 @@
 import Foundation
 
 struct Constants {
+    static let iconSize = 24.0
+    
     struct Height {
         static let navigationBar = 44.0
         static let button = 52.0
+        static let searchBar = 44.0
     }
     
     struct Spacing {
@@ -18,7 +21,7 @@ struct Constants {
         static let sm = 16.0
         static let md = 28.0
         static let lg = 42.0
-        static let horizontal = 20.0
+        static let contentInset = 20.0
         static let cell = 10.0
     }
     
