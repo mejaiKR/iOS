@@ -18,8 +18,8 @@ final class OnboardingDIContainer {
 
     // MARK: - View Controllers
     
-    func makeWelcomeViewController() -> WelcomeViewController {
-        return WelcomeViewController()
+    func makeLoginViewController() -> LoginViewController {
+        return LoginViewController()
     }
     
     func makeSummonerSearchViewController() -> SummonerSearchViewController {

@@ -27,11 +27,11 @@ final class OnboardingFlowCoordinator: Coordinator {
     }
     
     func start() {
-        showWelcomeViewController()
+        showLoginViewController()
     }
     
-    private func showWelcomeViewController() {
-        let viewController = onboardingDIContainer.makeWelcomeViewController()
+    private func showLoginViewController() {
+        let viewController = onboardingDIContainer.makeLoginViewController()
         viewController.delegate = self
         navigationController.pushViewController(viewController, animated: false)
     }
@@ -49,8 +49,8 @@ final class OnboardingFlowCoordinator: Coordinator {
     }
 }
 
-extension OnboardingFlowCoordinator: WelcomeViewControllerDelegate {
-    func welcomeViewControllerDidFinish() {
+extension OnboardingFlowCoordinator: LoginViewControllerDelegate {
+    func loginViewControllerDidFinish() {
         showSummonerSearchViewController()
     }
 }

@@ -24,8 +24,8 @@
 		9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */; };
 		900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894342CCAF8320000B6FE /* BaseViewController.swift */; };
 		900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900894382CCB06800000B6FE /* ConfirmButton.swift */; };
-		90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */; };
-		90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */; };
+		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
+		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
 		90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F42CCC1796001FA67B /* SummonerSearchViewController.swift */; };
 		90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */; };
@@ -73,8 +73,8 @@
 		9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		900894342CCAF8320000B6FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		900894382CCB06800000B6FE /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
-		90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		90F6B9F42CCC1796001FA67B /* SummonerSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchViewController.swift; sourceTree = "<group>"; };
 		90F6B9F62CCC17A8001FA67B /* SummonerSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchView.swift; sourceTree = "<group>"; };
@@ -411,8 +411,8 @@
 		90F6B9ED2CCC12CD001FA67B /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				90F6B9EE2CCC12D7001FA67B /* WelcomeView.swift */,
-				90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */,
+				90F6B9EE2CCC12D7001FA67B /* LoginView.swift */,
+				90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -533,7 +533,7 @@
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
-				90F6B9F12CCC12E8001FA67B /* WelcomeViewController.swift in Sources */,
+				90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */,
 				90F6B9FF2CCC2620001FA67B /* SummonerProfileCell.swift in Sources */,
 				90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */,
 				90F6BA172CCD62EE001FA67B /* Coordinator.swift in Sources */,
@@ -546,7 +546,7 @@
 				90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */,
 				90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* MyViewController.swift in Sources */,
-				90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */,
+				90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,

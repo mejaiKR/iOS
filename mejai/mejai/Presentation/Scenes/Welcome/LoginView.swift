@@ -1,5 +1,5 @@
 //
-//  WelcomeView.swift
+//  LoginView.swift
 //  mejai
 //
 //  Created by 지연 on 10/26/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WelcomeView: UIView {
+final class LoginView: UIView {
     // MARK: - Components
     
     private let bubbleImageView = {
@@ -18,7 +18,7 @@ final class WelcomeView: UIView {
     }()
     
     private lazy var descriptionLabel = makeLabel(
-        text: Strings.Welcome.description,
+        text: Strings.Login.description,
         font: .title3
     )
     
@@ -35,7 +35,7 @@ final class WelcomeView: UIView {
     )
     
     private lazy var welcomeMessageLabel = makeLabel(
-        text: Strings.Welcome.welcomeMessage,
+        text: Strings.Login.welcomeMessage,
         font: .heading1
     )
     
@@ -48,7 +48,7 @@ final class WelcomeView: UIView {
     }()
     
     private lazy var socialMessageLabel = makeLabel(
-        text: Strings.Welcome.socialMessage,
+        text: Strings.Login.socialMessage,
         font: .caption1,
         color: .gray04
     )
@@ -127,7 +127,7 @@ final class WelcomeView: UIView {
     }
 }
 
-private extension WelcomeView {
+private extension LoginView {
     func makeLabel(text: String, font: UIFont, color: UIColor = .gray09) -> UILabel {
         let label = UILabel()
         label.text = text

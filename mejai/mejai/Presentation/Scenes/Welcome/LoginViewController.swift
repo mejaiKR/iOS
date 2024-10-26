@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  LoginViewControllerDelegate.swift
 //  mejai
 //
 //  Created by 지연 on 10/26/24.
@@ -8,12 +8,12 @@
 import Combine
 import UIKit
 
-protocol WelcomeViewControllerDelegate: AnyObject {
-    func welcomeViewControllerDidFinish()
+protocol LoginViewControllerDelegate: AnyObject {
+    func loginViewControllerDidFinish()
 }
 
-final class WelcomeViewController: BaseViewController<WelcomeView> {
-    weak var delegate: WelcomeViewControllerDelegate?
+final class LoginViewController: BaseViewController<LoginView> {
+    weak var delegate: LoginViewControllerDelegate?
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Lifecycle
@@ -28,19 +28,19 @@ final class WelcomeViewController: BaseViewController<WelcomeView> {
     private func configureBindings() {
         appleLoginButton.tapPublisher
             .sink { [weak self] in
-                self?.delegate?.welcomeViewControllerDidFinish()
+                self?.delegate?.loginViewControllerDidFinish()
             }
             .store(in: &cancellables)
         
         googleLoginButton.tapPublisher
             .sink { [weak self] in
-                self?.delegate?.welcomeViewControllerDidFinish()
+                self?.delegate?.loginViewControllerDidFinish()
             }
             .store(in: &cancellables)
     }
 }
 
-private extension WelcomeViewController {
+private extension LoginViewController {
     var appleLoginButton: LoginButton {
         contentView.appleLoginButton
     }
