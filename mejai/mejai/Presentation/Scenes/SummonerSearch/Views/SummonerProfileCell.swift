@@ -103,14 +103,14 @@ final class SummonerProfileCell: UICollectionViewCell, Reusable {
             make.width.height.equalTo(Constants.Layout.IconImage.small)
         }
         
-        addSubview(checkmarkImageView)
+        contentView.addSubview(checkmarkImageView)
         checkmarkImageView.snp.makeConstraints { make in
             make.width.height.equalTo(Constants.Layout.IconImage.normal)
             make.trailing.equalToSuperview().inset(Constants.Spacing.sm)
             make.centerY.equalToSuperview()
         }
         
-        addSubview(profileStackView)
+        contentView.addSubview(profileStackView)
         profileStackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(Constants.Spacing.sm)
             make.trailing.equalTo(checkmarkImageView.snp.leading).offset(0 - Constants.Spacing.sm)
@@ -120,7 +120,7 @@ final class SummonerProfileCell: UICollectionViewCell, Reusable {
     
     private func updateAppearance() {
         backgroundColor = isSelected ? .secondary : .clear
-        layer.borderColor = (isSelected ? UIColor.backgroundPrimary : UIColor.gray02).cgColor
+        layer.borderColor = (isSelected ? UIColor.secondary : UIColor.gray02).cgColor
         summonerNameLabel.textColor = isSelected ? .primary : .gray04
         checkmarkImageView.image = isSelected ? .checkmarkSelected : .checkmarkUnselected
     }

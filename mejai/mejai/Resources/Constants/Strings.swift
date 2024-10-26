@@ -20,4 +20,7 @@ struct Strings {
         static let searchPlaceholder = "소환사이름#태그라인"
         static let emptyMessage = "검색 결과가 없어요"
     }
+    struct Relationship {
+        static let title = "이 소환사와 어떤 관계인가요?"
+    }
 }

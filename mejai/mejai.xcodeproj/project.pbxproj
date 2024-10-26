@@ -38,6 +38,10 @@
 		90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA002CCC290B001FA67B /* Reusable.swift */; };
 		90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */; };
 		90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA042CCD4FAE001FA67B /* LoginButton.swift */; };
+		90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA062CCD56C3001FA67B /* RelationshipViewController.swift */; };
+		90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA082CCD5A68001FA67B /* RelationshipView.swift */; };
+		90F6BA0B2CCD5B01001FA67B /* RelationshipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA0A2CCD5B01001FA67B /* RelationshipCell.swift */; };
+		90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA0D2CCD5B74001FA67B /* Relationship.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		90F6BA002CCC290B001FA67B /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		90F6BA042CCD4FAE001FA67B /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		90F6BA062CCD56C3001FA67B /* RelationshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewController.swift; sourceTree = "<group>"; };
+		90F6BA082CCD5A68001FA67B /* RelationshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipView.swift; sourceTree = "<group>"; };
+		90F6BA0A2CCD5B01001FA67B /* RelationshipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipCell.swift; sourceTree = "<group>"; };
+		90F6BA0D2CCD5B74001FA67B /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +157,7 @@
 		900893F82CCAD2DD0000B6FE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				900893FB2CCAD3770000B6FE /* Entities */,
+				90F6BA0F2CCD5CBC001FA67B /* Models */,
 				900893FD2CCAD3840000B6FE /* Interfaces */,
 				900893FC2CCAD37D0000B6FE /* UseCases */,
 			);
@@ -159,6 +167,7 @@
 		900893F92CCAD2E30000B6FE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				900893FB2CCAD3770000B6FE /* Entities */,
 				900893FE2CCAD3940000B6FE /* Network */,
 				900894002CCAD3A60000B6FE /* Repositories */,
 				900893FF2CCAD39C0000B6FE /* Storage */,
@@ -242,6 +251,7 @@
 				9008942F2CCAF7EC0000B6FE /* Settings */,
 				9008942E2CCAF7E50000B6FE /* Home */,
 				9008942D2CCAF7E00000B6FE /* Relationship */,
+				90F6BA062CCD56C3001FA67B /* RelationshipViewController.swift */,
 				9008942C2CCAF7BF0000B6FE /* SummonerSearch */,
 				900893E52CCAD0C60000B6FE /* MyViewController.swift */,
 				9008942A2CCAF3C30000B6FE /* MainTabBarController.swift */,
@@ -356,6 +366,8 @@
 		900894322CCAF8100000B6FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90F6BA082CCD5A68001FA67B /* RelationshipView.swift */,
+				90F6BA0A2CCD5B01001FA67B /* RelationshipCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +390,14 @@
 				90F6B9F02CCC12E8001FA67B /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		90F6BA0F2CCD5CBC001FA67B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90F6BA0D2CCD5B74001FA67B /* Relationship.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,13 +494,17 @@
 				90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
+				90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
+				90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */,
 				900893E62CCAD0C60000B6FE /* MyViewController.swift in Sources */,
 				90F6B9EF2CCC12D7001FA67B /* WelcomeView.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
 				90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */,
+				90F6BA0B2CCD5B01001FA67B /* RelationshipCell.swift in Sources */,
+				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
 				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,
 				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,
