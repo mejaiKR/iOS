@@ -37,6 +37,7 @@
 		90F6B9FF2CCC2620001FA67B /* SummonerProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9FE2CCC2620001FA67B /* SummonerProfileCell.swift */; };
 		90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA002CCC290B001FA67B /* Reusable.swift */; };
 		90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */; };
+		90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA042CCD4FAE001FA67B /* LoginButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		90F6B9FE2CCC2620001FA67B /* SummonerProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerProfileCell.swift; sourceTree = "<group>"; };
 		90F6BA002CCC290B001FA67B /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
+		90F6BA042CCD4FAE001FA67B /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				900894342CCAF8320000B6FE /* BaseViewController.swift */,
 				900894382CCB06800000B6FE /* ConfirmButton.swift */,
 				90F6B9FC2CCC1E09001FA67B /* StateView.swift */,
+				90F6BA042CCD4FAE001FA67B /* LoginButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
+				90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
 				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,
 				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,

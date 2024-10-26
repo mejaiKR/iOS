@@ -12,6 +12,7 @@ struct Strings {
     struct Welcome {
         static let description = "리그 오브 레전드 모니터링 서비스"
         static let welcomeMessage = "에 오신걸 환영해요!"
+        static let socialMessage = "소셜 계정으로 로그인 / 회원가입"
     }
     struct SummonerSearch {
         static let title = "모니터링할 소환사의\n라이엇 ID을 입력해주세요"
