@@ -5,9 +5,16 @@
 //  Created by 지연 on 10/27/24.
 //
 
+import Combine
 import UIKit
 
+protocol RelationshipViewControllerDelegate: AnyObject {
+    func relationshipViewControllerDidFinish()
+}
+
 final class RelationshipViewController: BaseViewController<RelationshipView> {
+    weak var delegate: RelationshipViewControllerDelegate?
+    private var cancellables = Set<AnyCancellable>()
     private let relationships = Relationship.allCases
     
     // MARK: - Lifecycle
@@ -16,6 +23,7 @@ final class RelationshipViewController: BaseViewController<RelationshipView> {
         super.viewDidLoad()
         configureDefaultNavigationBar(actionTitle: "완료")
         configureRelationshipCollectionView()
+        configureBindings()
     }
     
     // MARK: - Configure Methods
@@ -23,6 +31,14 @@ final class RelationshipViewController: BaseViewController<RelationshipView> {
     private func configureRelationshipCollectionView() {
         relationshipCollectionView.delegate = self
         relationshipCollectionView.dataSource = self
+    }
+    
+    private func configureBindings() {
+        actionButton?.tapPublisher
+            .sink { [weak self] in
+                self?.delegate?.relationshipViewControllerDidFinish()
+            }
+            .store(in: &cancellables)
     }
 }
 
