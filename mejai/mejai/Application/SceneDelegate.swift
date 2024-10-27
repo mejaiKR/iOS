@@ -9,6 +9,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var appFlowCoordinator: AppFlowCoordinator?
+    let appIDContainer = AppDIContainer()
 
     func scene(
         _ scene: UIScene,
@@ -16,9 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MainTabBarController()
-        window?.makeKeyAndVisible()
+        let window = UIWindow(windowScene: windowScene)
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        appFlowCoordinator = AppFlowCoordinator(window: window, appDIContainer: appIDContainer)
+        appFlowCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

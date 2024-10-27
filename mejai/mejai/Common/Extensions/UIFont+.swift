@@ -20,50 +20,50 @@ extension UIFont {
     }
     
     static var logo: UIFont {
-        return UIFont(name: "GmarketSansBold", size: Constants.Font.Size.logo)!
+        return UIFont(name: "GmarketSansBold", size: Constants.Typography.Size.logo)!
     }
 
     static var heading1: UIFont {
-        return pretendard(weight: .bold, size: Constants.Font.Size.heading1)
+        return pretendard(weight: .bold, size: Constants.Typography.Size.heading1)
     }
 
     static var heading2: UIFont {
-        return pretendard(weight: .bold, size: Constants.Font.Size.heading2)
+        return pretendard(weight: .bold, size: Constants.Typography.Size.heading2)
     }
 
     static var heading3: UIFont {
-        return pretendard(weight: .bold, size: Constants.Font.Size.heading3)
+        return pretendard(weight: .bold, size: Constants.Typography.Size.heading3)
     }
 
     static var title1: UIFont {
-        return pretendard(weight: .semibold, size: Constants.Font.Size.title1)
+        return pretendard(weight: .semibold, size: Constants.Typography.Size.title1)
     }
 
     static var title2: UIFont {
-        return pretendard(weight: .semibold, size: Constants.Font.Size.title2)
+        return pretendard(weight: .semibold, size: Constants.Typography.Size.title2)
     }
 
     static var title3: UIFont {
-        return pretendard(weight: .semibold, size: Constants.Font.Size.title3)
+        return pretendard(weight: .semibold, size: Constants.Typography.Size.title3)
     }
 
     static var body1: UIFont {
-        return pretendard(weight: .regular, size: Constants.Font.Size.body1)
+        return pretendard(weight: .regular, size: Constants.Typography.Size.body1)
     }
 
     static var body2: UIFont {
-        return pretendard(weight: .medium, size: Constants.Font.Size.body2)
+        return pretendard(weight: .medium, size: Constants.Typography.Size.body2)
     }
 
     static var body3: UIFont {
-        return pretendard(weight: .regular, size: Constants.Font.Size.body3)
+        return pretendard(weight: .regular, size: Constants.Typography.Size.body3)
     }
 
     static var caption1: UIFont {
-        return pretendard(weight: .regular, size: Constants.Font.Size.caption1)
+        return pretendard(weight: .regular, size: Constants.Typography.Size.caption1)
     }
 
     static var caption2: UIFont {
-        return pretendard(weight: .regular, size: Constants.Font.Size.caption2)
+        return pretendard(weight: .regular, size: Constants.Typography.Size.caption2)
     }
 }
