@@ -51,6 +51,15 @@
 		90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA262CCD677A001FA67B /* ControlEvent.swift */; };
 		90F6BA292CCD67A5001FA67B /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA282CCD67A5001FA67B /* UIControl+Combine.swift */; };
 		90F6BA2B2CCD67B7001FA67B /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA2A2CCD67B7001FA67B /* UIButton+Combine.swift */; };
+		90F6BA2E2CCECC6B001FA67B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA2D2CCECC6B001FA67B /* HomeView.swift */; };
+		90F6BA302CCECC7F001FA67B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA2F2CCECC7F001FA67B /* HomeViewController.swift */; };
+		90F6BA322CCECC9D001FA67B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA312CCECC9D001FA67B /* SettingsView.swift */; };
+		90F6BA342CCECCAD001FA67B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA332CCECCAD001FA67B /* SettingsViewController.swift */; };
+		90F6BA362CCECCD7001FA67B /* MainDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA352CCECCD7001FA67B /* MainDIContainer.swift */; };
+		90F6BA382CCECD98001FA67B /* HomeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA372CCECD98001FA67B /* HomeFlowCoordinator.swift */; };
+		90F6BA3A2CCECDE1001FA67B /* HomeDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA392CCECDE1001FA67B /* HomeDIContainer.swift */; };
+		90F6BA3C2CCECE13001FA67B /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA3B2CCECE13001FA67B /* SettingsFlowCoordinator.swift */; };
+		90F6BA3E2CCECE2C001FA67B /* SettingsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA3D2CCECE2C001FA67B /* SettingsDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +107,15 @@
 		90F6BA262CCD677A001FA67B /* ControlEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEvent.swift; sourceTree = "<group>"; };
 		90F6BA282CCD67A5001FA67B /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
 		90F6BA2A2CCD67B7001FA67B /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
+		90F6BA2D2CCECC6B001FA67B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		90F6BA2F2CCECC7F001FA67B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		90F6BA312CCECC9D001FA67B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		90F6BA332CCECCAD001FA67B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		90F6BA352CCECCD7001FA67B /* MainDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDIContainer.swift; sourceTree = "<group>"; };
+		90F6BA372CCECD98001FA67B /* HomeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowCoordinator.swift; sourceTree = "<group>"; };
+		90F6BA392CCECDE1001FA67B /* HomeDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDIContainer.swift; sourceTree = "<group>"; };
+		90F6BA3B2CCECE13001FA67B /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
+		90F6BA3D2CCECE2C001FA67B /* SettingsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				900894312CCAF80B0000B6FE /* Views */,
+				90F6BA2F2CCECC7F001FA67B /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -370,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				900894302CCAF8040000B6FE /* Views */,
+				90F6BA332CCECCAD001FA67B /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -377,6 +397,7 @@
 		900894302CCAF8040000B6FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90F6BA312CCECC9D001FA67B /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,6 +405,7 @@
 		900894312CCAF80B0000B6FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90F6BA2D2CCECC6B001FA67B /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +451,9 @@
 			isa = PBXGroup;
 			children = (
 				90F6BA1B2CCD6364001FA67B /* OnboardingDIContainer.swift */,
+				90F6BA352CCECCD7001FA67B /* MainDIContainer.swift */,
+				90F6BA392CCECDE1001FA67B /* HomeDIContainer.swift */,
+				90F6BA3D2CCECE2C001FA67B /* SettingsDIContainer.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -439,6 +464,8 @@
 				90F6BA1D2CCD63F9001FA67B /* AppFlowCoordinator.swift */,
 				90F6BA142CCD62CE001FA67B /* OnboardingFlowCoordinator.swift */,
 				90F6BA202CCD6473001FA67B /* MainFlowCoordinator.swift */,
+				90F6BA372CCECD98001FA67B /* HomeFlowCoordinator.swift */,
+				90F6BA3B2CCECE13001FA67B /* SettingsFlowCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -532,15 +559,19 @@
 				90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */,
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
+				90F6BA342CCECCAD001FA67B /* SettingsViewController.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
+				90F6BA322CCECC9D001FA67B /* SettingsView.swift in Sources */,
 				90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */,
 				90F6B9FF2CCC2620001FA67B /* SummonerProfileCell.swift in Sources */,
+				90F6BA2E2CCECC6B001FA67B /* HomeView.swift in Sources */,
 				90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */,
 				90F6BA172CCD62EE001FA67B /* Coordinator.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				90F6BA152CCD62CE001FA67B /* OnboardingFlowCoordinator.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
 				90F6BA212CCD6473001FA67B /* MainFlowCoordinator.swift in Sources */,
+				90F6BA382CCECD98001FA67B /* HomeFlowCoordinator.swift in Sources */,
 				90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */,
@@ -549,6 +580,8 @@
 				90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
+				90F6BA302CCECC7F001FA67B /* HomeViewController.swift in Sources */,
+				90F6BA3A2CCECDE1001FA67B /* HomeDIContainer.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
 				90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */,
 				90F6BA1E2CCD63F9001FA67B /* AppFlowCoordinator.swift in Sources */,
@@ -556,11 +589,14 @@
 				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,
 				90F6BA2B2CCD67B7001FA67B /* UIButton+Combine.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
+				90F6BA3E2CCECE2C001FA67B /* SettingsDIContainer.swift in Sources */,
+				90F6BA3C2CCECE13001FA67B /* SettingsFlowCoordinator.swift in Sources */,
 				90F6BA292CCD67A5001FA67B /* UIControl+Combine.swift in Sources */,
 				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,
 				90F6BA1C2CCD6364001FA67B /* OnboardingDIContainer.swift in Sources */,
 				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
+				90F6BA362CCECCD7001FA67B /* MainDIContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

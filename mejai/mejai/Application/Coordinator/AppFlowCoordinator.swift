@@ -38,6 +38,7 @@ final class AppFlowCoordinator: Coordinator {
         window.rootViewController = navigationController
         
         let onboardingDIContainer = appDIContainer.makeOnboardingDIContainer()
+        
         let onboardingCoordinator = OnboardingFlowCoordinator(
             navigationController: navigationController,
             onboardingDIContainer: onboardingDIContainer
@@ -50,6 +51,18 @@ final class AppFlowCoordinator: Coordinator {
     
     private func showMainFlow() {
         print("온보딩 완료")
+        let tabBarController = MainTabBarController()
+        window.rootViewController = tabBarController
+        
+        let mainDIContainer = appDIContainer.makeMainDIContainer()
+        
+        let mainCoordinator = MainFlowCoordinator(
+            tabBarController: tabBarController,
+            mainDIContainer: mainDIContainer
+        )
+        
+        store(coordinator: mainCoordinator)
+        mainCoordinator.start()
     }
 }
 

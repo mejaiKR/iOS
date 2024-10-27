@@ -33,7 +33,7 @@ final class OnboardingFlowCoordinator: Coordinator {
     private func showLoginViewController() {
         let viewController = onboardingDIContainer.makeLoginViewController()
         viewController.delegate = self
-        navigationController.pushViewController(viewController, animated: false)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     private func showSummonerSearchViewController() {
