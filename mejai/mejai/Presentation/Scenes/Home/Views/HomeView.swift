@@ -12,7 +12,9 @@ final class HomeView: UIView {
     
     private let summonerProfileView = SummonerProfileView()
     
-    private let rankTierView = TierView()
+    private let rankTierView = RankTierView()
+    
+    private let todayView = TodayView()
     
     // MARK: - Init
     
@@ -38,6 +40,12 @@ final class HomeView: UIView {
         addSubview(rankTierView)
         rankTierView.snp.makeConstraints { make in
             make.top.equalTo(summonerProfileView.snp.bottom).offset(Constants.Spacing.md)
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+        }
+        
+        addSubview(todayView)
+        todayView.snp.makeConstraints { make in
+            make.top.equalTo(rankTierView.snp.bottom).offset(Constants.Spacing.md)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
     }
