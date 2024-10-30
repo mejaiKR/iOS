@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class SummonerProfileCell: UICollectionViewCell, Reusable {
-    override var isSelected: Bool {
+final class SummonerProfileView: UIView {
+    var isSelected: Bool = false {
         didSet {
             updateAppearance()
         }
@@ -103,14 +103,14 @@ final class SummonerProfileCell: UICollectionViewCell, Reusable {
             make.width.height.equalTo(Constants.Layout.IconImage.small)
         }
         
-        contentView.addSubview(checkmarkImageView)
+        addSubview(checkmarkImageView)
         checkmarkImageView.snp.makeConstraints { make in
             make.width.height.equalTo(Constants.Layout.IconImage.normal)
             make.trailing.equalToSuperview().inset(Constants.Spacing.sm)
             make.centerY.equalToSuperview()
         }
         
-        contentView.addSubview(profileStackView)
+        addSubview(profileStackView)
         profileStackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(Constants.Spacing.sm)
             make.trailing.equalTo(checkmarkImageView.snp.leading).offset(0 - Constants.Spacing.sm)

@@ -18,7 +18,7 @@ enum Constants {
             static let navigationBar: CGFloat = 44
             static let button: CGFloat = 52
             static let searchBar: CGFloat = 44
-            static let summonerProfileCell: CGFloat = 75
+            static let summonerProfileView: CGFloat = 75
             static let relationshipCell: CGFloat = 52
         }
     }
