@@ -10,35 +10,52 @@ import Foundation
 enum Constants {
     enum Layout {
         enum IconImage {
+            /// 24
             static let normal: CGFloat = 24
+            /// 20
             static let small: CGFloat = 20
         }
         
         enum Component {
+            /// 44
             static let navigationBar: CGFloat = 44
+            /// 52
             static let button: CGFloat = 52
+            /// 44
             static let searchBar: CGFloat = 44
+            /// 75
             static let summonerProfileView: CGFloat = 75
+            /// 52
             static let relationshipCell: CGFloat = 52
         }
     }
     
     enum Spacing {
+        /// 8
         static let xs: CGFloat = 8
+        /// 16
         static let sm: CGFloat = 16
+        /// 28
         static let md: CGFloat = 28
+        /// 42
         static let lg: CGFloat = 42
         
         enum Content {
+            /// 20
             static let padding: CGFloat = 20
+            /// 10
             static let cellSpacing: CGFloat = 10
+            /// 5
             static let summonerStackViewSpacing: CGFloat = 5
         }
     }
     
     enum Radius {
+        /// 8
         static let sm: CGFloat = 8
+        /// 16
         static let md: CGFloat = 16
+        /// 20
         static let lg: CGFloat = 20
     }
     

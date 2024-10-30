@@ -1,5 +1,5 @@
 //
-//  SummonerCell.swift
+//  SummonerSearchResultView.swift
 //  mejai
 //
 //  Created by 지연 on 10/26/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SummonerProfileView: UIView {
+final class SummonerSearchResultView: UIView {
     var isSelected: Bool = false {
         didSet {
             updateAppearance()

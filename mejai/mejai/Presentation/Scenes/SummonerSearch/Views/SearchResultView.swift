@@ -13,7 +13,7 @@ final class SearchResultView: UIView {
         message: Strings.SummonerSearch.emptyMessage
     )
     
-    let summonerProfileView = SummonerProfileView()
+    let summonerSearchResultView = SummonerSearchResultView()
     
     // MARK: - Init
     
@@ -36,8 +36,8 @@ final class SearchResultView: UIView {
             make.centerY.equalToSuperview().offset(0 - Constants.Spacing.lg)
         }
         
-        addSubview(summonerProfileView)
-        summonerProfileView.snp.makeConstraints { make in
+        addSubview(summonerSearchResultView)
+        summonerSearchResultView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(Constants.Layout.Component.summonerProfileView)
