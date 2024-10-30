@@ -16,7 +16,7 @@ extension UILabel {
         paragraphStyle.minimumLineHeight = lineHeight
         paragraphStyle.maximumLineHeight = lineHeight
         
-        let baselineOffset = (lineHeight - font.lineHeight) / 4
+        let baselineOffset = (lineHeight - font.lineHeight) / 2
         
         attributedString.addAttributes(
             [.paragraphStyle: paragraphStyle, .baselineOffset: baselineOffset],
