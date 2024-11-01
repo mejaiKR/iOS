@@ -68,6 +68,8 @@
 		90F6BA7A2CD2C60A001FA67B /* TodayCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA792CD2C60A001FA67B /* TodayCardCell.swift */; };
 		90F6BA7C2CD4BD3E001FA67B /* TodayLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7B2CD4BD3E001FA67B /* TodayLogView.swift */; };
 		90F6BA7E2CD4BE28001FA67B /* TodayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7D2CD4BE28001FA67B /* TodayLogCell.swift */; };
+		90F6BA802CD4C8F2001FA67B /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7F2CD4C8F2001FA67B /* WeekView.swift */; };
+		90F6BA822CD4C9C7001FA67B /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA812CD4C9C7001FA67B /* DayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +134,8 @@
 		90F6BA792CD2C60A001FA67B /* TodayCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardCell.swift; sourceTree = "<group>"; };
 		90F6BA7B2CD4BD3E001FA67B /* TodayLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLogView.swift; sourceTree = "<group>"; };
 		90F6BA7D2CD4BE28001FA67B /* TodayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLogCell.swift; sourceTree = "<group>"; };
+		90F6BA7F2CD4C8F2001FA67B /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		90F6BA812CD4C9C7001FA67B /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +436,8 @@
 				90F6BA792CD2C60A001FA67B /* TodayCardCell.swift */,
 				90F6BA7B2CD4BD3E001FA67B /* TodayLogView.swift */,
 				90F6BA7D2CD4BE28001FA67B /* TodayLogCell.swift */,
+				90F6BA7F2CD4C8F2001FA67B /* WeekView.swift */,
+				90F6BA812CD4C9C7001FA67B /* DayCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				90F6B9FD2CCC1E09001FA67B /* StateView.swift in Sources */,
 				90F6BA172CCD62EE001FA67B /* Coordinator.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
+				90F6BA802CD4C8F2001FA67B /* WeekView.swift in Sources */,
 				90F6BA152CCD62CE001FA67B /* OnboardingFlowCoordinator.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
 				90F6BA212CCD6473001FA67B /* MainFlowCoordinator.swift in Sources */,
@@ -648,6 +655,7 @@
 				90F6BA3A2CCECDE1001FA67B /* HomeDIContainer.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
 				90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */,
+				90F6BA822CD4C9C7001FA67B /* DayCell.swift in Sources */,
 				90F6BA1E2CCD63F9001FA67B /* AppFlowCoordinator.swift in Sources */,
 				90F6BA0B2CCD5B01001FA67B /* RelationshipCell.swift in Sources */,
 				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,

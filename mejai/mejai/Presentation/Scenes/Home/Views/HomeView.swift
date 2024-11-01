@@ -16,6 +16,8 @@ final class HomeView: UIView {
     
     private let todayView = TodayView()
     
+    private let weekView = WeekView()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -46,6 +48,12 @@ final class HomeView: UIView {
         addSubview(todayView)
         todayView.snp.makeConstraints { make in
             make.top.equalTo(rankTierView.snp.bottom).offset(Constants.Spacing.md)
+            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+        }
+        
+        addSubview(weekView)
+        weekView.snp.makeConstraints { make in
+            make.top.equalTo(todayView.snp.bottom).offset(Constants.Spacing.md)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
     }
