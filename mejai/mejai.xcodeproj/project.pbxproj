@@ -62,8 +62,12 @@
 		90F6BA6D2CD2A904001FA67B /* UIGestureRecognizer+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA6C2CD2A904001FA67B /* UIGestureRecognizer+Combine.swift */; };
 		90F6BA6F2CD2A91C001FA67B /* ControlTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA6E2CD2A91C001FA67B /* ControlTarget.swift */; };
 		90F6BA722CD2AE85001FA67B /* SummonerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA712CD2AE85001FA67B /* SummonerProfileView.swift */; };
-		90F6BA742CD2B128001FA67B /* TierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA732CD2B128001FA67B /* TierView.swift */; };
-		90F6BA762CD2BE62001FA67B /* RankTierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA752CD2BE62001FA67B /* RankTierView.swift */; };
+		90F6BA742CD2B128001FA67B /* RankTierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA732CD2B128001FA67B /* RankTierView.swift */; };
+		90F6BA762CD2BE62001FA67B /* RankTierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA752CD2BE62001FA67B /* RankTierCell.swift */; };
+		90F6BA782CD2C5C4001FA67B /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA772CD2C5C4001FA67B /* TodayView.swift */; };
+		90F6BA7A2CD2C60A001FA67B /* TodayCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA792CD2C60A001FA67B /* TodayCardCell.swift */; };
+		90F6BA7C2CD4BD3E001FA67B /* TodayLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7B2CD4BD3E001FA67B /* TodayLogView.swift */; };
+		90F6BA7E2CD4BE28001FA67B /* TodayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7D2CD4BE28001FA67B /* TodayLogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,8 +126,12 @@
 		90F6BA6C2CD2A904001FA67B /* UIGestureRecognizer+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Combine.swift"; sourceTree = "<group>"; };
 		90F6BA6E2CD2A91C001FA67B /* ControlTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTarget.swift; sourceTree = "<group>"; };
 		90F6BA712CD2AE85001FA67B /* SummonerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerProfileView.swift; sourceTree = "<group>"; };
-		90F6BA732CD2B128001FA67B /* TierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierView.swift; sourceTree = "<group>"; };
-		90F6BA752CD2BE62001FA67B /* RankTierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTierView.swift; sourceTree = "<group>"; };
+		90F6BA732CD2B128001FA67B /* RankTierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTierView.swift; sourceTree = "<group>"; };
+		90F6BA752CD2BE62001FA67B /* RankTierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTierCell.swift; sourceTree = "<group>"; };
+		90F6BA772CD2C5C4001FA67B /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		90F6BA792CD2C60A001FA67B /* TodayCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardCell.swift; sourceTree = "<group>"; };
+		90F6BA7B2CD4BD3E001FA67B /* TodayLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLogView.swift; sourceTree = "<group>"; };
+		90F6BA7D2CD4BE28001FA67B /* TodayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLogCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,8 +426,12 @@
 			children = (
 				90F6BA2D2CCECC6B001FA67B /* HomeView.swift */,
 				90F6BA712CD2AE85001FA67B /* SummonerProfileView.swift */,
-				90F6BA732CD2B128001FA67B /* TierView.swift */,
-				90F6BA752CD2BE62001FA67B /* RankTierView.swift */,
+				90F6BA732CD2B128001FA67B /* RankTierView.swift */,
+				90F6BA752CD2BE62001FA67B /* RankTierCell.swift */,
+				90F6BA772CD2C5C4001FA67B /* TodayView.swift */,
+				90F6BA792CD2C60A001FA67B /* TodayCardCell.swift */,
+				90F6BA7B2CD4BD3E001FA67B /* TodayLogView.swift */,
+				90F6BA7D2CD4BE28001FA67B /* TodayLogCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -599,7 +611,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				90F6BA192CCD6334001FA67B /* AppDIContainer.swift in Sources */,
+				90F6BA7E2CD4BE28001FA67B /* TodayLogCell.swift in Sources */,
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
+				90F6BA7A2CD2C60A001FA67B /* TodayCardCell.swift in Sources */,
 				90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */,
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
@@ -620,14 +634,16 @@
 				90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */,
+				90F6BA7C2CD4BD3E001FA67B /* TodayLogView.swift in Sources */,
+				90F6BA782CD2C5C4001FA67B /* TodayView.swift in Sources */,
 				90F6BA6D2CD2A904001FA67B /* UIGestureRecognizer+Combine.swift in Sources */,
 				90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */,
 				90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */,
-				90F6BA762CD2BE62001FA67B /* RankTierView.swift in Sources */,
+				90F6BA762CD2BE62001FA67B /* RankTierCell.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				90F6BA6F2CD2A91C001FA67B /* ControlTarget.swift in Sources */,
-				90F6BA742CD2B128001FA67B /* TierView.swift in Sources */,
+				90F6BA742CD2B128001FA67B /* RankTierView.swift in Sources */,
 				90F6BA302CCECC7F001FA67B /* HomeViewController.swift in Sources */,
 				90F6BA3A2CCECDE1001FA67B /* HomeDIContainer.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
