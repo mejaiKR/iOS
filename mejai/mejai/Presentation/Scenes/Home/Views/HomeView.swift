@@ -10,6 +10,17 @@ import UIKit
 final class HomeView: UIView {
     // MARK: - Components
     
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private let summonerProfileView = SummonerProfileView()
     
     private let rankTierView = RankTierView()
@@ -33,28 +44,40 @@ final class HomeView: UIView {
     // MARK: - Configure Methods
     
     private func configureLayout() {
-        addSubview(summonerProfileView)
+        addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        
+        contentView.addSubview(summonerProfileView)
         summonerProfileView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Constants.Spacing.sm)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
         
-        addSubview(rankTierView)
+        contentView.addSubview(rankTierView)
         rankTierView.snp.makeConstraints { make in
             make.top.equalTo(summonerProfileView.snp.bottom).offset(Constants.Spacing.md)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
         
-        addSubview(todayView)
+        contentView.addSubview(todayView)
         todayView.snp.makeConstraints { make in
             make.top.equalTo(rankTierView.snp.bottom).offset(Constants.Spacing.md)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
         }
         
-        addSubview(weekView)
+        contentView.addSubview(weekView)
         weekView.snp.makeConstraints { make in
             make.top.equalTo(todayView.snp.bottom).offset(Constants.Spacing.md)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.bottom.equalToSuperview()
         }
     }
 }

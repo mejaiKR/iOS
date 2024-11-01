@@ -56,6 +56,7 @@ final class WeekView: UIView {
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(113)
+            make.bottom.equalToSuperview().inset(16)
         }
     }
 }
