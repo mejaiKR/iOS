@@ -13,17 +13,7 @@ final class SearchResultView: UIView {
         message: Strings.SummonerSearch.emptyMessage
     )
     
-    lazy var resultCollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = Constants.Spacing.Content.cellSpacing
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cellType: SummonerProfileCell.self)
-        collectionView.backgroundColor = .clear
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        return collectionView
-    }()
+    let summonerSearchResultView = SummonerSearchResultView()
     
     // MARK: - Init
     
@@ -43,30 +33,14 @@ final class SearchResultView: UIView {
         addSubview(emptyView)
         emptyView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(0 - Constants.Spacing.lg)
+            make.centerY.equalToSuperview().offset(-42)
         }
         
-        addSubview(resultCollectionView)
-        resultCollectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        addSubview(summonerSearchResultView)
+        summonerSearchResultView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(75)
         }
-    }
-}
-
-// TODO: 임시
-
-extension SearchResultView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: Constants.Layout.Component.summonerProfileCell)
-    }
-}
-
-extension SearchResultView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(for: indexPath, cellType: SummonerProfileCell.self)
     }
 }

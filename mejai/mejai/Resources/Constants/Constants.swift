@@ -8,40 +8,6 @@
 import Foundation
 
 enum Constants {
-    enum Layout {
-        enum IconImage {
-            static let normal: CGFloat = 24
-            static let small: CGFloat = 20
-        }
-        
-        enum Component {
-            static let navigationBar: CGFloat = 44
-            static let button: CGFloat = 52
-            static let searchBar: CGFloat = 44
-            static let summonerProfileCell: CGFloat = 75
-            static let relationshipCell: CGFloat = 52
-        }
-    }
-    
-    enum Spacing {
-        static let xs: CGFloat = 8
-        static let sm: CGFloat = 16
-        static let md: CGFloat = 28
-        static let lg: CGFloat = 42
-        
-        enum Content {
-            static let padding: CGFloat = 20
-            static let cellSpacing: CGFloat = 10
-            static let summonerStackViewSpacing: CGFloat = 5
-        }
-    }
-    
-    enum Radius {
-        static let sm: CGFloat = 8
-        static let md: CGFloat = 16
-        static let lg: CGFloat = 20
-    }
-    
     enum Typography {
         enum Size {
             static let logo: Double = 24

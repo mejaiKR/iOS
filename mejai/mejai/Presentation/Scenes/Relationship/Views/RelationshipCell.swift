@@ -44,7 +44,7 @@ final class RelationshipCell: UICollectionViewCell, Reusable {
     // MARK: - Configure Methods
     
     private func configureCell() {
-        layer.cornerRadius = Constants.Radius.sm
+        layer.cornerRadius = 8
         layer.borderWidth = 1
         updateAppearance()
     }
@@ -52,14 +52,14 @@ final class RelationshipCell: UICollectionViewCell, Reusable {
     private func configureLayout() {
         contentView.addSubview(relationLabel)
         relationLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(Constants.Spacing.sm)
+            make.leading.equalToSuperview().inset(14)
             make.centerY.equalToSuperview()
         }
         
         contentView.addSubview(checkmarkImageView)
         checkmarkImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Layout.IconImage.normal)
-            make.trailing.equalToSuperview().inset(Constants.Spacing.sm)
+            make.width.height.equalTo(24)
+            make.trailing.equalToSuperview().inset(14)
             make.centerY.equalToSuperview()
         }
     }

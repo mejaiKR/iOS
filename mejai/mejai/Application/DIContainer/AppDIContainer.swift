@@ -14,4 +14,9 @@ final class AppDIContainer {
         let dependencies = OnboardingDIContainer.Dependencies()
         return OnboardingDIContainer(dependencies: dependencies)
     }
+    
+    func makeMainDIContainer() -> MainDIContainer {
+        let dependencies = MainDIContainer.Dependencies()
+        return MainDIContainer(dependencies: dependencies)
+    }
 }

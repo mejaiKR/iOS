@@ -44,10 +44,7 @@ final class RelationshipViewController: BaseViewController<RelationshipView> {
 
 extension RelationshipViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(
-            width: collectionView.frame.width,
-            height: Constants.Layout.Component.relationshipCell
-        )
+        return CGSize(width: collectionView.frame.width, height: 52)
     }
 }
 

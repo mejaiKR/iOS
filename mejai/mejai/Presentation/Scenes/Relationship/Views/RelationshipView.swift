@@ -21,7 +21,7 @@ final class RelationshipView: UIView {
     
     let collectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = Constants.Spacing.Content.cellSpacing
+        layout.minimumLineSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(cellType: RelationshipCell.self)
         collectionView.backgroundColor = .clear
@@ -46,14 +46,14 @@ final class RelationshipView: UIView {
     private func configureLayout() {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Spacing.sm)
-            make.leading.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.top.equalToSuperview().inset(16)
+            make.leading.equalToSuperview().inset(20)
         }
         
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Spacing.lg)
-            make.leading.bottom.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.top.equalTo(titleLabel.snp.bottom).offset(42)
+            make.leading.bottom.trailing.equalToSuperview().inset(20)
         }
     }
 }

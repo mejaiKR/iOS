@@ -45,21 +45,21 @@ final class SearchBar: UIView {
     
     private func configureView() {
         backgroundColor = .backgroundSecondary
-        layer.cornerRadius = Constants.Radius.sm
+        layer.cornerRadius = 8
     }
     
     private func configureLayout() {
         addSubview(searchImageView)
         searchImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Layout.IconImage.normal)
-            make.leading.equalToSuperview().inset(Constants.Spacing.sm)
+            make.width.height.equalTo(24)
+            make.leading.equalToSuperview().inset(14)
             make.centerY.equalToSuperview()
         }
         
         addSubview(searchTextField)
         searchTextField.snp.makeConstraints { make in
-            make.leading.equalTo(searchImageView.snp.trailing).offset(Constants.Spacing.xs)
-            make.trailing.equalToSuperview().inset(Constants.Spacing.sm)
+            make.leading.equalTo(searchImageView.snp.trailing).offset(14)
+            make.trailing.equalToSuperview().inset(14)
             make.centerY.equalToSuperview()
         }
     }

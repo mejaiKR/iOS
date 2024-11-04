@@ -30,7 +30,7 @@ final class ConfirmButton: UIButton {
     // MARK: - Private Configure Methods
     
     private func configureButton(with title: String) {
-        layer.cornerRadius = Constants.Radius.sm
+        layer.cornerRadius = 8
         
         setTitle(title, for: .normal)
         setTitleColor(.gray00, for: .normal)

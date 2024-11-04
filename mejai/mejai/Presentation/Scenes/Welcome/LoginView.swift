@@ -59,7 +59,7 @@ final class LoginView: UIView {
     
     let appleLoginButton = LoginButton(socialType: .apple)
     
-    let googleLoginButton = LoginButton(socialType: .google)
+    let kakaoLoginButton = LoginButton(socialType: .kakao)
     
     // MARK: - Init
     
@@ -85,34 +85,34 @@ final class LoginView: UIView {
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(welcomeStackView.snp.top).offset(0 - Constants.Spacing.xs)
+            make.bottom.equalTo(welcomeStackView.snp.top).offset(-8)
         }
         
         addSubview(bubbleImageView)
         bubbleImageView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding * 2)
-            make.bottom.equalTo(descriptionLabel.snp.top).offset(0 - Constants.Spacing.lg)
+            make.leading.trailing.equalToSuperview().inset(40)
+            make.bottom.equalTo(descriptionLabel.snp.top).offset(-42)
         }
         
-        addSubview(googleLoginButton)
-        googleLoginButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Layout.Component.button)
-            make.leading.bottom.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+        addSubview(kakaoLoginButton)
+        kakaoLoginButton.snp.makeConstraints { make in
+            make.height.equalTo(52)
+            make.leading.bottom.trailing.equalToSuperview().inset(20)
         }
         
         addSubview(appleLoginButton)
         appleLoginButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Layout.Component.button)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
-            make.bottom.equalTo(googleLoginButton.snp.top).offset(0 - Constants.Spacing.xs)
+            make.height.equalTo(52)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalTo(kakaoLoginButton.snp.top).offset(-8)
         }
         
         [leadingLine, socialMessageLabel, trailingLine]
             .forEach { socialStackView.addArrangedSubview($0) }
         addSubview(socialStackView)
         socialStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
-            make.bottom.equalTo(appleLoginButton.snp.top).offset(0 - Constants.Spacing.md)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalTo(appleLoginButton.snp.top).offset(-28)
         }
         
         leadingLine.snp.makeConstraints { make in

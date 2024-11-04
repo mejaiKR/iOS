@@ -33,6 +33,7 @@ final class StateView: UIStackView {
         let label = UILabel()
         label.applyTypography(with: .body2)
         label.textColor = .gray04
+        label.numberOfLines = 2
         return label
     }()
     
@@ -54,7 +55,7 @@ final class StateView: UIStackView {
     
     private func configureStackView() {
         axis = .vertical
-        spacing = Constants.Spacing.xs
+        spacing = 8
         alignment = .center
         
         addArrangedSubview(stateImageView)

@@ -32,5 +32,19 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
                 self?.delegate?.summonerSearchViewControllerDidFinish()
             }
             .store(in: &cancellables)
+        
+        let tapGesture = UITapGestureRecognizer()
+        summonerSearchResultView.addGestureRecognizer(tapGesture)
+        tapGesture.tapPublisher
+            .sink { [weak self] _ in
+                self?.summonerSearchResultView.isSelected.toggle()
+            }
+            .store(in: &cancellables)
+    }
+}
+
+private extension SummonerSearchViewController {
+    var summonerSearchResultView: SummonerSearchResultView {
+        contentView.searchResultView.summonerSearchResultView
     }
 }
