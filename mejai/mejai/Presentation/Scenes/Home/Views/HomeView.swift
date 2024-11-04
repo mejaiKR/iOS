@@ -21,7 +21,7 @@ final class HomeView: UIView {
         return view
     }()
     
-    private let summonerProfileView = SummonerProfileView()
+    let summonerProfileView = SummonerProfileView()
     
     let rankTierView = RankTierView()
     

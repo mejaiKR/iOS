@@ -52,6 +52,12 @@ final class HomeViewController: BaseViewController<HomeView> {
     }
     
     private func configureBindings() {
+        viewModel.state.summonerProfileViewModel
+            .sink { [weak self] viewModel in
+                self?.summonerProfileView.configure(with: viewModel)
+            }
+            .store(in: &cancellables)
+        
         viewModel.state.rankTierCellViewModels
             .sink { [weak self] cellViewModels in
                 self?.applySnapshot(with: cellViewModels)
@@ -70,6 +76,10 @@ final class HomeViewController: BaseViewController<HomeView> {
 }
 
 private extension HomeViewController {
+    var summonerProfileView: SummonerProfileView {
+        contentView.summonerProfileView
+    }
+    
     var rankTierCollectionView: UICollectionView {
         contentView.rankTierView.collectionView
     }

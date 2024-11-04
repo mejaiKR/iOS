@@ -14,7 +14,6 @@ final class RankTierCell: UICollectionViewCell, Reusable {
     
     private let titleLabel = {
         let label = UILabel()
-        label.text = "자유 랭크"
         label.applyTypography(with: .caption2)
         label.textColor = .gray04
         return label
@@ -28,7 +27,6 @@ final class RankTierCell: UICollectionViewCell, Reusable {
     
     private let tierLabel = {
         let label = UILabel()
-        label.text = "PLATINUM II"
         label.applyTypography(with: .body3)
         label.textColor = .gray09
         return label
@@ -63,13 +61,13 @@ final class RankTierCell: UICollectionViewCell, Reusable {
         addSubview(tierImageView)
         tierImageView.snp.makeConstraints { make in
             make.width.height.equalTo(20)
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.bottom.equalToSuperview().inset(15)
             make.leading.equalToSuperview().inset(25)
         }
         
         addSubview(tierLabel)
         tierLabel.snp.makeConstraints { make in
-            make.top.equalTo(tierImageView)
+            make.centerY.equalTo(tierImageView)
             make.leading.equalTo(tierImageView.snp.trailing).offset(8)
         }
     }

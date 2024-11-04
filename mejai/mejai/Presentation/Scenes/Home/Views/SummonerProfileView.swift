@@ -7,10 +7,12 @@
 
 import UIKit
 
+import Kingfisher
+
 final class SummonerProfileView: UIStackView {
     // MARK: - Components
     
-    private lazy var relationLabel = createLabel("애인", font: .title2, color: .primary)
+    private lazy var relationLabel = createLabel(font: .title2, color: .primary)
     
     private let summonerImageView = {
         let imageView = UIImageView()
@@ -20,9 +22,9 @@ final class SummonerProfileView: UIStackView {
         return imageView
     }()
     
-    private lazy var summonerNameLabel = createLabel("김승종", font: .title2, color: .gray09)
+    private lazy var summonerNameLabel = createLabel(font: .title2, color: .gray09)
     
-    private lazy var tagLineLabel = createLabel("#과로사", font: .body1, color: .gray05)
+    private lazy var tagLineLabel = createLabel(font: .body1, color: .gray05)
     
     // MARK: - Init
     
@@ -59,12 +61,19 @@ final class SummonerProfileView: UIStackView {
             make.width.height.equalTo(20)
         }
     }
+    
+    func configure(with viewModel: SummonerProfileViewModel) {
+        relationLabel.text = viewModel.relationship
+        summonerNameLabel.text = viewModel.name
+        tagLineLabel.text = "#\(viewModel.tagLine)"
+        guard let imageUrlString = viewModel.image else { return }
+        summonerImageView.kf.setImage(with: URL(string: imageUrlString))
+    }
 }
 
 private extension SummonerProfileView {
-    func createLabel(_ text: String, font: UIFont, color: UIColor) -> UILabel {
+    func createLabel(font: UIFont, color: UIColor) -> UILabel {
         let label = UILabel()
-        label.text = text
         label.applyTypography(with: font)
         label.textColor = color
         return label
