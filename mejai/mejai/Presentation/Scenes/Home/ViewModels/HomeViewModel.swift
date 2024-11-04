@@ -8,8 +8,14 @@
 import Combine
 import Foundation
 
+enum HomeViewState {
+    case success
+    case error
+}
+
 final class HomeViewModel {
     struct State {
+        var homeViewState: CurrentValueSubject<HomeViewState, Never>
         var summonerProfileViewModel: CurrentValueSubject<SummonerProfileViewModel, Never>
         var rankTierCellViewModels: CurrentValueSubject<[RankTierCellViewModel], Never>
         var todayDayLogCellViewModels: CurrentValueSubject<[TodayDayLogCellViewModel], Never>
@@ -17,12 +23,14 @@ final class HomeViewModel {
         var weekPlayLogCellViewModels: CurrentValueSubject<[WeekPlayLogCellViewModel], Never>
         
         init(
+            homeViewState: HomeViewState,
             summonerProfileViewModel: SummonerProfileViewModel,
             rankTierCellViewModels: [RankTierCellViewModel],
             todayDayLogCellViewModels: [TodayDayLogCellViewModel],
             todayPlayLogCellViewModels: [TodayPlayLogCellViewModel],
             weekPlayLogCellViewModels: [WeekPlayLogCellViewModel]
         ) {
+            self.homeViewState = .init(homeViewState)
             self.summonerProfileViewModel = .init(summonerProfileViewModel)
             self.rankTierCellViewModels = .init(rankTierCellViewModels)
             self.todayDayLogCellViewModels = .init(todayDayLogCellViewModels)
@@ -35,6 +43,7 @@ final class HomeViewModel {
     
     init() {
         state = State(
+            homeViewState: .error,
             summonerProfileViewModel:
                 SummonerProfileViewModel(
                     relationship: "관계",

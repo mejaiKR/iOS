@@ -91,6 +91,13 @@ final class HomeViewController: BaseViewController<HomeView> {
     }
     
     private func configureBindings() {
+        viewModel.state.homeViewState
+            .sink { [weak self] state in
+                self?.scrollView.isHidden = state == .error
+                self?.errorView.isHidden = state == .success
+            }
+            .store(in: &cancellables)
+        
         viewModel.state.summonerProfileViewModel
             .sink { [weak self] viewModel in
                 self?.summonerProfileView.configure(with: viewModel)
@@ -158,6 +165,14 @@ final class HomeViewController: BaseViewController<HomeView> {
 }
 
 private extension HomeViewController {
+    var scrollView: UIScrollView {
+        contentView.scrollView
+    }
+    
+    var errorView: StateView {
+        contentView.errorView
+    }
+    
     var summonerProfileView: SummonerProfileView {
         contentView.summonerProfileView
     }

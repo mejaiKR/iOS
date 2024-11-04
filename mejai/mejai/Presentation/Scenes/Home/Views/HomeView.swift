@@ -10,7 +10,7 @@ import UIKit
 final class HomeView: UIView {
     // MARK: - Components
     
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
         return scrollView
@@ -28,6 +28,8 @@ final class HomeView: UIView {
     let todayView = TodayView()
     
     let weekView = WeekView()
+    
+    let errorView = StateView(state: .error, message: "뭔가 문제가 있어요\n다시 시도해주세요")
     
     // MARK: - Init
     
@@ -78,6 +80,11 @@ final class HomeView: UIView {
             make.top.equalTo(todayView.snp.bottom).offset(28)
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
+        }
+        
+        addSubview(errorView)
+        errorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
 }

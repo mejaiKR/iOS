@@ -33,6 +33,7 @@ final class StateView: UIStackView {
         let label = UILabel()
         label.applyTypography(with: .body2)
         label.textColor = .gray04
+        label.numberOfLines = 2
         return label
     }()
     
