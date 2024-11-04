@@ -18,14 +18,13 @@ final class TodayView: UIView {
         return label
     }()
     
-    private lazy var collectionView = {
+    lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 15
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cellType: TodayCardCell.self)
+        collectionView.register(cellType: TodayDayLogCell.self)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
-        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -70,17 +69,5 @@ extension TodayView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 15) / 2
         return CGSize(width: width, height: collectionView.frame.height)
-    }
-}
-
-// TODO: diffable data source로 바꿀 것
-
-extension TodayView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(for: indexPath, cellType: TodayCardCell.self)
     }
 }

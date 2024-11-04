@@ -25,7 +25,7 @@ final class HomeView: UIView {
     
     let rankTierView = RankTierView()
     
-    private let todayView = TodayView()
+    let todayView = TodayView()
     
     private let weekView = WeekView()
     
