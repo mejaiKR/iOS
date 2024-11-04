@@ -11,11 +11,13 @@ final class LoginButton: UIButton {
     enum SocialType: String {
         case apple = "Apple"
         case google = "Google"
+        case kakao = "Kakao"
         
         var image: UIImage {
             switch self {
             case .apple:    .apple
             case .google:   .google
+            case .kakao:    .kakao
             }
         }
         
@@ -23,6 +25,7 @@ final class LoginButton: UIButton {
             switch self {
             case .apple:    .black
             case .google:   .white
+            case .kakao:    .kakaoBackground
             }
         }
         
@@ -30,6 +33,7 @@ final class LoginButton: UIButton {
             switch self {
             case .apple:    .white
             case .google:   .black
+            case .kakao:    .kakaoText
             }
         }
         
@@ -37,6 +41,7 @@ final class LoginButton: UIButton {
             switch self {
             case .apple:    UIColor.black.cgColor
             case .google:   UIColor.gray04.cgColor
+            case .kakao:    UIColor.kakaoBackground.cgColor
             }
         }
     }

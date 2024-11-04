@@ -32,7 +32,7 @@ final class LoginViewController: BaseViewController<LoginView> {
             }
             .store(in: &cancellables)
         
-        googleLoginButton.tapPublisher
+        kakaoLoginButton.tapPublisher
             .sink { [weak self] in
                 self?.delegate?.loginViewControllerDidFinish()
             }
@@ -45,7 +45,7 @@ private extension LoginViewController {
         contentView.appleLoginButton
     }
     
-    var googleLoginButton: LoginButton {
-        contentView.googleLoginButton
+    var kakaoLoginButton: LoginButton {
+        contentView.kakaoLoginButton
     }
 }

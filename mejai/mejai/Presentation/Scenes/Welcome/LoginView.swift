@@ -59,7 +59,7 @@ final class LoginView: UIView {
     
     let appleLoginButton = LoginButton(socialType: .apple)
     
-    let googleLoginButton = LoginButton(socialType: .google)
+    let kakaoLoginButton = LoginButton(socialType: .kakao)
     
     // MARK: - Init
     
@@ -94,8 +94,8 @@ final class LoginView: UIView {
             make.bottom.equalTo(descriptionLabel.snp.top).offset(-42)
         }
         
-        addSubview(googleLoginButton)
-        googleLoginButton.snp.makeConstraints { make in
+        addSubview(kakaoLoginButton)
+        kakaoLoginButton.snp.makeConstraints { make in
             make.height.equalTo(52)
             make.leading.bottom.trailing.equalToSuperview().inset(20)
         }
@@ -104,7 +104,7 @@ final class LoginView: UIView {
         appleLoginButton.snp.makeConstraints { make in
             make.height.equalTo(52)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(googleLoginButton.snp.top).offset(-8)
+            make.bottom.equalTo(kakaoLoginButton.snp.top).offset(-8)
         }
         
         [leadingLine, socialMessageLabel, trailingLine]
