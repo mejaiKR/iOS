@@ -13,15 +13,18 @@ final class HomeViewModel {
         var summonerProfileViewModel: CurrentValueSubject<SummonerProfileViewModel, Never>
         var rankTierCellViewModels: CurrentValueSubject<[RankTierCellViewModel], Never>
         var todayDayLogCellViewModels: CurrentValueSubject<[TodayDayLogCellViewModel], Never>
+        var todayPlayLogCellViewModels: CurrentValueSubject<[TodayPlayLogCellViewModel], Never>
         
         init(
             summonerProfileViewModel: SummonerProfileViewModel,
             rankTierCellViewModels: [RankTierCellViewModel],
-            todayDayLogCellViewModels: [TodayDayLogCellViewModel]
+            todayDayLogCellViewModels: [TodayDayLogCellViewModel],
+            todayPlayLogCellViewModels: [TodayPlayLogCellViewModel]
         ) {
             self.summonerProfileViewModel = .init(summonerProfileViewModel)
             self.rankTierCellViewModels = .init(rankTierCellViewModels)
             self.todayDayLogCellViewModels = .init(todayDayLogCellViewModels)
+            self.todayPlayLogCellViewModels = .init(todayPlayLogCellViewModels)
         }
     }
     
@@ -43,6 +46,15 @@ final class HomeViewModel {
             todayDayLogCellViewModels: [
                 TodayDayLogCellViewModel(cellType: .count, data: "횟수"),
                 TodayDayLogCellViewModel(cellType: .time, data: "시간")
+            ],
+            todayPlayLogCellViewModels: [
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: true, isFirst: true),
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
+                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: true, isLast: true)
             ]
         )
     }

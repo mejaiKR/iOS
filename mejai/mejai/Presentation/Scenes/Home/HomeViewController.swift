@@ -14,6 +14,7 @@ final class HomeViewController: BaseViewController<HomeView> {
     
     private var rankTierDataSource: UICollectionViewDiffableDataSource<Int, RankTierCellViewModel>!
     private var todayDayLogDataSource: UICollectionViewDiffableDataSource<Int, TodayDayLogCellViewModel>!
+    private var todayPlayLogDataSource: UICollectionViewDiffableDataSource<Int, TodayPlayLogCellViewModel>!
     
     // MARK: - Init
     
@@ -62,6 +63,18 @@ final class HomeViewController: BaseViewController<HomeView> {
                 return cell
             }
         )
+        
+        todayPlayLogDataSource = UICollectionViewDiffableDataSource<Int, TodayPlayLogCellViewModel>(
+            collectionView: todayPlayLogCollectionView,
+            cellProvider: { (collectionView, indexPath, viewModel) -> UICollectionViewCell? in
+                let cell = collectionView.dequeueReusableCell(
+                    for: indexPath,
+                    cellType: TodayPlayLogCell.self
+                )
+                cell.configure(with: viewModel)
+                return cell
+            }
+        )
     }
     
     private func configureBindings() {
@@ -82,6 +95,13 @@ final class HomeViewController: BaseViewController<HomeView> {
                 self?.applySnapshot(with: cellViewModels)
             }
             .store(in: &cancellables)
+        
+        viewModel.state.todayPlayLogCellViewModels
+            .sink { [weak self] cellViewModels in
+                self?.applySnapshot(with: cellViewModels)
+                self?.todayPlayLogView.updateCollectionViewHeight(for: cellViewModels.count)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Snapshot Methods
@@ -99,6 +119,13 @@ final class HomeViewController: BaseViewController<HomeView> {
         snapshot.appendItems(cellViewModels, toSection: 0)
         todayDayLogDataSource.apply(snapshot, animatingDifferences: false)
     }
+    
+    private func applySnapshot(with cellViewModels: [TodayPlayLogCellViewModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, TodayPlayLogCellViewModel>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(cellViewModels, toSection: 0)
+        todayPlayLogDataSource.apply(snapshot, animatingDifferences: false)
+    }
 }
 
 private extension HomeViewController {
@@ -112,5 +139,13 @@ private extension HomeViewController {
     
     var todayDayLogCollectionView: UICollectionView {
         contentView.todayView.collectionView
+    }
+    
+    var todayPlayLogView: TodayPlayLogView {
+        contentView.todayView.todayPlayLogView
+    }
+    
+    var todayPlayLogCollectionView: UICollectionView {
+        contentView.todayView.todayPlayLogView.collectionView
     }
 }

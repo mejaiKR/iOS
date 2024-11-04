@@ -1,5 +1,5 @@
 //
-//  TodayLogView.swift
+//  TodayPlayLogView.swift
 //  mejai
 //
 //  Created by 지연 on 11/1/24.
@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class TodayLogView: UIView {
+final class TodayPlayLogView: UIView {
+    private let rowHeight = 34.0
+    
     // MARK: - Components
     
     private let titleLabel = {
@@ -18,14 +20,13 @@ final class TodayLogView: UIView {
         return label
     }()
     
-    private lazy var collectionView = {
+    lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cellType: TodayLogCell.self)
+        collectionView.register(cellType: TodayPlayLogCell.self)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
-        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -60,30 +61,20 @@ final class TodayLogView: UIView {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(25)
-            make.height.equalTo(34 * 3)
+            make.height.equalTo(0)
             make.bottom.equalToSuperview().inset(11)
         }
     }
-}
-
-extension TodayLogView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 34)
-    }
-}
-
-extension TodayLogView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: TodayLogCell.self)
-        if indexPath.row == 0 {
-            cell.configure(isFirst: true)
-        } else if indexPath.row == 2 {
-            cell.configure(isLast: true)
+    func updateCollectionViewHeight(for count: Int) {
+        collectionView.snp.updateConstraints { make in
+            make.height.equalTo(rowHeight * Double(count))
         }
-        return cell
+    }
+}
+
+extension TodayPlayLogView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: rowHeight)
     }
 }

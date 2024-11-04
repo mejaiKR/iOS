@@ -1,5 +1,5 @@
 //
-//  TodayLogCell.swift
+//  TodayPlayLogCell.swift
 //  mejai
 //
 //  Created by 지연 on 11/1/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TodayLogCell: UICollectionViewCell, Reusable {
+final class TodayPlayLogCell: UICollectionViewCell, Reusable {
     // MARK: - Components
     
     private lazy var circleView = createView(with: .secondary)
@@ -18,7 +18,6 @@ final class TodayLogCell: UICollectionViewCell, Reusable {
     
     private let timeLabel = {
         let label = UILabel()
-        label.text = "21:00 ~ 21:25"
         label.applyTypography(with: .body3)
         label.textColor = .gray09
         return label
@@ -26,9 +25,7 @@ final class TodayLogCell: UICollectionViewCell, Reusable {
     
     private let resultLabel = {
         let label = UILabel()
-        label.text = "승리"
         label.applyTypography(with: .body2)
-        label.textColor = .primary
         return label
     }()
     
@@ -63,7 +60,7 @@ final class TodayLogCell: UICollectionViewCell, Reusable {
             make.width.equalTo(1)
             make.top.equalToSuperview()
             make.bottom.equalTo(snp.centerY)
-            make.leading.equalToSuperview().inset(3.5)
+            make.leading.equalToSuperview().inset(4)
         }
         
         contentView.addSubview(lowerLine)
@@ -71,12 +68,12 @@ final class TodayLogCell: UICollectionViewCell, Reusable {
             make.width.equalTo(1)
             make.top.equalTo(snp.centerY)
             make.bottom.equalToSuperview()
-            make.leading.equalToSuperview().inset(3.5)
+            make.leading.equalToSuperview().inset(4)
         }
         
         contentView.addSubview(circleView)
         circleView.snp.makeConstraints { make in
-            make.width.height.equalTo(8)
+            make.width.height.equalTo(9)
             make.leading.centerY.equalToSuperview()
         }
         
@@ -93,16 +90,16 @@ final class TodayLogCell: UICollectionViewCell, Reusable {
         }
     }
     
-    func configure(isFirst: Bool = false, isLast: Bool = false) {
-        if isFirst {
-            upperLine.isHidden = true
-        } else if isLast {
-            lowerLine.isHidden = true
-        }
+    func configure(with viewModel: TodayPlayLogCellViewModel) {
+        timeLabel.text = "\(viewModel.startTime) ~ \(viewModel.endTime)"
+        resultLabel.text = viewModel.isWin ? "승리" : "패배"
+        resultLabel.textColor = viewModel.isWin ? .primary : .disabled
+        upperLine.isHidden = viewModel.isFirst
+        lowerLine.isHidden = viewModel.isLast
     }
 }
 
-private extension TodayLogCell {
+private extension TodayPlayLogCell {
     func createView(with color: UIColor) -> UIView {
         let view = UIView()
         view.backgroundColor = color

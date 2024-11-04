@@ -18,6 +18,14 @@ final class TodayView: UIView {
         return label
     }()
     
+    private let descriptionLabel = {
+        let label = UILabel()
+        label.text = "00시 00분 기준"
+        label.applyTypography(with: .caption1)
+        label.textColor = .gray04
+        return label
+    }()
+    
     lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 15
@@ -28,7 +36,7 @@ final class TodayView: UIView {
         return collectionView
     }()
     
-    private let todayLogView = TodayLogView()
+    let todayPlayLogView = TodayPlayLogView()
     
     // MARK: - Init
     
@@ -47,7 +55,13 @@ final class TodayView: UIView {
     private func configureLayout() {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.leading.equalToSuperview()
+        }
+        
+        addSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(titleLabel)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
         }
         
         addSubview(collectionView)
@@ -57,8 +71,8 @@ final class TodayView: UIView {
             make.height.equalTo(75)
         }
         
-        addSubview(todayLogView)
-        todayLogView.snp.makeConstraints { make in
+        addSubview(todayPlayLogView)
+        todayPlayLogView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom).offset(14)
             make.leading.bottom.trailing.equalToSuperview()
         }
