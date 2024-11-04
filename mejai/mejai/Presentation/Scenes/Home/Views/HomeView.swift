@@ -23,7 +23,7 @@ final class HomeView: UIView {
     
     private let summonerProfileView = SummonerProfileView()
     
-    private let rankTierView = RankTierView()
+    let rankTierView = RankTierView()
     
     private let todayView = TodayView()
     

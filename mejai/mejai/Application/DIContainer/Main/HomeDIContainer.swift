@@ -16,9 +16,16 @@ final class HomeDIContainer {
         self.dependencies = dependencies
     }
     
+    // MARK: - View Models
+    
+    func makeHomeViewModel() -> HomeViewModel {
+        return HomeViewModel()
+    }
+    
     // MARK: - View Controllers
     
     func makeHomeViewController() -> HomeViewController {
-        return HomeViewController()
+        let viewModel = makeHomeViewModel()
+        return HomeViewController(viewModel: viewModel)
     }
 }

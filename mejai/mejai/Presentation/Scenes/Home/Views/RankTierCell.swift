@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 final class RankTierCell: UICollectionViewCell, Reusable {
     // MARK: - Components
     
@@ -70,5 +72,12 @@ final class RankTierCell: UICollectionViewCell, Reusable {
             make.top.equalTo(tierImageView)
             make.leading.equalTo(tierImageView.snp.trailing).offset(8)
         }
+    }
+    
+    func configure(with viewModel: RankTierCellViewModel) {
+        titleLabel.text = viewModel.cellType.rawValue
+        tierLabel.text = viewModel.rankTier
+        guard let imageUrlString = viewModel.image else { return }
+        tierImageView.kf.setImage(with: URL(string: imageUrlString))
     }
 }

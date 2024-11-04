@@ -8,6 +8,8 @@
 import UIKit
 
 final class RankTierView: UIView {
+    private let cellSpacing = 15.0
+    
     // MARK: - Components
     
     private let titleLabel = {
@@ -18,15 +20,22 @@ final class RankTierView: UIView {
         return label
     }()
     
-    private lazy var collectionView = {
+    let infoButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "info.circle.fill"), for: .normal)
+        button.tintColor = .gray03
+        button.backgroundColor = .clear
+        return button
+    }()
+    
+    lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 15
+        layout.minimumInteritemSpacing = cellSpacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(cellType: RankTierCell.self)
         collectionView.backgroundColor = .backgroundSecondary
         collectionView.layer.cornerRadius = 20
         collectionView.delegate = self
-        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -56,6 +65,13 @@ final class RankTierView: UIView {
             make.top.leading.equalToSuperview()
         }
         
+        addSubview(infoButton)
+        infoButton.snp.makeConstraints { make in
+            make.width.height.equalTo(15)
+            make.centerY.equalTo(titleLabel)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
+        }
+        
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
@@ -75,19 +91,7 @@ final class RankTierView: UIView {
 
 extension RankTierView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - 15) / 2
+        let width = (collectionView.frame.width - cellSpacing) / 2
         return CGSize(width: width, height: collectionView.frame.height)
-    }
-}
-
-// TODO: diffable data source로 바꿀 것
-
-extension RankTierView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(for: indexPath, cellType: RankTierCell.self)
     }
 }
