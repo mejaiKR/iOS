@@ -113,6 +113,9 @@ final class HomeViewController: BaseViewController<HomeView> {
             .sink { [weak self] cellViewModels in
                 self?.applySnapshot(with: cellViewModels)
                 self?.todayPlayLogView.updateCollectionViewHeight(for: cellViewModels.count)
+                self?.todayEmptyView.isHidden = !cellViewModels.isEmpty
+                self?.todayDayLogCollectionView.isHidden = cellViewModels.isEmpty
+                self?.todayPlayLogView.isHidden = cellViewModels.isEmpty
             }
             .store(in: &cancellables)
         
@@ -169,6 +172,10 @@ private extension HomeViewController {
     
     var todayPlayLogView: TodayPlayLogView {
         contentView.todayView.todayPlayLogView
+    }
+    
+    var todayEmptyView: StateView {
+        contentView.todayView.emptyView
     }
     
     var todayPlayLogCollectionView: UICollectionView {

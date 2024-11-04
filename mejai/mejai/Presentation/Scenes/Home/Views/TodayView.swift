@@ -38,6 +38,8 @@ final class TodayView: UIView {
     
     let todayPlayLogView = TodayPlayLogView()
     
+    let emptyView = StateView(state: .empty, message: "아직 데이터가 없어요")
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -75,6 +77,12 @@ final class TodayView: UIView {
         todayPlayLogView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom).offset(14)
             make.leading.bottom.trailing.equalToSuperview()
+        }
+        
+        addSubview(emptyView)
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(28)
+            make.centerX.equalToSuperview()
         }
     }
 }
