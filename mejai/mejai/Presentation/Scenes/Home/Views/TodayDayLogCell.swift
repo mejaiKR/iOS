@@ -60,6 +60,6 @@ final class TodayDayLogCell: UICollectionViewCell, Reusable {
     
     func configure(with viewModel: TodayDayLogCellViewModel) {
         titleLabel.text = viewModel.cellType.rawValue
-        dataLabel.text = viewModel.data
+        dataLabel.text = String(viewModel.data)
     }
 }

@@ -27,7 +27,7 @@ final class HomeView: UIView {
     
     let todayView = TodayView()
     
-    private let weekView = WeekView()
+    let weekView = WeekView()
     
     // MARK: - Init
     

@@ -69,12 +69,13 @@
 		90F6BA7C2CD4BD3E001FA67B /* TodayPlayLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7B2CD4BD3E001FA67B /* TodayPlayLogView.swift */; };
 		90F6BA7E2CD4BE28001FA67B /* TodayPlayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7D2CD4BE28001FA67B /* TodayPlayLogCell.swift */; };
 		90F6BA802CD4C8F2001FA67B /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA7F2CD4C8F2001FA67B /* WeekView.swift */; };
-		90F6BA822CD4C9C7001FA67B /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA812CD4C9C7001FA67B /* DayCell.swift */; };
+		90F6BA822CD4C9C7001FA67B /* WeekPlayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA812CD4C9C7001FA67B /* WeekPlayLogCell.swift */; };
 		90F6BA842CD92925001FA67B /* RankTierCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA832CD92925001FA67B /* RankTierCellViewModel.swift */; };
 		90F6BA862CD92B66001FA67B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA852CD92B66001FA67B /* HomeViewModel.swift */; };
 		90F6BA882CD92E17001FA67B /* SummonerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA872CD92E17001FA67B /* SummonerProfileViewModel.swift */; };
 		90F6BA8A2CD93090001FA67B /* TodayDayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA892CD93090001FA67B /* TodayDayLogCellViewModel.swift */; };
 		90F6BA8C2CD932EA001FA67B /* TodayPlayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA8B2CD932EA001FA67B /* TodayPlayLogCellViewModel.swift */; };
+		90F6BA8E2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6BA8D2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,12 +141,13 @@
 		90F6BA7B2CD4BD3E001FA67B /* TodayPlayLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPlayLogView.swift; sourceTree = "<group>"; };
 		90F6BA7D2CD4BE28001FA67B /* TodayPlayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPlayLogCell.swift; sourceTree = "<group>"; };
 		90F6BA7F2CD4C8F2001FA67B /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
-		90F6BA812CD4C9C7001FA67B /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		90F6BA812CD4C9C7001FA67B /* WeekPlayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlayLogCell.swift; sourceTree = "<group>"; };
 		90F6BA832CD92925001FA67B /* RankTierCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTierCellViewModel.swift; sourceTree = "<group>"; };
 		90F6BA852CD92B66001FA67B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		90F6BA872CD92E17001FA67B /* SummonerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerProfileViewModel.swift; sourceTree = "<group>"; };
 		90F6BA892CD93090001FA67B /* TodayDayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDayLogCellViewModel.swift; sourceTree = "<group>"; };
 		90F6BA8B2CD932EA001FA67B /* TodayPlayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPlayLogCellViewModel.swift; sourceTree = "<group>"; };
+		90F6BA8D2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlayLogCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,7 +449,7 @@
 				90F6BA7B2CD4BD3E001FA67B /* TodayPlayLogView.swift */,
 				90F6BA7D2CD4BE28001FA67B /* TodayPlayLogCell.swift */,
 				90F6BA7F2CD4C8F2001FA67B /* WeekView.swift */,
-				90F6BA812CD4C9C7001FA67B /* DayCell.swift */,
+				90F6BA812CD4C9C7001FA67B /* WeekPlayLogCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -543,6 +545,7 @@
 				90F6BA872CD92E17001FA67B /* SummonerProfileViewModel.swift */,
 				90F6BA892CD93090001FA67B /* TodayDayLogCellViewModel.swift */,
 				90F6BA8B2CD932EA001FA67B /* TodayPlayLogCellViewModel.swift */,
+				90F6BA8D2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				90F6BA7A2CD2C60A001FA67B /* TodayDayLogCell.swift in Sources */,
 				90F6BA882CD92E17001FA67B /* SummonerProfileViewModel.swift in Sources */,
 				90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */,
+				90F6BA8E2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift in Sources */,
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				90F6BA342CCECCAD001FA67B /* SettingsViewController.swift in Sources */,
@@ -673,7 +677,7 @@
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
 				90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */,
 				90F6BA8C2CD932EA001FA67B /* TodayPlayLogCellViewModel.swift in Sources */,
-				90F6BA822CD4C9C7001FA67B /* DayCell.swift in Sources */,
+				90F6BA822CD4C9C7001FA67B /* WeekPlayLogCell.swift in Sources */,
 				90F6BA1E2CCD63F9001FA67B /* AppFlowCoordinator.swift in Sources */,
 				90F6BA8A2CD93090001FA67B /* TodayDayLogCellViewModel.swift in Sources */,
 				90F6BA0B2CCD5B01001FA67B /* RelationshipCell.swift in Sources */,

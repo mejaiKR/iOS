@@ -1,5 +1,5 @@
 //
-//  DayCell.swift
+//  WeekPlayLogCell.swift
 //  mejai
 //
 //  Created by 지연 on 11/1/24.
@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class DayCell: UICollectionViewCell, Reusable {
+final class WeekPlayLogCell: UICollectionViewCell, Reusable {
     // MARK: - Components
     
     private let dayLabel = {
         let label = UILabel()
-        label.text = "월"
         label.applyTypography(with: .caption2)
         label.textColor = .gray04
         return label
@@ -24,15 +23,10 @@ final class DayCell: UICollectionViewCell, Reusable {
         return view
     }()
     
-    private let frontView = {
-        let view = UIView()
-        view.backgroundColor = .primary
-        return view
-    }()
+    private let frontView = UIView()
     
     private let countLabel = {
         let label = UILabel()
-        label.text = "1"
         label.applyTypography(with: .caption1)
         label.textColor = .white
         return label
@@ -79,13 +73,36 @@ final class DayCell: UICollectionViewCell, Reusable {
         contentView.addSubview(frontView)
         frontView.snp.makeConstraints { make in
             make.leading.bottom.trailing.equalToSuperview()
-            make.height.equalTo(32)
+            make.height.equalTo(0)
         }
         
         contentView.addSubview(countLabel)
         countLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(7)
             make.centerX.equalToSuperview()
+        }
+    }
+    
+    func configure(with viewModel: WeekPlayLogCellViewModel) {
+        dayLabel.text = viewModel.day
+        let count = viewModel.count
+        if count > 0 {
+            countLabel.text = String(count)
+        }
+        let height: Int
+        switch count {
+        case 0:
+            frontView.backgroundColor = .gray01
+            height = 0
+        case 1...5:
+            frontView.backgroundColor = .primary
+            height = 24 + 8 * count
+        default:
+            frontView.backgroundColor = .tertiary
+            height = 64
+        }
+        frontView.snp.updateConstraints { make in
+            make.height.equalTo(height)
         }
     }
 }

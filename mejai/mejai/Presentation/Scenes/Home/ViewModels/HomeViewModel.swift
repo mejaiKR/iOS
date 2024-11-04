@@ -14,17 +14,20 @@ final class HomeViewModel {
         var rankTierCellViewModels: CurrentValueSubject<[RankTierCellViewModel], Never>
         var todayDayLogCellViewModels: CurrentValueSubject<[TodayDayLogCellViewModel], Never>
         var todayPlayLogCellViewModels: CurrentValueSubject<[TodayPlayLogCellViewModel], Never>
+        var weekPlayLogCellViewModels: CurrentValueSubject<[WeekPlayLogCellViewModel], Never>
         
         init(
             summonerProfileViewModel: SummonerProfileViewModel,
             rankTierCellViewModels: [RankTierCellViewModel],
             todayDayLogCellViewModels: [TodayDayLogCellViewModel],
-            todayPlayLogCellViewModels: [TodayPlayLogCellViewModel]
+            todayPlayLogCellViewModels: [TodayPlayLogCellViewModel],
+            weekPlayLogCellViewModels: [WeekPlayLogCellViewModel]
         ) {
             self.summonerProfileViewModel = .init(summonerProfileViewModel)
             self.rankTierCellViewModels = .init(rankTierCellViewModels)
             self.todayDayLogCellViewModels = .init(todayDayLogCellViewModels)
             self.todayPlayLogCellViewModels = .init(todayPlayLogCellViewModels)
+            self.weekPlayLogCellViewModels = .init(weekPlayLogCellViewModels)
         }
     }
     
@@ -44,8 +47,8 @@ final class HomeViewModel {
                 RankTierCellViewModel(cellType: .solo, rankTier: "솔로 랭크 티어", image: nil)
             ],
             todayDayLogCellViewModels: [
-                TodayDayLogCellViewModel(cellType: .count, data: "횟수"),
-                TodayDayLogCellViewModel(cellType: .time, data: "시간")
+                TodayDayLogCellViewModel(cellType: .count, data: 42),
+                TodayDayLogCellViewModel(cellType: .time, data: 4242)
             ],
             todayPlayLogCellViewModels: [
                 TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: true, isFirst: true),
@@ -55,6 +58,15 @@ final class HomeViewModel {
                 TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
                 TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
                 TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: true, isLast: true)
+            ],
+            weekPlayLogCellViewModels: [
+                WeekPlayLogCellViewModel(day: "월", count: 0),
+                WeekPlayLogCellViewModel(day: "화", count: 1),
+                WeekPlayLogCellViewModel(day: "수", count: 2),
+                WeekPlayLogCellViewModel(day: "목", count: 3),
+                WeekPlayLogCellViewModel(day: "금", count: 4),
+                WeekPlayLogCellViewModel(day: "토", count: 5),
+                WeekPlayLogCellViewModel(day: "일", count: 6),
             ]
         )
     }

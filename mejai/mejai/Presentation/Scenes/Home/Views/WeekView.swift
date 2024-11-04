@@ -18,16 +18,15 @@ final class WeekView: UIView {
         return label
     }()
     
-    private lazy var collectionView = {
+    lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cellType: DayCell.self)
+        collectionView.register(cellType: WeekPlayLogCell.self)
         collectionView.backgroundColor = .backgroundSecondary
         collectionView.layer.cornerRadius = 20
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 24, bottom: 15, right: 24)
         collectionView.delegate = self
-        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -65,15 +64,5 @@ extension WeekView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 48 - 6 * 10) / 7
         return CGSize(width: width, height: 83)
-    }
-}
-
-extension WeekView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(for: indexPath, cellType: DayCell.self)
     }
 }

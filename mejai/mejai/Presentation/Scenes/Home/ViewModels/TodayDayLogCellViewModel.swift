@@ -14,5 +14,5 @@ enum TodayDayLogCellType: String {
 
 struct TodayDayLogCellViewModel: Hashable {
     let cellType: TodayDayLogCellType
-    let data: String
+    let data: Int
 }
