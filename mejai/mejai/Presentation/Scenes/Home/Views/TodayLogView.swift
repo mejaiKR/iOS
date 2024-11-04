@@ -46,7 +46,7 @@ final class TodayLogView: UIView {
     
     private func configureView() {
         backgroundColor = .backgroundSecondary
-        layer.cornerRadius = Constants.Radius.lg
+        layer.cornerRadius = 20
     }
     
     private func configureLayout() {

@@ -24,7 +24,7 @@ final class RankTierView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(cellType: RankTierCell.self)
         collectionView.backgroundColor = .backgroundSecondary
-        collectionView.layer.cornerRadius = Constants.Radius.lg
+        collectionView.layer.cornerRadius = 20
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -58,7 +58,7 @@ final class RankTierView: UIView {
         
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Spacing.xs)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.leading.bottom.trailing.equalToSuperview()
             make.height.equalTo(75)
         }
@@ -66,7 +66,7 @@ final class RankTierView: UIView {
         addSubview(line)
         line.snp.makeConstraints { make in
             make.width.equalTo(1)
-            make.height.equalTo(collectionView).inset(Constants.Spacing.sm)
+            make.height.equalTo(collectionView).inset(12)
             make.centerX.equalToSuperview()
             make.centerY.equalTo(collectionView)
         }

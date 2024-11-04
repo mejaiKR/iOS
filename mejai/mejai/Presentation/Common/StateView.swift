@@ -54,7 +54,7 @@ final class StateView: UIStackView {
     
     private func configureStackView() {
         axis = .vertical
-        spacing = Constants.Spacing.xs
+        spacing = 8
         alignment = .center
         
         addArrangedSubview(stateImageView)

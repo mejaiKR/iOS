@@ -60,15 +60,15 @@ final class RankTierCell: UICollectionViewCell, Reusable {
         
         addSubview(tierImageView)
         tierImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Layout.IconImage.small)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Spacing.xs)
+            make.width.height.equalTo(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.leading.equalToSuperview().inset(25)
         }
         
         addSubview(tierLabel)
         tierLabel.snp.makeConstraints { make in
             make.top.equalTo(tierImageView)
-            make.leading.equalTo(tierImageView.snp.trailing).offset(Constants.Spacing.xs)
+            make.leading.equalTo(tierImageView.snp.trailing).offset(8)
         }
     }
 }

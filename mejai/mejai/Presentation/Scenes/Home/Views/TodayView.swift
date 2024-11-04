@@ -53,14 +53,14 @@ final class TodayView: UIView {
         
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Spacing.xs)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(75)
         }
         
         addSubview(todayLogView)
         todayLogView.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(Constants.Spacing.sm)
+            make.top.equalTo(collectionView.snp.bottom).offset(14)
             make.leading.bottom.trailing.equalToSuperview()
         }
     }

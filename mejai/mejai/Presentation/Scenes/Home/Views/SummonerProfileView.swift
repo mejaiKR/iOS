@@ -47,7 +47,7 @@ final class SummonerProfileView: UIStackView {
     
     private func configureStackView() {
         axis = .horizontal
-        spacing = Constants.Spacing.Content.summonerStackViewSpacing
+        spacing = 5
         alignment = .center
     }
     
@@ -56,7 +56,7 @@ final class SummonerProfileView: UIStackView {
             .forEach { addArrangedSubview($0) }
         
         summonerImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Layout.IconImage.small)
+            make.width.height.equalTo(20)
         }
     }
 }

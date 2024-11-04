@@ -57,26 +57,26 @@ final class HomeView: UIView {
         
         contentView.addSubview(summonerProfileView)
         summonerProfileView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Spacing.sm)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.top.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         contentView.addSubview(rankTierView)
         rankTierView.snp.makeConstraints { make in
-            make.top.equalTo(summonerProfileView.snp.bottom).offset(Constants.Spacing.md)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.top.equalTo(summonerProfileView.snp.bottom).offset(28)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         contentView.addSubview(todayView)
         todayView.snp.makeConstraints { make in
-            make.top.equalTo(rankTierView.snp.bottom).offset(Constants.Spacing.md)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.top.equalTo(rankTierView.snp.bottom).offset(28)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         contentView.addSubview(weekView)
         weekView.snp.makeConstraints { make in
-            make.top.equalTo(todayView.snp.bottom).offset(Constants.Spacing.md)
-            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.top.equalTo(todayView.snp.bottom).offset(28)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
         }
     }

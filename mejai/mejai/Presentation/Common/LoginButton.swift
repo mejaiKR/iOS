@@ -63,10 +63,9 @@ final class LoginButton: UIButton {
         backgroundColor = socialType.backgroundColor
         layer.borderWidth = 1
         layer.borderColor = socialType.borderColor
-        layer.cornerRadius = Constants.Radius.sm
+        layer.cornerRadius = 8
         
-        let spacing: CGFloat = Constants.Spacing.xs
-        imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing / 2, bottom: 0, right: spacing / 2)
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing / 2, bottom: 0, right: -spacing / 2)
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 4)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: -4)
     }
 }

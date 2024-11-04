@@ -33,14 +33,14 @@ final class SearchResultView: UIView {
         addSubview(emptyView)
         emptyView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(0 - Constants.Spacing.lg)
+            make.centerY.equalToSuperview().offset(-42)
         }
         
         addSubview(summonerSearchResultView)
         summonerSearchResultView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(Constants.Layout.Component.summonerProfileView)
+            make.height.equalTo(75)
         }
     }
 }

@@ -84,7 +84,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         navigationBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(Constants.Layout.Component.navigationBar)
+            make.height.equalTo(44)
         }
         
         view.addSubview(contentView)
@@ -108,7 +108,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         let label = makeLabel(text: title, font: font)
         navigationBar.addSubview(label)
         label.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.leading.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }
         titleLabel = label
@@ -121,7 +121,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         
         navigationBar.addSubview(button)
         button.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.leading.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }
         
@@ -135,7 +135,7 @@ class BaseViewController<View: UIView>: UIViewController, UIGestureRecognizerDel
         
         navigationBar.addSubview(button)
         button.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(Constants.Spacing.Content.padding)
+            make.trailing.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }
         

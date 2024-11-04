@@ -43,7 +43,7 @@ final class TodayCardCell: UICollectionViewCell, Reusable {
     
     private func configureCell() {
         backgroundColor = .backgroundSecondary
-        layer.cornerRadius = Constants.Radius.lg
+        layer.cornerRadius = 20
     }
     
     private func configureLayout() {

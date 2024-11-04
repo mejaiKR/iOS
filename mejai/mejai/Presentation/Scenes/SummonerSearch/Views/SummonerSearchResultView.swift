@@ -19,14 +19,14 @@ final class SummonerSearchResultView: UIView {
     private let profileStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = Constants.Spacing.Content.summonerStackViewSpacing
+        stackView.spacing = 5
         return stackView
     }()
     
     private let riotIDStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = Constants.Spacing.Content.summonerStackViewSpacing
+        stackView.spacing = 5
         return stackView
     }()
     
@@ -89,7 +89,7 @@ final class SummonerSearchResultView: UIView {
     // MARK: - Configure Methods
     
     private func configureCell() {
-        layer.cornerRadius = Constants.Radius.sm
+        layer.cornerRadius = 8
         layer.borderWidth = 1
         updateAppearance()
     }
@@ -100,20 +100,20 @@ final class SummonerSearchResultView: UIView {
         [riotIDStackView, rankTierLabel].forEach { profileStackView.addArrangedSubview($0) }
         
         summonerImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Layout.IconImage.small)
+            make.width.height.equalTo(20)
         }
         
         addSubview(checkmarkImageView)
         checkmarkImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Layout.IconImage.normal)
-            make.trailing.equalToSuperview().inset(Constants.Spacing.sm)
+            make.width.height.equalTo(24)
+            make.trailing.equalToSuperview().inset(14)
             make.centerY.equalToSuperview()
         }
         
         addSubview(profileStackView)
         profileStackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(Constants.Spacing.sm)
-            make.trailing.equalTo(checkmarkImageView.snp.leading).offset(0 - Constants.Spacing.sm)
+            make.leading.equalToSuperview().inset(14)
+            make.trailing.equalTo(checkmarkImageView.snp.leading).offset(-14)
             make.centerY.equalToSuperview()
         }
     }
