@@ -9,11 +9,16 @@ import Combine
 import Foundation
 
 enum HomeViewState {
+    case loading
     case success
     case error
 }
 
-final class HomeViewModel {
+final class HomeViewModel: ViewModel {
+    enum Action {
+        case fetchSummonerDetail
+    }
+    
     struct State {
         var homeViewState: CurrentValueSubject<HomeViewState, Never>
         var summonerProfileViewModel: CurrentValueSubject<SummonerProfileViewModel, Never>
@@ -37,61 +42,82 @@ final class HomeViewModel {
             self.todayPlayLogCellViewModels = .init(todayPlayLogCellViewModels)
             self.weekPlayLogCellViewModels = .init(weekPlayLogCellViewModels)
         }
-    }
-    
-    var state: State
-    private var cancellables = Set<AnyCancellable>()
-    
-    init() {
-        state = State(
-            homeViewState: .error,
-            summonerProfileViewModel:
-                SummonerProfileViewModel(
-                    relationship: "관계",
-                    name: "소환사이름",
-                    tagLine: "태그라인",
-                    image: nil
-                ),
+        
+        static let initialState = State(
+            homeViewState: .loading,
+            summonerProfileViewModel: SummonerProfileViewModel(
+                relationship: "",
+                name: "",
+                tagLine: "",
+                image: nil
+            ),
             rankTierCellViewModels: [
-                RankTierCellViewModel(cellType: .flex, rankTier: "자유 랭크 티어", image: nil),
-                RankTierCellViewModel(cellType: .solo, rankTier: "솔로 랭크 티어", image: nil)
+                RankTierCellViewModel(cellType: .flex, rankTier: "", image: nil),
+                RankTierCellViewModel(cellType: .solo, rankTier: "", image: nil)
             ],
             todayDayLogCellViewModels: [
-                TodayDayLogCellViewModel(cellType: .count, data: 42),
-                TodayDayLogCellViewModel(cellType: .time, data: 4242)
+                TodayDayLogCellViewModel(cellType: .count, data: 0),
+                TodayDayLogCellViewModel(cellType: .time, data: 0)
             ],
-            todayPlayLogCellViewModels: [
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: true, isFirst: true),
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: false),
-                TodayPlayLogCellViewModel(startTime: "시작", endTime: "끝", isWin: true, isLast: true)
-            ],
+            todayPlayLogCellViewModels: [],
             weekPlayLogCellViewModels: [
                 WeekPlayLogCellViewModel(day: "월", count: 0),
-                WeekPlayLogCellViewModel(day: "화", count: 1),
-                WeekPlayLogCellViewModel(day: "수", count: 2),
-                WeekPlayLogCellViewModel(day: "목", count: 3),
-                WeekPlayLogCellViewModel(day: "금", count: 4),
-                WeekPlayLogCellViewModel(day: "토", count: 5),
-                WeekPlayLogCellViewModel(day: "일", count: 6),
+                WeekPlayLogCellViewModel(day: "화", count: 0),
+                WeekPlayLogCellViewModel(day: "수", count: 0),
+                WeekPlayLogCellViewModel(day: "목", count: 0),
+                WeekPlayLogCellViewModel(day: "금", count: 0),
+                WeekPlayLogCellViewModel(day: "토", count: 0),
+                WeekPlayLogCellViewModel(day: "일", count: 0)
             ]
         )
+    }
+    
+    // MARK: - Properties
+    
+    var actionSubject = PassthroughSubject<Action, Never>()
+    var cancellables = Set<AnyCancellable>()
+    private(set) var state: State
+    
+    private let getSummonerDetailUseCase: GetSummonerDetailUseCase
+    
+    // MARK: - Init
+    
+    init(getSummonerDetailUseCase: GetSummonerDetailUseCase) {
+        self.getSummonerDetailUseCase = getSummonerDetailUseCase
+        self.state = State.initialState
         
-        let networkService = NetworkService.shared
-        let target = SummonerAPI.getSummoner(summonerName: "김영태", tag: "KR1")
-        networkService.request(target, responseType: SummonerDetailEntity.self)
-            .sink { completion in
+        self.actionSubject
+            .sink { [weak self] action in
+                self?.handleAction(action)
+            }
+            .store(in: &cancellables)
+    }
+    
+    // MARK: - Handle Action Methods
+    
+    private func handleAction(_ action: Action) {
+        switch action {
+        case .fetchSummonerDetail:
+            fetchSummonerDetail()
+        }
+    }
+    
+    private func fetchSummonerDetail() {
+        getSummonerDetailUseCase.execute(name: "김영태", tag: "KR1")
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("finished")
-                case .failure(let error):
-                    print("error: \(error.localizedDescription)")
+                    self?.state.homeViewState.send(.success)
+                case .failure:
+                    self?.state.homeViewState.send(.error)
                 }
-            } receiveValue: { result in
-                print(result.toDomain())
+            } receiveValue: { [weak self] viewData in
+                self?.state.summonerProfileViewModel.send(viewData.profile)
+                self?.state.rankTierCellViewModels.send(viewData.rankTiers)
+                self?.state.todayDayLogCellViewModels.send(viewData.todayLogs)
+                self?.state.todayPlayLogCellViewModels.send(viewData.todayPlayLogs)
+                self?.state.weekPlayLogCellViewModels.send(viewData.weekPlayLogs)
             }
             .store(in: &cancellables)
     }

@@ -36,6 +36,7 @@ final class HomeViewController: BaseViewController<HomeView> {
         configureLargeTitleNavigationBar(title: "mejai", font: .logo, image: .refresh)
         configureDataSource()
         configureBindings()
+        viewModel.send(.fetchSummonerDetail)
     }
     
     // MARK: - Configure Methods
@@ -93,8 +94,8 @@ final class HomeViewController: BaseViewController<HomeView> {
     private func configureBindings() {
         viewModel.state.homeViewState
             .sink { [weak self] state in
-                self?.scrollView.isHidden = state == .error
-                self?.errorView.isHidden = state == .success
+                self?.scrollView.isHidden = state != .success
+                self?.errorView.isHidden = state != .error
             }
             .store(in: &cancellables)
         

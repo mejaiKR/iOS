@@ -21,7 +21,6 @@ final class RankTierCell: UICollectionViewCell, Reusable {
     
     private let tierImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .gray01
         return imageView
     }()
     
