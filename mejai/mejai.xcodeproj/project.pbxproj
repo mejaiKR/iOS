@@ -84,6 +84,15 @@
 		90FF78E62CE5B85A002FEF96 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78E52CE5B85A002FEF96 /* Task.swift */; };
 		90FF78E82CE5B860002FEF96 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78E72CE5B85F002FEF96 /* NetworkError.swift */; };
 		90FF78EA2CE5B865002FEF96 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78E92CE5B865002FEF96 /* RequestBuilder.swift */; };
+		90FF78EE2CE5BDA4002FEF96 /* SummonerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */; };
+		90FF78F12CE5BE4A002FEF96 /* SummonerDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F02CE5BE49002FEF96 /* SummonerDetailEntity.swift */; };
+		90FF78F32CE5BE4F002FEF96 /* SummonerInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */; };
+		90FF78F52CE5BE55002FEF96 /* PlayStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */; };
+		90FF78F72CE5BE5B002FEF96 /* PlayLogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */; };
+		90FF78FA2CE5BE6F002FEF96 /* SummonerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F92CE5BE6F002FEF96 /* SummonerDetail.swift */; };
+		90FF78FC2CE5BE75002FEF96 /* SummonerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78FB2CE5BE74002FEF96 /* SummonerInfo.swift */; };
+		90FF78FE2CE5BE7A002FEF96 /* PlayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78FD2CE5BE79002FEF96 /* PlayStatus.swift */; };
+		90FF79002CE5BE7F002FEF96 /* PlayLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78FF2CE5BE7F002FEF96 /* PlayLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +174,15 @@
 		90FF78E72CE5B85F002FEF96 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		90FF78E92CE5B865002FEF96 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		90FF78EB2CE5BA88002FEF96 /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
+		90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerAPI.swift; sourceTree = "<group>"; };
+		90FF78F02CE5BE49002FEF96 /* SummonerDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerDetailEntity.swift; sourceTree = "<group>"; };
+		90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoEntity.swift; sourceTree = "<group>"; };
+		90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStatusEntity.swift; sourceTree = "<group>"; };
+		90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayLogEntity.swift; sourceTree = "<group>"; };
+		90FF78F92CE5BE6F002FEF96 /* SummonerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerDetail.swift; sourceTree = "<group>"; };
+		90FF78FB2CE5BE74002FEF96 /* SummonerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfo.swift; sourceTree = "<group>"; };
+		90FF78FD2CE5BE79002FEF96 /* PlayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStatus.swift; sourceTree = "<group>"; };
+		90FF78FF2CE5BE7F002FEF96 /* PlayLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +293,7 @@
 		900893FB2CCAD3770000B6FE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				90FF78EF2CE5BE43002FEF96 /* Summoner */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -297,6 +316,7 @@
 		900893FE2CCAD3940000B6FE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				90FF78EC2CE5BD8B002FEF96 /* API */,
 				90FF78D82CE5B81D002FEF96 /* Service */,
 				90FF78D72CE5B816002FEF96 /* Base */,
 			);
@@ -507,7 +527,7 @@
 		90F6BA0F2CCD5CBC001FA67B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				90F6BA0D2CCD5B74001FA67B /* Relationship.swift */,
+				90FF78F82CE5BE66002FEF96 /* Summoner */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,6 +620,37 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		90FF78EC2CE5BD8B002FEF96 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		90FF78EF2CE5BE43002FEF96 /* Summoner */ = {
+			isa = PBXGroup;
+			children = (
+				90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */,
+				90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */,
+				90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */,
+				90FF78F02CE5BE49002FEF96 /* SummonerDetailEntity.swift */,
+			);
+			path = Summoner;
+			sourceTree = "<group>";
+		};
+		90FF78F82CE5BE66002FEF96 /* Summoner */ = {
+			isa = PBXGroup;
+			children = (
+				90F6BA0D2CCD5B74001FA67B /* Relationship.swift */,
+				90FF78FF2CE5BE7F002FEF96 /* PlayLog.swift */,
+				90FF78FD2CE5BE79002FEF96 /* PlayStatus.swift */,
+				90FF78FB2CE5BE74002FEF96 /* SummonerInfo.swift */,
+				90FF78F92CE5BE6F002FEF96 /* SummonerDetail.swift */,
+			);
+			path = Summoner;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -684,18 +735,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90FF78F52CE5BE55002FEF96 /* PlayStatusEntity.swift in Sources */,
 				90FF78E22CE5B848002FEF96 /* ParameterEncoding.swift in Sources */,
 				90F6BA192CCD6334001FA67B /* AppDIContainer.swift in Sources */,
 				90F6BA7E2CD4BE28001FA67B /* TodayPlayLogCell.swift in Sources */,
+				90FF79002CE5BE7F002FEF96 /* PlayLog.swift in Sources */,
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
 				90F6BA7A2CD2C60A001FA67B /* TodayDayLogCell.swift in Sources */,
 				90F6BA882CD92E17001FA67B /* SummonerProfileViewModel.swift in Sources */,
+				90FF78F12CE5BE4A002FEF96 /* SummonerDetailEntity.swift in Sources */,
 				90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */,
 				90F6BA8E2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift in Sources */,
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				90FF78E82CE5B860002FEF96 /* NetworkError.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				90F6BA342CCECCAD001FA67B /* SettingsViewController.swift in Sources */,
+				90FF78FE2CE5BE7A002FEF96 /* PlayStatus.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
 				90FF78E42CE5B855002FEF96 /* HTTPMethod.swift in Sources */,
 				90F6BA322CCECC9D001FA67B /* SettingsView.swift in Sources */,
@@ -715,6 +770,7 @@
 				90F6BA862CD92B66001FA67B /* HomeViewModel.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */,
+				90FF78F32CE5BE4F002FEF96 /* SummonerInfoEntity.swift in Sources */,
 				90FF78DA2CE5B822002FEF96 /* NetworkService.swift in Sources */,
 				90F6BA7C2CD4BD3E001FA67B /* TodayPlayLogView.swift in Sources */,
 				90F6BA782CD2C5C4001FA67B /* TodayView.swift in Sources */,
@@ -730,12 +786,15 @@
 				90F6BA302CCECC7F001FA67B /* HomeViewController.swift in Sources */,
 				90F6BA3A2CCECDE1001FA67B /* HomeDIContainer.swift in Sources */,
 				900894352CCAF8320000B6FE /* BaseViewController.swift in Sources */,
+				90FF78FC2CE5BE75002FEF96 /* SummonerInfo.swift in Sources */,
 				90F6BA052CCD4FAE001FA67B /* LoginButton.swift in Sources */,
 				90F6BA8C2CD932EA001FA67B /* TodayPlayLogCellViewModel.swift in Sources */,
+				90FF78F72CE5BE5B002FEF96 /* PlayLogEntity.swift in Sources */,
 				90FF78E62CE5B85A002FEF96 /* Task.swift in Sources */,
 				90F6BA822CD4C9C7001FA67B /* WeekPlayLogCell.swift in Sources */,
 				90FF78D42CE5B807002FEF96 /* NetworkServiceProtocol.swift in Sources */,
 				90F6BA1E2CCD63F9001FA67B /* AppFlowCoordinator.swift in Sources */,
+				90FF78EE2CE5BDA4002FEF96 /* SummonerAPI.swift in Sources */,
 				90F6BA8A2CD93090001FA67B /* TodayDayLogCellViewModel.swift in Sources */,
 				90F6BA0B2CCD5B01001FA67B /* RelationshipCell.swift in Sources */,
 				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,
@@ -743,6 +802,7 @@
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
 				90F6BA3E2CCECE2C001FA67B /* SettingsDIContainer.swift in Sources */,
 				90F6BA842CD92925001FA67B /* RankTierCellViewModel.swift in Sources */,
+				90FF78FA2CE5BE6F002FEF96 /* SummonerDetail.swift in Sources */,
 				90F6BA3C2CCECE13001FA67B /* SettingsFlowCoordinator.swift in Sources */,
 				90F6BA292CCD67A5001FA67B /* UIControl+Combine.swift in Sources */,
 				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,

@@ -40,6 +40,7 @@ final class HomeViewModel {
     }
     
     var state: State
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         state = State(
@@ -78,5 +79,20 @@ final class HomeViewModel {
                 WeekPlayLogCellViewModel(day: "일", count: 6),
             ]
         )
+        
+        let networkService = NetworkService.shared
+        let target = SummonerAPI.getSummoner(summonerName: "김영태", tag: "KR1")
+        networkService.request(target, responseType: SummonerDetailEntity.self)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("finished")
+                case .failure(let error):
+                    print("error: \(error.localizedDescription)")
+                }
+            } receiveValue: { result in
+                print(result.toDomain())
+            }
+            .store(in: &cancellables)
     }
 }
