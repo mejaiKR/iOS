@@ -103,22 +103,27 @@ final class HomeViewModel: ViewModel {
     }
     
     private func fetchSummonerDetail() {
-        getSummonerDetailUseCase.execute(name: "김영태", tag: "KR1")
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    self?.state.homeViewState.send(.success)
-                case .failure:
-                    self?.state.homeViewState.send(.error)
+        state.homeViewState.send(.loading)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in // 임시
+            guard let self = self else { return }
+            getSummonerDetailUseCase.execute(name: "김영태", tag: "KR1")
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        self?.state.homeViewState.send(.success)
+                    case .failure:
+                        self?.state.homeViewState.send(.error)
+                    }
+                } receiveValue: { [weak self] viewData in
+                    self?.state.summonerProfileViewModel.send(viewData.profile)
+                    self?.state.rankTierCellViewModels.send(viewData.rankTiers)
+                    self?.state.todayDayLogCellViewModels.send(viewData.todayLogs)
+                    self?.state.todayPlayLogCellViewModels.send(viewData.todayPlayLogs)
+                    self?.state.weekPlayLogCellViewModels.send(viewData.weekPlayLogs)
                 }
-            } receiveValue: { [weak self] viewData in
-                self?.state.summonerProfileViewModel.send(viewData.profile)
-                self?.state.rankTierCellViewModels.send(viewData.rankTiers)
-                self?.state.todayDayLogCellViewModels.send(viewData.todayLogs)
-                self?.state.todayPlayLogCellViewModels.send(viewData.todayPlayLogs)
-                self?.state.weekPlayLogCellViewModels.send(viewData.weekPlayLogs)
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
+        
     }
 }

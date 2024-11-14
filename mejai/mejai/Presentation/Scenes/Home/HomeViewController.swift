@@ -92,10 +92,25 @@ final class HomeViewController: BaseViewController<HomeView> {
     }
     
     private func configureBindings() {
+        // Action
+        actionButton?.tapPublisher
+            .sink { [weak self] in
+                self?.viewModel.send(.fetchSummonerDetail)
+            }
+            .store(in: &cancellables)
+        
+        // State
         viewModel.state.homeViewState
             .sink { [weak self] state in
-                self?.scrollView.isHidden = state != .success
-                self?.errorView.isHidden = state != .error
+                guard let self = self else { return }
+                
+                scrollView.isHidden = state != .success
+                errorView.isHidden = state != .error
+                loadingIndicator.isHidden = state != .loading
+                
+                state == .loading ?
+                loadingIndicator.startAnimating() :
+                loadingIndicator.stopAnimating()
             }
             .store(in: &cancellables)
         
@@ -119,11 +134,13 @@ final class HomeViewController: BaseViewController<HomeView> {
         
         viewModel.state.todayPlayLogCellViewModels
             .sink { [weak self] cellViewModels in
-                self?.applySnapshot(with: cellViewModels)
-                self?.todayPlayLogView.updateCollectionViewHeight(for: cellViewModels.count)
-                self?.todayEmptyView.isHidden = !cellViewModels.isEmpty
-                self?.todayDayLogCollectionView.isHidden = cellViewModels.isEmpty
-                self?.todayPlayLogView.isHidden = cellViewModels.isEmpty
+                guard let self = self else { return }
+                
+                applySnapshot(with: cellViewModels)
+                todayPlayLogView.updateCollectionViewHeight(for: cellViewModels.count)
+                todayEmptyView.isHidden = !cellViewModels.isEmpty
+                todayDayLogCollectionView.isHidden = cellViewModels.isEmpty
+                todayPlayLogView.isHidden = cellViewModels.isEmpty
             }
             .store(in: &cancellables)
         
@@ -172,6 +189,10 @@ private extension HomeViewController {
     
     var errorView: StateView {
         contentView.errorView
+    }
+    
+    var loadingIndicator: UIActivityIndicatorView {
+        contentView.loadingIndicator
     }
     
     var summonerProfileView: SummonerProfileView {
