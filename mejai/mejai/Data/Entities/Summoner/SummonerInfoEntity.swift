@@ -10,6 +10,7 @@ import Foundation
 struct SummonerInfoEntity: Decodable {
     let summonerName: String
     let tag: String
+    let profileIcon: String
     let relationship: String
     let soloRankTier: String
     let soloRankIconUrl: String
@@ -20,6 +21,7 @@ struct SummonerInfoEntity: Decodable {
         return SummonerInfo(
             summonerName: summonerName,
             tag: tag,
+            profileIcon: profileIcon,
             relationship: Relationship(rawValue: relationship) ?? .friend,
             soloRankTier: soloRankTier,
             soloRankIconUrl: soloRankIconUrl,

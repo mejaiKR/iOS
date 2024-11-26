@@ -10,6 +10,7 @@ import Foundation
 struct SummonerInfo {
     let summonerName: String
     let tag: String
+    let profileIcon: String
     let relationship: Relationship
     let soloRankTier: String
     let soloRankIconUrl: String

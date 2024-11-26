@@ -23,7 +23,7 @@ final class GetSummonerDetailUseCase {
                         relationship: summonerDetail.summoner.relationship.rawValue,
                         name: summonerDetail.summoner.summonerName,
                         tagLine: summonerDetail.summoner.tag,
-                        image: nil
+                        image: summonerDetail.summoner.profileIcon
                     ),
                     rankTiers: [
                         .init(

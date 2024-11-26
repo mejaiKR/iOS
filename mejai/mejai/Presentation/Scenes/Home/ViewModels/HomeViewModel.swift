@@ -106,7 +106,7 @@ final class HomeViewModel: ViewModel {
         state.homeViewState.send(.loading)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in // 임시
             guard let self = self else { return }
-            getSummonerDetailUseCase.execute(name: "김영태", tag: "KR1")
+            getSummonerDetailUseCase.execute(name: "lobonabeat1", tag: "KR1")
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
                     switch completion {
