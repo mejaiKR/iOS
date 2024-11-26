@@ -8,7 +8,9 @@
 import Foundation
 
 final class MainDIContainer {
-    struct Dependencies {}
+    struct Dependencies {
+        let getSummonerDetailUseCase: GetSummonerDetailUseCase
+    }
 
     private let dependencies: Dependencies
 
@@ -19,7 +21,9 @@ final class MainDIContainer {
     // MARK: - DI Containers
     
     func makeHomeDIContainer() -> HomeDIContainer {
-        let dependencies = HomeDIContainer.Dependencies()
+        let dependencies = HomeDIContainer.Dependencies(
+            getSummonerDetailUseCase: dependencies.getSummonerDetailUseCase
+        )
         return HomeDIContainer(dependencies: dependencies)
     }
     

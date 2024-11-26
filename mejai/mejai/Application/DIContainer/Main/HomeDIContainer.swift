@@ -8,7 +8,9 @@
 import UIKit
 
 final class HomeDIContainer {
-    struct Dependencies {}
+    struct Dependencies {
+        let getSummonerDetailUseCase: GetSummonerDetailUseCase
+    }
 
     private let dependencies: Dependencies
 
@@ -19,7 +21,7 @@ final class HomeDIContainer {
     // MARK: - View Models
     
     func makeHomeViewModel() -> HomeViewModel {
-        return HomeViewModel()
+        return HomeViewModel(getSummonerDetailUseCase: dependencies.getSummonerDetailUseCase)
     }
     
     // MARK: - View Controllers

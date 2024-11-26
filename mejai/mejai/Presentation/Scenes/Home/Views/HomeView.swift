@@ -31,6 +31,12 @@ final class HomeView: UIView {
     
     let errorView = StateView(state: .error, message: "뭔가 문제가 있어요\n다시 시도해주세요")
     
+    let loadingIndicator = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = .gray
+        return indicator
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -84,6 +90,11 @@ final class HomeView: UIView {
         
         addSubview(errorView)
         errorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        addSubview(loadingIndicator)
+        loadingIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
     }
