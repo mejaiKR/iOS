@@ -14,9 +14,12 @@ import KakaoSDKUser
 
 final class KakaoLoginService: OAuthLoginServiceProtocol {
     let provider: OAuthProvider = .kakao
-    private var subject: PassthroughSubject<String, OAuthError> = .init()
+    private var currentSubject: PassthroughSubject<String, OAuthError>?
     
     func login() -> AnyPublisher<String, OAuthError> {
+        let subject = PassthroughSubject<String, OAuthError>()
+        currentSubject = subject
+        
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
                 self?.handleLoginResult(oauthToken: oauthToken, error: error)
@@ -27,10 +30,16 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
             }
         }
         
-        return subject.eraseToAnyPublisher()
+        return subject
+            .handleEvents(receiveCompletion: { [weak self] _ in
+                self?.currentSubject = nil
+            })
+            .eraseToAnyPublisher()
     }
     
     private func handleLoginResult(oauthToken: OAuthToken?, error: Error?) {
+        guard let subject = currentSubject else { return }
+        
         if let error = error as? SdkError {
             subject.send(completion: .failure(.kakaoError(error)))
         } else if oauthToken != nil {
@@ -41,11 +50,11 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
     }
     
     private func getUserInfo() {
+        guard let subject = currentSubject else { return }
+        
         UserApi.shared.me() { [weak self] (user, error) in
-            guard let self = self else {
-                // self가 없는 경우 subject에 에러를 보내고 종료
-                let subject = PassthroughSubject<String, OAuthError>()
-                subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
+            guard self != nil else {
+                subject.send(completion: .failure(.unknown(NSError(domain: "Self is deallocated", code: 0))))
                 return
             }
             

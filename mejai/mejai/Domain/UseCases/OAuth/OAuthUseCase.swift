@@ -26,13 +26,17 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         self.keychainService = keychainService
     }
     
-    func login(with provider: OAuthProvider) -> AnyPublisher<OAuthResult, OAuthError> {
+    func login(with provider: OAuthProvider) -> AnyPublisher<OAuthResult, Never> {
         guard let service = loginServices.first(where: { $0.provider == provider }) else {
-            return Fail(error: .unsupportedProvider).eraseToAnyPublisher()
+            return Just(OAuthResult.failure(.unsupportedProvider))
+                .eraseToAnyPublisher()
         }
         
         return service.login()
             .flatMap { self.verifyUser(provider: provider, id: $0) }
+            .catch { error in
+                Just(OAuthResult.failure(error))
+            }
             .eraseToAnyPublisher()
     }
     
@@ -51,26 +55,34 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
             .eraseToAnyPublisher()
     }
     
-    private func saveTokens(accessToken: String/*, refreshToken: String*/) throws {
+    private func saveTokens(accessToken: String) throws {
         do {
             try keychainService.save(accessToken, for: .accessToken)
-//            try keychainService.save(refreshToken, for: .refreshToken)
         } catch {
             throw OAuthError.tokenSaveFailed
         }
     }
     
     private func mapError(_ error: Error) -> OAuthError {
-        print(error)
+        print("👩🏻‍💻 Error occurred:", error)
         if let oauthError = error as? OAuthError {
             return oauthError
         }
+        
         if let networkError = error as? NetworkError {
             switch networkError {
-            case .serverError(let statusCode) where statusCode == 404:
-                return .userNotFound
-            case .serverError(let statusCode) where statusCode == 401:
-                return .unauthorized
+            case .serverError(let statusCode):
+                print("👩🏻‍💻 Network error with status code:", statusCode)
+                switch statusCode {
+                case 400:
+                    return .invalidRequest
+                case 401:
+                    return .unauthorized
+                case 404:
+                    return .userNotFound
+                default:
+                    return .networkError(networkError)
+                }
             default:
                 return .networkError(networkError)
             }

@@ -26,6 +26,7 @@ enum OAuthError: Error {
     // 네트워크 관련 에러
     case networkError(NetworkError)
     case invalidResponse
+    case invalidRequest
     case unauthorized
     case clientError
     case serverError
@@ -54,6 +55,8 @@ enum OAuthError: Error {
             return "네트워크 오류: \(error.localizedDescription)"
         case .invalidResponse:
             return "서버 응답이 올바르지 않습니다."
+        case .invalidRequest:
+            return "서버 요청이 올바르지 않습니다."
         case .unauthorized:
             return "인증에 실패했습니다."
         case .clientError:

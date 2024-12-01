@@ -11,9 +11,13 @@ import Foundation
 
 final class AppleLoginService: NSObject, OAuthLoginServiceProtocol {
     let provider: OAuthProvider = .apple
-    private var subject: PassthroughSubject<String, OAuthError> = .init()
+    private var currentSubject: PassthroughSubject<String, OAuthError>?
     
     func login() -> AnyPublisher<String, OAuthError> {
+        // 새로운 subject 생성
+        let subject = PassthroughSubject<String, OAuthError>()
+        currentSubject = subject
+        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         
@@ -22,7 +26,12 @@ final class AppleLoginService: NSObject, OAuthLoginServiceProtocol {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
         
-        return subject.eraseToAnyPublisher()
+        // subject가 complete되면 currentSubject 초기화
+        return subject
+            .handleEvents(receiveCompletion: { [weak self] _ in
+                self?.currentSubject = nil
+            })
+            .eraseToAnyPublisher()
     }
 }
 
@@ -31,6 +40,8 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithAuthorization authorization: ASAuthorization
     ) {
+        guard let subject = currentSubject else { return }
+        
         guard let appleIDCredential = authorization.credential
                 as? ASAuthorizationAppleIDCredential else {
             subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
@@ -45,10 +56,12 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithError error: Error
     ) {
+        guard let subject = currentSubject else { return }
+        
         if let error = error as? ASAuthorizationError {
             switch error.code {
             case .canceled:
-                break
+                subject.send(completion: .finished)
             default:
                 subject.send(completion: .failure(.appleError(error)))
             }

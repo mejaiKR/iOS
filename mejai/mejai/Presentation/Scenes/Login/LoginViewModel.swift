@@ -47,15 +47,7 @@ final class LoginViewModel: ViewModel {
     
     private func login(provider: OAuthProvider) {
         loginUseCase.login(with: provider)
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    print("👩🏻‍💻 로그인/회원가입 완료")
-                case .failure:
-                    print("👩🏻‍💻 로그인/회원가입 실패")
-                    self?.state.loginResult.send(.failure(.unknown(NSError())))
-                }
-            } receiveValue: { [weak self] result in
+            .sink { [weak self] result in
                 self?.state.loginResult.send(result)
             }
             .store(in: &cancellables)
