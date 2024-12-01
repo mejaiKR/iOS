@@ -39,6 +39,8 @@
 		907F55702CFC995B00B6E538 /* UseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556F2CFC995900B6E538 /* UseAPI.swift */; };
 		907F55732CFC9A1C00B6E538 /* PostLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */; };
 		907F55762CFCA07200B6E538 /* PostLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */; };
+		907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55772CFCAB0400B6E538 /* AlertViewController.swift */; };
+		907F557A2CFCAC2100B6E538 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55792CFCAC1E00B6E538 /* UIViewController+.swift */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -149,6 +151,8 @@
 		907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginResponse.swift; sourceTree = "<group>"; };
 		907F55742CFC9C7400B6E538 /* mejai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mejai.entitlements; sourceTree = "<group>"; };
 		907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginRequest.swift; sourceTree = "<group>"; };
+		907F55772CFCAB0400B6E538 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		907F55792CFCAC1E00B6E538 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -396,6 +400,7 @@
 		900894012CCAD3B90000B6FE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				907F55792CFCAC1E00B6E538 /* UIViewController+.swift */,
 				900894202CCAE07E0000B6FE /* UIFont+.swift */,
 				900894242CCAE4D70000B6FE /* UILabel+.swift */,
 				90F6BA022CCC291B001FA67B /* UICollectionView+Reusable.swift */,
@@ -430,6 +435,7 @@
 		900894042CCAD3D40000B6FE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				907F55772CFCAB0400B6E538 /* AlertViewController.swift */,
 				900894342CCAF8320000B6FE /* BaseViewController.swift */,
 				900894382CCB06800000B6FE /* ConfirmButton.swift */,
 				90F6B9FC2CCC1E09001FA67B /* StateView.swift */,
@@ -911,6 +917,7 @@
 				90F6BA172CCD62EE001FA67B /* Coordinator.swift in Sources */,
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				90F6BA802CD4C8F2001FA67B /* WeekView.swift in Sources */,
+				907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */,
 				90F6BA152CCD62CE001FA67B /* OnboardingFlowCoordinator.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
 				90F6BA212CCD6473001FA67B /* MainFlowCoordinator.swift in Sources */,
@@ -919,6 +926,7 @@
 				907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */,
 				90F6BA722CD2AE85001FA67B /* SummonerProfileView.swift in Sources */,
 				90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */,
+				907F557A2CFCAC2100B6E538 /* UIViewController+.swift in Sources */,
 				90F6BA862CD92B66001FA67B /* HomeViewModel.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */,

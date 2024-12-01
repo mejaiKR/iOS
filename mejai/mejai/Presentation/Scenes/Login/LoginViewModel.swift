@@ -56,7 +56,6 @@ final class LoginViewModel: ViewModel {
                     self?.state.loginResult.send(.failure(.unknown(NSError())))
                 }
             } receiveValue: { [weak self] result in
-                print(result)
                 self?.state.loginResult.send(result)
             }
             .store(in: &cancellables)

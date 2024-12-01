@@ -56,11 +56,16 @@ final class LoginViewController: BaseViewController<LoginView> {
         viewModel.state.loginResult
             .receive(on: RunLoop.main)
             .sink { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .success:
-                    self?.delegate?.loginViewControllerDidFinish()
+                    delegate?.loginViewControllerDidFinish()
                 case .failure:
-                    print("alert")
+                    showAlert(
+                        title: "로그인 오류",
+                        message: "로그인 시도 중 오류가 발생했어요\n다시 시도해주세요",
+                        actionText: "확인"
+                    )
                 }
             }
             .store(in: &cancellables)
