@@ -9,7 +9,6 @@ import AuthenticationServices
 import Combine
 import Foundation
 
-import Core
 import KakaoSDKCommon
 
 final class OAuthUseCase: OAuthLoginUseCaseProtocol {
@@ -33,19 +32,7 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         }
         
         return service.login()
-            .flatMap { socialId in
-                self.verifyUser(provider: provider, id: socialId)
-                    .catch { error -> AnyPublisher<OAuthResult, OAuthError> in
-                        switch error {
-                        case .userNotFound:
-                            print("👩🏻‍💻 회원 아님")
-                            return self.registerUser(provider: provider, id: socialId)
-                        default:
-                            print("👩🏻‍💻 에러 발생")
-                            return Fail(error: error).eraseToAnyPublisher()
-                        }
-                    }
-            }
+            .flatMap { self.verifyUser(provider: provider, id: $0) }
             .eraseToAnyPublisher()
     }
     
@@ -53,45 +40,28 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         provider: OAuthProvider,
         id: String
     ) -> AnyPublisher<OAuthResult, OAuthError> {
-        let target = AuthAPI.postAuthMemberLogin(socialType: provider.rawValue, socialId: id)
-        return networkService.request(target, responseType: PostAuthMemeberLoginResponse.self)
+        print("👩🏻‍💻", provider, id)
+        let target = UserAPI.postLogin(socialId: id, socialType: provider.rawValue)
+        return networkService.request(target, responseType: PostLoginResponse.self)
             .tryMap { response in
-                guard let tokenData = response.data else {
-                    throw OAuthError.userNotFound
-                }
-                print("👩🏻‍💻 로그인 완료")
-                try self.saveTokens(
-                    accessToken: tokenData.accessToken,
-                    refreshToken: tokenData.refreshToken
-                )
+                try self.saveTokens(accessToken: response.accessToken)
                 return OAuthResult.success
             }
             .mapError { self.mapError($0) }
             .eraseToAnyPublisher()
     }
     
-    private func saveTokens(accessToken: String, refreshToken: String) throws {
+    private func saveTokens(accessToken: String/*, refreshToken: String*/) throws {
         do {
             try keychainService.save(accessToken, for: .accessToken)
-            try keychainService.save(refreshToken, for: .refreshToken)
+//            try keychainService.save(refreshToken, for: .refreshToken)
         } catch {
             throw OAuthError.tokenSaveFailed
         }
     }
     
-    private func registerUser(
-        provider: OAuthProvider,
-        id: String
-    ) -> AnyPublisher<OAuthResult, OAuthError> {
-        print("👩🏻‍💻 회원가입")
-        let target = MemberAPI.postMember(socialType: provider.rawValue, socialId: id)
-        return networkService.request(target, responseType: PostMemberResponse.self)
-            .mapError { self.mapError($0) }
-            .flatMap { _ in self.verifyUser(provider: provider, id: id) }
-            .eraseToAnyPublisher()
-    }
-    
     private func mapError(_ error: Error) -> OAuthError {
+        print(error)
         if let oauthError = error as? OAuthError {
             return oauthError
         }

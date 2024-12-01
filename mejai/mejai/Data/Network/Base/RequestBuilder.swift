@@ -31,8 +31,13 @@ struct RequestBuilder {
         request.httpMethod = target.method.rawValue
         request.allHTTPHeaderFields = target.headers
         
-        if case let .requestParameters(params, encoding) = target.task, encoding == .jsonEncoding {
+        switch target.task {
+        case let .requestParameters(params, encoding) where encoding == .jsonEncoding:
             request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+        case let .requestJSONEncodable(encodable):
+            request.httpBody = try? JSONEncoder().encode(encodable)
+        default:
+            break
         }
         
         return request

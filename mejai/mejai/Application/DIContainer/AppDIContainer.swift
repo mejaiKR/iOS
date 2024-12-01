@@ -9,11 +9,19 @@ import Foundation
 
 final class AppDIContainer {
     private let networkService: NetworkServiceProtocol
+    private let keychainService: KeychainServiceProtocol
+    private let loginUseCase: OAuthLoginUseCaseProtocol
     private let summonerRepository: SummonerRepositoryProtocol
     private let getSummonerDetailUseCase: GetSummonerDetailUseCase
     
     init() {
-        networkService = NetworkService.shared
+        networkService = NetworkService()
+        keychainService = KeychainService()
+        loginUseCase = OAuthUseCase(
+            loginServices: [AppleLoginService(), KakaoLoginService()],
+            networkService: networkService,
+            keychainService: keychainService
+        )
         summonerRepository = SummonerRepository(networkService: networkService)
         getSummonerDetailUseCase = GetSummonerDetailUseCase(repository: summonerRepository)
     }
@@ -21,7 +29,9 @@ final class AppDIContainer {
     // MARK: - DIContainers of scenes
     
     func makeOnboardingDIContainer() -> OnboardingDIContainer {
-        let dependencies = OnboardingDIContainer.Dependencies()
+        let dependencies = OnboardingDIContainer.Dependencies(
+            loginUseCase: loginUseCase
+        )
         return OnboardingDIContainer(dependencies: dependencies)
     }
     

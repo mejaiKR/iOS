@@ -1,5 +1,5 @@
 //
-//  SummonerDetailEntity.swift
+//  GetSummonerResponse.swift
 //  mejai
 //
 //  Created by 지연 on 11/14/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SummonerDetailEntity: Decodable {
+struct GetSummonerResponse: Decodable {
     let summoner: SummonerInfoEntity
     let today: PlayStatusEntity
     let todayPlayLogs: [PlayLogEntity]

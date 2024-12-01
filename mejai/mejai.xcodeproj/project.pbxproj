@@ -35,6 +35,10 @@
 		907F55672CF61ADA00B6E538 /* OAuthLoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */; };
 		907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */; };
 		907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */; };
+		907F556E2CFC96E700B6E538 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556D2CFC96E500B6E538 /* LoginViewModel.swift */; };
+		907F55702CFC995B00B6E538 /* UseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556F2CFC995900B6E538 /* UseAPI.swift */; };
+		907F55732CFC9A1C00B6E538 /* PostLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */; };
+		907F55762CFCA07200B6E538 /* PostLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -97,7 +101,7 @@
 		90FF78E82CE5B860002FEF96 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78E72CE5B85F002FEF96 /* NetworkError.swift */; };
 		90FF78EA2CE5B865002FEF96 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78E92CE5B865002FEF96 /* RequestBuilder.swift */; };
 		90FF78EE2CE5BDA4002FEF96 /* SummonerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */; };
-		90FF78F12CE5BE4A002FEF96 /* SummonerDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F02CE5BE49002FEF96 /* SummonerDetailEntity.swift */; };
+		90FF78F12CE5BE4A002FEF96 /* GetSummonerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F02CE5BE49002FEF96 /* GetSummonerResponse.swift */; };
 		90FF78F32CE5BE4F002FEF96 /* SummonerInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */; };
 		90FF78F52CE5BE55002FEF96 /* PlayStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */; };
 		90FF78F72CE5BE5B002FEF96 /* PlayLogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */; };
@@ -140,6 +144,11 @@
 		907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginServiceProtocol.swift; sourceTree = "<group>"; };
 		907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginUseCaseProtocol.swift; sourceTree = "<group>"; };
 		907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthUseCase.swift; sourceTree = "<group>"; };
+		907F556D2CFC96E500B6E538 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		907F556F2CFC995900B6E538 /* UseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAPI.swift; sourceTree = "<group>"; };
+		907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginResponse.swift; sourceTree = "<group>"; };
+		907F55742CFC9C7400B6E538 /* mejai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mejai.entitlements; sourceTree = "<group>"; };
+		907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginRequest.swift; sourceTree = "<group>"; };
 		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -201,7 +210,7 @@
 		90FF78E92CE5B865002FEF96 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		90FF78EB2CE5BA88002FEF96 /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
 		90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerAPI.swift; sourceTree = "<group>"; };
-		90FF78F02CE5BE49002FEF96 /* SummonerDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerDetailEntity.swift; sourceTree = "<group>"; };
+		90FF78F02CE5BE49002FEF96 /* GetSummonerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSummonerResponse.swift; sourceTree = "<group>"; };
 		90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerInfoEntity.swift; sourceTree = "<group>"; };
 		90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStatusEntity.swift; sourceTree = "<group>"; };
 		90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayLogEntity.swift; sourceTree = "<group>"; };
@@ -256,6 +265,7 @@
 		900893E02CCAD0C60000B6FE /* mejai */ = {
 			isa = PBXGroup;
 			children = (
+				907F55742CFC9C7400B6E538 /* mejai.entitlements */,
 				900893F52CCAD2920000B6FE /* Application */,
 				900893FA2CCAD2EB0000B6FE /* Common */,
 				900893F92CCAD2E30000B6FE /* Data */,
@@ -331,6 +341,7 @@
 		900893FB2CCAD3770000B6FE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				907F55712CFC9A0A00B6E538 /* User */,
 				90FF78EF2CE5BE43002FEF96 /* Summoner */,
 			);
 			path = Entities;
@@ -407,7 +418,7 @@
 		900894032CCAD3CB0000B6FE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				90F6B9ED2CCC12CD001FA67B /* Welcome */,
+				90F6B9ED2CCC12CD001FA67B /* Login */,
 				9008942F2CCAF7EC0000B6FE /* Settings */,
 				9008942E2CCAF7E50000B6FE /* Home */,
 				9008942D2CCAF7E00000B6FE /* Relationship */,
@@ -604,13 +615,23 @@
 			path = OAuth;
 			sourceTree = "<group>";
 		};
-		90F6B9ED2CCC12CD001FA67B /* Welcome */ = {
+		907F55712CFC9A0A00B6E538 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */,
+				907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		90F6B9ED2CCC12CD001FA67B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				907F556D2CFC96E500B6E538 /* LoginViewModel.swift */,
 				90F6B9EE2CCC12D7001FA67B /* LoginView.swift */,
 				90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */,
 			);
-			path = Welcome;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		90F6BA0F2CCD5CBC001FA67B /* Models */ = {
@@ -713,6 +734,7 @@
 		90FF78EC2CE5BD8B002FEF96 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				907F556F2CFC995900B6E538 /* UseAPI.swift */,
 				90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */,
 			);
 			path = API;
@@ -724,7 +746,7 @@
 				90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */,
 				90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */,
 				90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */,
-				90FF78F02CE5BE49002FEF96 /* SummonerDetailEntity.swift */,
+				90FF78F02CE5BE49002FEF96 /* GetSummonerResponse.swift */,
 			);
 			path = Summoner;
 			sourceTree = "<group>";
@@ -868,7 +890,7 @@
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
 				90F6BA7A2CD2C60A001FA67B /* TodayDayLogCell.swift in Sources */,
 				90F6BA882CD92E17001FA67B /* SummonerProfileViewModel.swift in Sources */,
-				90FF78F12CE5BE4A002FEF96 /* SummonerDetailEntity.swift in Sources */,
+				90FF78F12CE5BE4A002FEF96 /* GetSummonerResponse.swift in Sources */,
 				90F6BA032CCC291B001FA67B /* UICollectionView+Reusable.swift in Sources */,
 				907F554C2CF612CF00B6E538 /* KeychainServiceProtocol.swift in Sources */,
 				90F6BA8E2CD9382C001FA67B /* WeekPlayLogCellViewModel.swift in Sources */,
@@ -877,6 +899,7 @@
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
 				907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */,
 				90F6BA342CCECCAD001FA67B /* SettingsViewController.swift in Sources */,
+				907F55732CFC9A1C00B6E538 /* PostLoginResponse.swift in Sources */,
 				90FF78FE2CE5BE7A002FEF96 /* PlayStatus.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
 				90FF78E42CE5B855002FEF96 /* HTTPMethod.swift in Sources */,
@@ -909,6 +932,7 @@
 				90FF78D62CE5B80D002FEF96 /* TargetType.swift in Sources */,
 				90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */,
 				90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */,
+				907F55702CFC995B00B6E538 /* UseAPI.swift in Sources */,
 				90F6BA762CD2BE62001FA67B /* RankTierCell.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				90FF79052CE5C57D002FEF96 /* SummonerRepositoryProtocol.swift in Sources */,
@@ -931,6 +955,7 @@
 				90F6BA1E2CCD63F9001FA67B /* AppFlowCoordinator.swift in Sources */,
 				90FF78EE2CE5BDA4002FEF96 /* SummonerAPI.swift in Sources */,
 				90FF790F2CE5CBB6002FEF96 /* ViewModel.swift in Sources */,
+				907F556E2CFC96E700B6E538 /* LoginViewModel.swift in Sources */,
 				90F6BA8A2CD93090001FA67B /* TodayDayLogCellViewModel.swift in Sources */,
 				90F6BA0B2CCD5B01001FA67B /* RelationshipCell.swift in Sources */,
 				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,
@@ -949,6 +974,7 @@
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
 				90FF78EA2CE5B865002FEF96 /* RequestBuilder.swift in Sources */,
 				90F6BA362CCECCD7001FA67B /* MainDIContainer.swift in Sources */,
+				907F55762CFCA07200B6E538 /* PostLoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,6 +1106,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mejai/mejai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
@@ -1095,7 +1122,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.goojiong.mejai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mejai.loleye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1113,6 +1140,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mejai/mejai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
@@ -1128,7 +1156,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.goojiong.mejai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mejai.loleye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
