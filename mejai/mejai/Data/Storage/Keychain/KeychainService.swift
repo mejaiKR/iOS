@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class KeychainService: KeychainServiceProtocol {
+final class KeychainService: KeychainServiceProtocol {
     private let service = "LOLEYE"
     
-    public init() {}
+    init() {}
     
     private func makeQuery(for key: KeychainKey) -> [String: Any] {
         return [
@@ -20,7 +20,7 @@ public class KeychainService: KeychainServiceProtocol {
         ]
     }
     
-    public func save(_ value: String, for key: KeychainKey) throws {
+    func save(_ value: String, for key: KeychainKey) throws {
         guard let data = value.data(using: .utf8) else {
             throw KeychainError.stringConversionFailed
         }
@@ -38,7 +38,7 @@ public class KeychainService: KeychainServiceProtocol {
         }
     }
     
-    public func retrieve(for key: KeychainKey) throws -> String {
+    func retrieve(for key: KeychainKey) throws -> String {
         var query = makeQuery(for: key)
         query[kSecReturnData as String] = kCFBooleanTrue
         query[kSecMatchLimit as String] = kSecMatchLimitOne
@@ -62,7 +62,7 @@ public class KeychainService: KeychainServiceProtocol {
         return string
     }
     
-    public func delete(for key: KeychainKey) throws {
+    func delete(for key: KeychainKey) throws {
         let query = makeQuery(for: key)
         
         let status = SecItemDelete(query as CFDictionary)

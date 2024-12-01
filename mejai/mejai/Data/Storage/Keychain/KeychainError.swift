@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum KeychainError: Error {
+enum KeychainError: Error {
     case stringConversionFailed
     case itemNotFound
     case unexpectedStatus(OSStatus)

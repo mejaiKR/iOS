@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,14 @@
 		907F554C2CF612CF00B6E538 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F554B2CF612C500B6E538 /* KeychainServiceProtocol.swift */; };
 		907F554F2CF6132300B6E538 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F554E2CF6132100B6E538 /* KeychainError.swift */; };
 		907F55512CF6133200B6E538 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55502CF6132E00B6E538 /* KeychainKey.swift */; };
+		907F55552CF613BA00B6E538 /* AppleLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */; };
+		907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */; };
+		907F555D2CF6153700B6E538 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 907F555C2CF6153700B6E538 /* KakaoSDK */; };
+		907F555F2CF6153700B6E538 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 907F555E2CF6153700B6E538 /* KakaoSDKAuth */; };
+		907F55612CF6153700B6E538 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 907F55602CF6153700B6E538 /* KakaoSDKCommon */; };
+		907F55672CF61ADA00B6E538 /* OAuthLoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */; };
+		907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */; };
+		907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -127,6 +135,11 @@
 		907F554B2CF612C500B6E538 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
 		907F554E2CF6132100B6E538 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
 		907F55502CF6132E00B6E538 /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
+		907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginUsecase.swift; sourceTree = "<group>"; };
+		907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginUsecase.swift; sourceTree = "<group>"; };
+		907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginServiceProtocol.swift; sourceTree = "<group>"; };
+		907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginUseCaseProtocol.swift; sourceTree = "<group>"; };
+		907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthUseCase.swift; sourceTree = "<group>"; };
 		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -203,6 +216,10 @@
 		90FF790E2CE5CBB4002FEF96 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		907F556A2CF61B0B00B6E538 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		900893DB2CCAD0C60000B6FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -210,6 +227,9 @@
 			files = (
 				90F6BA252CCD66E8001FA67B /* Kingfisher in Frameworks */,
 				90F6BA232CCD66DF001FA67B /* SnapKit in Frameworks */,
+				907F555D2CF6153700B6E538 /* KakaoSDK in Frameworks */,
+				907F55612CF6153700B6E538 /* KakaoSDKCommon in Frameworks */,
+				907F555F2CF6153700B6E538 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +339,8 @@
 		900893FC2CCAD37D0000B6FE /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				90FF79062CE5C5A6002FEF96 /* GetSummonerDetailUseCase.swift */,
+				907F55532CF613AE00B6E538 /* OAuth */,
+				907F55522CF613A600B6E538 /* Summoner */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -327,6 +348,7 @@
 		900893FD2CCAD3840000B6FE /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				907F55582CF613D400B6E538 /* OAuth */,
 				907F554A2CF612C000B6E538 /* Storage */,
 				90FF79032CE5C56B002FEF96 /* Repositories */,
 				90FF78D22CE5B7FB002FEF96 /* Network */,
@@ -554,6 +576,34 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		907F55522CF613A600B6E538 /* Summoner */ = {
+			isa = PBXGroup;
+			children = (
+				90FF79062CE5C5A6002FEF96 /* GetSummonerDetailUseCase.swift */,
+			);
+			path = Summoner;
+			sourceTree = "<group>";
+		};
+		907F55532CF613AE00B6E538 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */,
+				907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */,
+				907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		907F55582CF613D400B6E538 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */,
+				907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */,
+				907F556A2CF61B0B00B6E538 /* Models */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 		90F6B9ED2CCC12CD001FA67B /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,10 +783,16 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				907F556A2CF61B0B00B6E538 /* Models */,
+			);
 			name = mejai;
 			packageProductDependencies = (
 				90F6BA222CCD66DF001FA67B /* SnapKit */,
 				90F6BA242CCD66E8001FA67B /* Kingfisher */,
+				907F555C2CF6153700B6E538 /* KakaoSDK */,
+				907F555E2CF6153700B6E538 /* KakaoSDKAuth */,
+				907F55602CF6153700B6E538 /* KakaoSDKCommon */,
 			);
 			productName = mejai;
 			productReference = 900893DE2CCAD0C60000B6FE /* mejai.app */;
@@ -769,6 +825,7 @@
 			packageReferences = (
 				9008940F2CCAD9640000B6FE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				9008941C2CCADDE50000B6FE /* XCRemoteSwiftPackageReference "snapkit" */,
+				907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 900893DF2CCAD0C60000B6FE /* Products */;
 			projectDirPath = "";
@@ -818,6 +875,7 @@
 				90F6B9FB2CCC1C52001FA67B /* SearchResultView.swift in Sources */,
 				90FF78E82CE5B860002FEF96 /* NetworkError.swift in Sources */,
 				900894232CCAE3FC0000B6FE /* Constants.swift in Sources */,
+				907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */,
 				90F6BA342CCECCAD001FA67B /* SettingsViewController.swift in Sources */,
 				90FF78FE2CE5BE7A002FEF96 /* PlayStatus.swift in Sources */,
 				90F6B9F92CCC19AE001FA67B /* SearchBar.swift in Sources */,
@@ -835,6 +893,7 @@
 				90F6BA212CCD6473001FA67B /* MainFlowCoordinator.swift in Sources */,
 				90FF79072CE5C5A7002FEF96 /* GetSummonerDetailUseCase.swift in Sources */,
 				90F6BA382CCECD98001FA67B /* HomeFlowCoordinator.swift in Sources */,
+				907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */,
 				90F6BA722CD2AE85001FA67B /* SummonerProfileView.swift in Sources */,
 				90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */,
 				90F6BA862CD92B66001FA67B /* HomeViewModel.swift in Sources */,
@@ -845,6 +904,7 @@
 				90F6BA7C2CD4BD3E001FA67B /* TodayPlayLogView.swift in Sources */,
 				90F6BA782CD2C5C4001FA67B /* TodayView.swift in Sources */,
 				90F6BA6D2CD2A904001FA67B /* UIGestureRecognizer+Combine.swift in Sources */,
+				907F55672CF61ADA00B6E538 /* OAuthLoginServiceProtocol.swift in Sources */,
 				90FF790B2CE5C614002FEF96 /* SummonerRepository.swift in Sources */,
 				90FF78D62CE5B80D002FEF96 /* TargetType.swift in Sources */,
 				90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */,
@@ -876,6 +936,7 @@
 				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,
 				90F6BA2B2CCD67B7001FA67B /* UIButton+Combine.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
+				907F55552CF613BA00B6E538 /* AppleLoginUsecase.swift in Sources */,
 				90F6BA3E2CCECE2C001FA67B /* SettingsDIContainer.swift in Sources */,
 				90F6BA842CD92925001FA67B /* RankTierCellViewModel.swift in Sources */,
 				90FF78FA2CE5BE6F002FEF96 /* SummonerDetail.swift in Sources */,
@@ -883,6 +944,7 @@
 				90F6BA292CCD67A5001FA67B /* UIControl+Combine.swift in Sources */,
 				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,
 				90F6BA1C2CCD6364001FA67B /* OnboardingDIContainer.swift in Sources */,
+				907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */,
 				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
 				90FF78EA2CE5B865002FEF96 /* RequestBuilder.swift in Sources */,
@@ -1118,9 +1180,32 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.23.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		907F555C2CF6153700B6E538 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		907F555E2CF6153700B6E538 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		907F55602CF6153700B6E538 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
 		90F6BA222CCD66DF001FA67B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9008941C2CCADDE50000B6FE /* XCRemoteSwiftPackageReference "snapkit" */;

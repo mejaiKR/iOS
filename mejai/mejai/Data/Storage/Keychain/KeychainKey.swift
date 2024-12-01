@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum KeychainKey: String {
+enum KeychainKey: String {
     case accessToken
     case refreshToken
 }
