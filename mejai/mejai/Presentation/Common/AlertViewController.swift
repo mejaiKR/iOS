@@ -20,6 +20,16 @@ final class AlertViewController: UIViewController {
     
     // MARK: - UI Components
     
+//    private let containerView = {
+//        let view = UIStackView()
+//        view.axis = .vertical
+//        view.spacing = 14.0
+//        view.backgroundColor = .white
+//        view.clipsToBounds = true
+//        view.layer.cornerRadius = 12
+//        return view
+//    }()
+    
     private let containerView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -27,6 +37,8 @@ final class AlertViewController: UIViewController {
         view.backgroundColor = .white
         view.clipsToBounds = true
         view.layer.cornerRadius = 12
+        view.layoutMargins = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0) // 추가
+        view.isLayoutMarginsRelativeArrangement = true // 추가
         return view
     }()
     
@@ -161,10 +173,6 @@ final class AlertViewController: UIViewController {
         
         [titleLabel, messageLabel, buttonContainer].forEach {
             containerView.addArrangedSubview($0)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
         }
         
         buttonContainer.snp.makeConstraints { make in
