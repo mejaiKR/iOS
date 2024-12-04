@@ -29,9 +29,7 @@
 		907F55512CF6133200B6E538 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55502CF6132E00B6E538 /* KeychainKey.swift */; };
 		907F55552CF613BA00B6E538 /* AppleLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */; };
 		907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */; };
-		907F555D2CF6153700B6E538 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 907F555C2CF6153700B6E538 /* KakaoSDK */; };
 		907F555F2CF6153700B6E538 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 907F555E2CF6153700B6E538 /* KakaoSDKAuth */; };
-		907F55612CF6153700B6E538 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 907F55602CF6153700B6E538 /* KakaoSDKCommon */; };
 		907F55672CF61ADA00B6E538 /* OAuthLoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */; };
 		907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */; };
 		907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */; };
@@ -41,6 +39,7 @@
 		907F55762CFCA07200B6E538 /* PostLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */; };
 		907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55772CFCAB0400B6E538 /* AlertViewController.swift */; };
 		907F557A2CFCAC2100B6E538 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55792CFCAC1E00B6E538 /* UIViewController+.swift */; };
+		907F557C2D007DA200B6E538 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 907F557B2D007DA200B6E538 /* KakaoSDKUser */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -240,8 +239,7 @@
 			files = (
 				90F6BA252CCD66E8001FA67B /* Kingfisher in Frameworks */,
 				90F6BA232CCD66DF001FA67B /* SnapKit in Frameworks */,
-				907F555D2CF6153700B6E538 /* KakaoSDK in Frameworks */,
-				907F55612CF6153700B6E538 /* KakaoSDKCommon in Frameworks */,
+				907F557C2D007DA200B6E538 /* KakaoSDKUser in Frameworks */,
 				907F555F2CF6153700B6E538 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,9 +816,8 @@
 			packageProductDependencies = (
 				90F6BA222CCD66DF001FA67B /* SnapKit */,
 				90F6BA242CCD66E8001FA67B /* Kingfisher */,
-				907F555C2CF6153700B6E538 /* KakaoSDK */,
 				907F555E2CF6153700B6E538 /* KakaoSDKAuth */,
-				907F55602CF6153700B6E538 /* KakaoSDKCommon */,
+				907F557B2D007DA200B6E538 /* KakaoSDKUser */,
 			);
 			productName = mejai;
 			productReference = 900893DE2CCAD0C60000B6FE /* mejai.app */;
@@ -1227,20 +1224,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		907F555C2CF6153700B6E538 /* KakaoSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDK;
-		};
 		907F555E2CF6153700B6E538 /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKAuth;
 		};
-		907F55602CF6153700B6E538 /* KakaoSDKCommon */ = {
+		907F557B2D007DA200B6E538 /* KakaoSDKUser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 907F555B2CF6153700B6E538 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKCommon;
+			productName = KakaoSDKUser;
 		};
 		90F6BA222CCD66DF001FA67B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
