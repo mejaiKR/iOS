@@ -15,6 +15,7 @@ extension UILabel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.minimumLineHeight = lineHeight
         paragraphStyle.maximumLineHeight = lineHeight
+        paragraphStyle.alignment = textAlignment
         
         let baselineOffset = (lineHeight - font.lineHeight) / 2
         

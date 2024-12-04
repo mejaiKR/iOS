@@ -8,18 +8,26 @@
 import Foundation
 
 final class OnboardingDIContainer {
-    struct Dependencies {}
+    struct Dependencies {
+        let loginUseCase: OAuthLoginUseCaseProtocol
+    }
 
     private let dependencies: Dependencies
 
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
+    
+    // MARK: - View Models
+    
+    private func makeLoginViewModel() -> LoginViewModel {
+        return LoginViewModel(loginUseCase: dependencies.loginUseCase)
+    }
 
     // MARK: - View Controllers
     
     func makeLoginViewController() -> LoginViewController {
-        return LoginViewController()
+        return LoginViewController(viewModel: makeLoginViewModel())
     }
     
     func makeSummonerSearchViewController() -> SummonerSearchViewController {

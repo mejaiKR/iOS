@@ -8,11 +8,8 @@
 import Combine
 import Foundation
 
-class NetworkService: NetworkServiceProtocol {
-    static let shared = NetworkService()
+final class NetworkService: NetworkServiceProtocol {
     private let session = URLSession.shared
-    
-    private init() {}
     
     func request<T: Decodable>(
         _ target: TargetType,

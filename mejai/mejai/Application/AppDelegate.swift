@@ -7,13 +7,21 @@
 
 import UIKit
 
+import KakaoSDKCommon
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        return true
+        if let appKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as? String {
+            KakaoSDK.initSDK(appKey: appKey, loggingEnable: false)
+            print("👩🏻‍💻 KakaoSDK init: \(appKey)")
+            return true
+        } else {
+            return false
+        }
     }
 
     // MARK: UISceneSession Lifecycle
@@ -34,4 +42,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didDiscardSceneSessions sceneSessions: Set<UISceneSession>
     ) {}
 }
-

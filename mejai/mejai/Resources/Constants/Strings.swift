@@ -8,7 +8,7 @@
 import Foundation
 
 struct Strings {
-    static let appName = "앱이름"
+    static let appName = "loleye"
     struct Login {
         static let description = "리그 오브 레전드 전적 모니터링 서비스"
         static let welcomeMessage = "에 오신걸 환영해요!"

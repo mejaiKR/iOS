@@ -30,7 +30,7 @@ final class AppFlowCoordinator: Coordinator {
     
     private func needsOnboarding() -> Bool {
         // TODO: 온보딩 필요 여부 체크 로직
-        return false
+        return true
     }
     
     private func showOnboardingFlow() {
