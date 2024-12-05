@@ -104,26 +104,26 @@ final class HomeViewModel: ViewModel {
     
     private func fetchSummonerDetail() {
         state.homeViewState.send(.loading)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in // 임시
-            guard let self = self else { return }
-            getSummonerDetailUseCase.execute(name: "lobonabeat1", tag: "KR1")
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] completion in
-                    switch completion {
-                    case .finished:
-                        self?.state.homeViewState.send(.success)
-                    case .failure:
-                        self?.state.homeViewState.send(.error)
-                    }
-                } receiveValue: { [weak self] viewData in
-                    self?.state.summonerProfileViewModel.send(viewData.profile)
-                    self?.state.rankTierCellViewModels.send(viewData.rankTiers)
-                    self?.state.todayDayLogCellViewModels.send(viewData.todayLogs)
-                    self?.state.todayPlayLogCellViewModels.send(viewData.todayPlayLogs)
-                    self?.state.weekPlayLogCellViewModels.send(viewData.weekPlayLogs)
-                }
-                .store(in: &cancellables)
-        }
         
+        getSummonerDetailUseCase.execute()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    state.homeViewState.send(.success)
+                case .failure(let error):
+                    state.homeViewState.send(.error)
+                    print(error)
+                }
+            } receiveValue: { [weak self] viewData in
+                guard let self = self else { return }
+                state.summonerProfileViewModel.send(viewData.profile)
+                state.rankTierCellViewModels.send(viewData.rankTiers)
+                state.todayDayLogCellViewModels.send(viewData.todayLogs)
+                state.todayPlayLogCellViewModels.send(viewData.todayPlayLogs)
+                state.weekPlayLogCellViewModels.send(viewData.weekPlayLogs)
+            }
+            .store(in: &cancellables)
     }
 }

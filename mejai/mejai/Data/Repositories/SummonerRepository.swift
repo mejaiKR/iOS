@@ -15,8 +15,8 @@ final class SummonerRepository: SummonerRepositoryProtocol {
         self.networkService = networkService
     }
     
-    func getSummonerDetail(name: String, tag: String) -> AnyPublisher<SummonerDetail, Error> {
-        let target = SummonerAPI.getSummoner(summonerName: name, tag: tag)
+    func getSummonerDetail() -> AnyPublisher<SummonerDetail, Error> {
+        let target = SummonerAPI.getSummoner
         return networkService.request(target, responseType: GetSummonerResponse.self)
             .map { $0.toDomain() }
             .mapError { $0 as Error }

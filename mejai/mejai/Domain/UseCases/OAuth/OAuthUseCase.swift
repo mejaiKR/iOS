@@ -48,16 +48,20 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         let target = UserAPI.postLogin(socialId: id, socialType: provider.rawValue)
         return networkService.request(target, responseType: PostLoginResponse.self)
             .tryMap { response in
-                try self.saveTokens(accessToken: response.accessToken)
+                try self.saveTokens(
+                    accessToken: response.accessToken,
+                    refreshToken: response.refreshToken
+                )
                 return OAuthResult.success
             }
             .mapError { self.mapError($0) }
             .eraseToAnyPublisher()
     }
     
-    private func saveTokens(accessToken: String) throws {
+    private func saveTokens(accessToken: String, refreshToken: String) throws {
         do {
             try keychainService.save(accessToken, for: .accessToken)
+            try keychainService.save(accessToken, for: .refreshToken)
         } catch {
             throw OAuthError.tokenSaveFailed
         }

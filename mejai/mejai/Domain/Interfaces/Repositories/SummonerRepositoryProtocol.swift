@@ -9,5 +9,5 @@ import Combine
 import Foundation
 
 protocol SummonerRepositoryProtocol {
-    func getSummonerDetail(name: String, tag: String) -> AnyPublisher<SummonerDetail, Error>
+    func getSummonerDetail() -> AnyPublisher<SummonerDetail, Error>
 }

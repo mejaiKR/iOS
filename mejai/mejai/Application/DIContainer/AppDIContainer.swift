@@ -8,15 +8,15 @@
 import Foundation
 
 final class AppDIContainer {
-    private let networkService: NetworkServiceProtocol
     private let keychainService: KeychainServiceProtocol
+    private let networkService: NetworkServiceProtocol
     private let loginUseCase: OAuthLoginUseCaseProtocol
     private let summonerRepository: SummonerRepositoryProtocol
     private let getSummonerDetailUseCase: GetSummonerDetailUseCase
     
     init() {
-        networkService = NetworkService()
         keychainService = KeychainService()
+        networkService = NetworkService(keychainService: keychainService)
         loginUseCase = OAuthUseCase(
             loginServices: [AppleLoginService(), KakaoLoginService()],
             networkService: networkService,

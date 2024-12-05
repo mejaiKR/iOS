@@ -15,8 +15,8 @@ final class GetSummonerDetailUseCase {
         self.repository = repository
     }
     
-    func execute(name: String, tag: String) -> AnyPublisher<HomeViewData, Error> {
-        repository.getSummonerDetail(name: name, tag: tag)
+    func execute() -> AnyPublisher<HomeViewData, Error> {
+        repository.getSummonerDetail()
             .map { summonerDetail in
                 HomeViewData(
                     profile: .init(

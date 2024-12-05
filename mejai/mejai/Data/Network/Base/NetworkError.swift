@@ -12,6 +12,7 @@ enum NetworkError: Error {
     case invalidResponse
     case decodingError
     case unauthorized
+    case tokenExpired
     case clientError(statusCode: Int)
     case serverError(statusCode: Int)
     case unknown(Error)

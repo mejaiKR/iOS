@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,7 +29,10 @@
 		907F55512CF6133200B6E538 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55502CF6132E00B6E538 /* KeychainKey.swift */; };
 		907F55552CF613BA00B6E538 /* AppleLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */; };
 		907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */; };
+		907F555A2CF613E300B6E538 /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55592CF613E000B6E538 /* OAuthError.swift */; };
 		907F555F2CF6153700B6E538 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 907F555E2CF6153700B6E538 /* KakaoSDKAuth */; };
+		907F55632CF61A6F00B6E538 /* OAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55622CF61A6C00B6E538 /* OAuthProvider.swift */; };
+		907F55652CF61AA600B6E538 /* OAuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55642CF61AA400B6E538 /* OAuthResult.swift */; };
 		907F55672CF61ADA00B6E538 /* OAuthLoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */; };
 		907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */; };
 		907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */; };
@@ -40,6 +43,9 @@
 		907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55772CFCAB0400B6E538 /* AlertViewController.swift */; };
 		907F557A2CFCAC2100B6E538 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55792CFCAC1E00B6E538 /* UIViewController+.swift */; };
 		907F557C2D007DA200B6E538 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 907F557B2D007DA200B6E538 /* KakaoSDKUser */; };
+		907F557F2D00865800B6E538 /* PostRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F557E2D00865100B6E538 /* PostRefreshRequest.swift */; };
+		907F55872D008E8700B6E538 /* PostRefreshResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55862D008E8200B6E538 /* PostRefreshResponse.swift */; };
+		907F55892D01DA5900B6E538 /* SummonerSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55882D01DA5100B6E538 /* SummonerSearchResponse.swift */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -142,6 +148,9 @@
 		907F55502CF6132E00B6E538 /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
 		907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginUsecase.swift; sourceTree = "<group>"; };
 		907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginUsecase.swift; sourceTree = "<group>"; };
+		907F55592CF613E000B6E538 /* OAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
+		907F55622CF61A6C00B6E538 /* OAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthProvider.swift; sourceTree = "<group>"; };
+		907F55642CF61AA400B6E538 /* OAuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthResult.swift; sourceTree = "<group>"; };
 		907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginServiceProtocol.swift; sourceTree = "<group>"; };
 		907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginUseCaseProtocol.swift; sourceTree = "<group>"; };
 		907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthUseCase.swift; sourceTree = "<group>"; };
@@ -152,6 +161,9 @@
 		907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginRequest.swift; sourceTree = "<group>"; };
 		907F55772CFCAB0400B6E538 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		907F55792CFCAC1E00B6E538 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		907F557E2D00865100B6E538 /* PostRefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRefreshRequest.swift; sourceTree = "<group>"; };
+		907F55862D008E8200B6E538 /* PostRefreshResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRefreshResponse.swift; sourceTree = "<group>"; };
+		907F55882D01DA5100B6E538 /* SummonerSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchResponse.swift; sourceTree = "<group>"; };
 		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -227,10 +239,6 @@
 		90FF790A2CE5C612002FEF96 /* SummonerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRepository.swift; sourceTree = "<group>"; };
 		90FF790E2CE5CBB4002FEF96 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		907F556A2CF61B0B00B6E538 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		900893DB2CCAD0C60000B6FE /* Frameworks */ = {
@@ -612,9 +620,9 @@
 		907F55582CF613D400B6E538 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				907F557D2D00846100B6E538 /* Models */,
 				907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */,
 				907F55662CF61AD900B6E538 /* OAuthLoginServiceProtocol.swift */,
-				907F556A2CF61B0B00B6E538 /* Models */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -622,10 +630,22 @@
 		907F55712CFC9A0A00B6E538 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				907F55862D008E8200B6E538 /* PostRefreshResponse.swift */,
+				907F557E2D00865100B6E538 /* PostRefreshRequest.swift */,
 				907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */,
 				907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		907F557D2D00846100B6E538 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				907F55592CF613E000B6E538 /* OAuthError.swift */,
+				907F55622CF61A6C00B6E538 /* OAuthProvider.swift */,
+				907F55642CF61AA400B6E538 /* OAuthResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		90F6B9ED2CCC12CD001FA67B /* Login */ = {
@@ -747,6 +767,7 @@
 		90FF78EF2CE5BE43002FEF96 /* Summoner */ = {
 			isa = PBXGroup;
 			children = (
+				907F55882D01DA5100B6E538 /* SummonerSearchResponse.swift */,
 				90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */,
 				90FF78F42CE5BE54002FEF96 /* PlayStatusEntity.swift */,
 				90FF78F22CE5BE4F002FEF96 /* SummonerInfoEntity.swift */,
@@ -808,9 +829,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				907F556A2CF61B0B00B6E538 /* Models */,
 			);
 			name = mejai;
 			packageProductDependencies = (
@@ -890,6 +908,7 @@
 				90F6BA192CCD6334001FA67B /* AppDIContainer.swift in Sources */,
 				90F6BA7E2CD4BE28001FA67B /* TodayPlayLogCell.swift in Sources */,
 				90FF79002CE5BE7F002FEF96 /* PlayLog.swift in Sources */,
+				907F55872D008E8700B6E538 /* PostRefreshResponse.swift in Sources */,
 				900894252CCAE4D70000B6FE /* UILabel+.swift in Sources */,
 				90F6BA7A2CD2C60A001FA67B /* TodayDayLogCell.swift in Sources */,
 				90F6BA882CD92E17001FA67B /* SummonerProfileViewModel.swift in Sources */,
@@ -917,6 +936,8 @@
 				907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */,
 				90F6BA152CCD62CE001FA67B /* OnboardingFlowCoordinator.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
+				907F55652CF61AA600B6E538 /* OAuthResult.swift in Sources */,
+				907F555A2CF613E300B6E538 /* OAuthError.swift in Sources */,
 				90F6BA212CCD6473001FA67B /* MainFlowCoordinator.swift in Sources */,
 				90FF79072CE5C5A7002FEF96 /* GetSummonerDetailUseCase.swift in Sources */,
 				90F6BA382CCECD98001FA67B /* HomeFlowCoordinator.swift in Sources */,
@@ -955,6 +976,7 @@
 				90FF78E62CE5B85A002FEF96 /* Task.swift in Sources */,
 				90FF79092CE5C5F4002FEF96 /* HomeViewData.swift in Sources */,
 				90F6BA822CD4C9C7001FA67B /* WeekPlayLogCell.swift in Sources */,
+				907F557F2D00865800B6E538 /* PostRefreshRequest.swift in Sources */,
 				90FF78D42CE5B807002FEF96 /* NetworkServiceProtocol.swift in Sources */,
 				907F554F2CF6132300B6E538 /* KeychainError.swift in Sources */,
 				90F6BA1E2CCD63F9001FA67B /* AppFlowCoordinator.swift in Sources */,
@@ -974,9 +996,11 @@
 				90F6BA292CCD67A5001FA67B /* UIControl+Combine.swift in Sources */,
 				90F6BA012CCC290B001FA67B /* Reusable.swift in Sources */,
 				90F6BA1C2CCD6364001FA67B /* OnboardingDIContainer.swift in Sources */,
+				907F55632CF61A6F00B6E538 /* OAuthProvider.swift in Sources */,
 				907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */,
 				90F6B9F72CCC17A8001FA67B /* SummonerSearchView.swift in Sources */,
 				900893E42CCAD0C60000B6FE /* SceneDelegate.swift in Sources */,
+				907F55892D01DA5900B6E538 /* SummonerSearchResponse.swift in Sources */,
 				90FF78EA2CE5B865002FEF96 /* RequestBuilder.swift in Sources */,
 				90F6BA362CCECCD7001FA67B /* MainDIContainer.swift in Sources */,
 				907F55762CFCA07200B6E538 /* PostLoginRequest.swift in Sources */,

@@ -8,29 +8,33 @@
 import Foundation
 
 enum SummonerAPI {
-    case getSummoner(summonerName: String, tag: String)
+    case getSummonerSearch(summonerName: String, tag: String)
+    case getSummoner
 }
 
 extension SummonerAPI: TargetType {
     var path: String {
         switch self {
-        case .getSummoner: "/app/watch/summoner"
+        case .getSummonerSearch:    "/app/watch/summoner/search"
+        case .getSummoner:          "/app/watch/summoner"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getSummoner: .get
+        case .getSummonerSearch, .getSummoner: .get
         }
     }
     
     var task: Task {
         switch self {
-        case let .getSummoner(summonerName, tag):
+        case let .getSummonerSearch(summonerName, tag):
                 .requestParameters(
                     parameters: ["summonerName": summonerName, "tag": tag],
                     encoding: .urlEncoding
                 )
+        case .getSummoner:
+                .requestPlain
         }
     }
 }

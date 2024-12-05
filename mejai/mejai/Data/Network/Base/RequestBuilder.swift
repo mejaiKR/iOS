@@ -8,7 +8,7 @@
 import Foundation
 
 struct RequestBuilder {
-    static func buildURLRequest(from target: TargetType) -> URLRequest? {
+    static func buildURLRequest(from target: TargetType, _ accessToken: String?) -> URLRequest? {
         var components = URLComponents(
             url: target.baseURL.appendingPathComponent(target.path),
             resolvingAgainstBaseURL: true
@@ -31,9 +31,19 @@ struct RequestBuilder {
         request.httpMethod = target.method.rawValue
         request.allHTTPHeaderFields = target.headers
         
+        // AccessToken이 nil이 아니면 Authorization 헤더에 추가
+        if let token = accessToken {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         switch target.task {
-        case let .requestParameters(params, encoding) where encoding == .jsonEncoding:
-            request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+        case let .requestParameters(parameters, encoding):
+            switch encoding {
+            case .urlEncoding:
+                break
+            case .jsonEncoding:
+                request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
+            }
         case let .requestJSONEncodable(encodable):
             request.httpBody = try? JSONEncoder().encode(encodable)
         default:

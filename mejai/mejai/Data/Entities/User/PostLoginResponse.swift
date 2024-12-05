@@ -9,4 +9,5 @@ import Foundation
 
 struct PostLoginResponse: Decodable {
     let accessToken: String
+    let refreshToken: String
 }
