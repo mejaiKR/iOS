@@ -54,6 +54,8 @@
 		907F55972D05D64900B6E538 /* PutSummonerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55962D05D63800B6E538 /* PutSummonerUseCase.swift */; };
 		907F55992D05D70200B6E538 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55982D05D6FB00B6E538 /* Summoner.swift */; };
 		907F559B2D05D7E500B6E538 /* PutSummonerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F559A2D05D7E200B6E538 /* PutSummonerResponse.swift */; };
+		907F55A02D05DE4A00B6E538 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F559F2D05DE4600B6E538 /* UserDefaultsData.swift */; };
+		907F55A22D05DEA200B6E538 /* UserDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55A12D05DE9900B6E538 /* UserDataStorage.swift */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -180,6 +182,8 @@
 		907F55962D05D63800B6E538 /* PutSummonerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutSummonerUseCase.swift; sourceTree = "<group>"; };
 		907F55982D05D6FB00B6E538 /* Summoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
 		907F559A2D05D7E200B6E538 /* PutSummonerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutSummonerResponse.swift; sourceTree = "<group>"; };
+		907F559F2D05DE4600B6E538 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
+		907F55A12D05DE9900B6E538 /* UserDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStorage.swift; sourceTree = "<group>"; };
 		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -406,6 +410,7 @@
 		900893FF2CCAD39C0000B6FE /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				907F559E2D05DE4100B6E538 /* UserData */,
 				907F554D2CF6131900B6E538 /* Keychain */,
 			);
 			path = Storage;
@@ -685,6 +690,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		907F559E2D05DE4100B6E538 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				907F55A12D05DE9900B6E538 /* UserDataStorage.swift */,
+				907F559F2D05DE4600B6E538 /* UserDefaultsData.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
 		90F6B9ED2CCC12CD001FA67B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +958,7 @@
 			files = (
 				90FF78F52CE5BE55002FEF96 /* PlayStatusEntity.swift in Sources */,
 				907F55492CF612AE00B6E538 /* KeychainService.swift in Sources */,
+				907F55A02D05DE4A00B6E538 /* UserDefaultsData.swift in Sources */,
 				90FF78E22CE5B848002FEF96 /* ParameterEncoding.swift in Sources */,
 				90F6BA192CCD6334001FA67B /* AppDIContainer.swift in Sources */,
 				907F55992D05D70200B6E538 /* Summoner.swift in Sources */,
@@ -976,6 +991,7 @@
 				900894392CCB06800000B6FE /* ConfirmButton.swift in Sources */,
 				90F6BA802CD4C8F2001FA67B /* WeekView.swift in Sources */,
 				907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */,
+				907F55A22D05DEA200B6E538 /* UserDataStorage.swift in Sources */,
 				90F6BA152CCD62CE001FA67B /* OnboardingFlowCoordinator.swift in Sources */,
 				90F6B9F52CCC1796001FA67B /* SummonerSearchViewController.swift in Sources */,
 				907F55652CF61AA600B6E538 /* OAuthResult.swift in Sources */,

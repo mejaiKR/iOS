@@ -53,7 +53,11 @@ final class OnboardingFlowCoordinator: Coordinator {
 
 extension OnboardingFlowCoordinator: LoginViewControllerDelegate {
     func loginViewControllerDidFinish() {
-        showSummonerSearchViewController()
+        if UserDataStorage.shared.isOnboardingCompleted {
+            delegate?.onboardingFlowDidFinish(self)
+        } else {
+            showSummonerSearchViewController()
+        }
     }
 }
 

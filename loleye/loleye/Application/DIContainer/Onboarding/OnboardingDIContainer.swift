@@ -14,7 +14,7 @@ final class OnboardingDIContainer {
         let putSummonerUseCase: PutSummonerUseCase
     }
 
-    private let dependencies: Dependencies
+    private var dependencies: Dependencies
 
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
