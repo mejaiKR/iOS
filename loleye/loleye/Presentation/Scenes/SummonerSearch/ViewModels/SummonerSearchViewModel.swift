@@ -36,7 +36,7 @@ final class SummonerSearchViewModel: ViewModel {
     
     private let getSummonerSearchUseCase: GetSummonerSearchUseCase
     private var lastSearchedSummonerSerchData: SummonerSearchData? // 가장 최근에 검색한 소환사 데이터
-    private var summonerSearchData: SummonerSearchData? // 사용자가 선택한 소환사 데이터
+    var summonerSearchData: SummonerSearchData? // 사용자가 선택한 소환사 데이터
     
     // MARK: - Init
     

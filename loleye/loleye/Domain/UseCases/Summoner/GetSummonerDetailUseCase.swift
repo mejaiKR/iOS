@@ -17,6 +17,7 @@ final class GetSummonerDetailUseCase {
     
     func execute() -> AnyPublisher<HomeViewData, Error> {
         repository.getSummonerDetail()
+            .map { $0.toDomain() }
             .map { summonerDetail in
                 HomeViewData(
                     profile: .init(

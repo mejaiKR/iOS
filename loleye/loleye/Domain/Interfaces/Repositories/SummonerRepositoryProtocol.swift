@@ -12,6 +12,11 @@ protocol SummonerRepositoryProtocol {
     func getSummonerSearch(
         summonerName: String,
         tag: String
-    ) -> AnyPublisher<SummonerSearchData, Error>
-    func getSummonerDetail() -> AnyPublisher<SummonerDetail, Error>
+    ) -> AnyPublisher<GetSummonerSearchResponse, Error>
+    func putSummoner(
+        summonerName: String,
+        tag: String,
+        relationship: String
+    ) -> AnyPublisher<PutSummonerResponse, Error>
+    func getSummonerDetail() -> AnyPublisher<GetSummonerResponse, Error>
 }

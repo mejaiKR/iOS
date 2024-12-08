@@ -17,6 +17,7 @@ final class GetSummonerSearchUseCase {
     
     func execute(summonerName: String, tag: String) -> AnyPublisher<SummonerSearchData, Error> {
         repository.getSummonerSearch(summonerName: summonerName, tag: tag)
+            .map { $0.toDomain() }
             .eraseToAnyPublisher()
     }
 }

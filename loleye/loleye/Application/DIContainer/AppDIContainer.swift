@@ -13,6 +13,7 @@ final class AppDIContainer {
     private let loginUseCase: OAuthLoginUseCaseProtocol
     private let summonerRepository: SummonerRepositoryProtocol
     private let getSummonerSearchUseCase: GetSummonerSearchUseCase
+    private let putSummonerUseCase: PutSummonerUseCase
     private let getSummonerDetailUseCase: GetSummonerDetailUseCase
     
     init() {
@@ -25,6 +26,7 @@ final class AppDIContainer {
         )
         summonerRepository = SummonerRepository(networkService: networkService)
         getSummonerSearchUseCase = GetSummonerSearchUseCase(repository: summonerRepository)
+        putSummonerUseCase = PutSummonerUseCase(repository: summonerRepository)
         getSummonerDetailUseCase = GetSummonerDetailUseCase(repository: summonerRepository)
     }
     
@@ -33,7 +35,8 @@ final class AppDIContainer {
     func makeOnboardingDIContainer() -> OnboardingDIContainer {
         let dependencies = OnboardingDIContainer.Dependencies(
             loginUseCase: loginUseCase,
-            getSummonerSearchUseCase: getSummonerSearchUseCase
+            getSummonerSearchUseCase: getSummonerSearchUseCase,
+            putSummonerUseCase: putSummonerUseCase
         )
         return OnboardingDIContainer(dependencies: dependencies)
     }

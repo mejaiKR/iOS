@@ -11,6 +11,7 @@ final class OnboardingDIContainer {
     struct Dependencies {
         let loginUseCase: OAuthLoginUseCaseProtocol
         let getSummonerSearchUseCase: GetSummonerSearchUseCase
+        let putSummonerUseCase: PutSummonerUseCase
     }
 
     private let dependencies: Dependencies
@@ -30,6 +31,15 @@ final class OnboardingDIContainer {
             getSummonerSearchUseCase: dependencies.getSummonerSearchUseCase
         )
     }
+    
+    private func makeRelationshipViewModel(
+        summonerSearchData: SummonerSearchData
+    ) -> RelationshipViewModel {
+        return RelationshipViewModel(
+            summonerSearchData: summonerSearchData,
+            putSummonerUseCase: dependencies.putSummonerUseCase
+        )
+    }
 
     // MARK: - View Controllers
     
@@ -41,7 +51,11 @@ final class OnboardingDIContainer {
         return SummonerSearchViewController(viewModel: makeSearchSearchViewModel())
     }
     
-    func makeRelationshipViewController() -> RelationshipViewController {
-        return RelationshipViewController()
+    func makeRelationshipViewController(
+        summonerSearchData: SummonerSearchData
+    ) -> RelationshipViewController {
+        return RelationshipViewController(
+            viewModel: makeRelationshipViewModel(summonerSearchData: summonerSearchData)
+        )
     }
 }

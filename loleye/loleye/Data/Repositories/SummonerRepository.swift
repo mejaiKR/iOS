@@ -18,18 +18,32 @@ final class SummonerRepository: SummonerRepositoryProtocol {
     func getSummonerSearch(
         summonerName: String,
         tag: String
-    ) -> AnyPublisher<SummonerSearchData, Error> {
+    ) -> AnyPublisher<GetSummonerSearchResponse, Error> {
         let target = SummonerAPI.getSummonerSearch(summonerName: summonerName, tag: tag)
         return networkService.request(target, responseType: GetSummonerSearchResponse.self)
-            .map { $0.toDomain() }
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
     
-    func getSummonerDetail() -> AnyPublisher<SummonerDetail, Error> {
+    func putSummoner(
+        summonerName: String,
+        tag: String,
+        relationship: String
+    ) -> AnyPublisher<PutSummonerResponse, Error>{
+        let summoner = Summoner(
+            summonerName: summonerName,
+            tag: tag,
+            relationship: relationship
+        )
+        let target = SummonerAPI.putSummoner(summoner: summoner)
+        return networkService.request(target, responseType: PutSummonerResponse.self)
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
+    func getSummonerDetail() -> AnyPublisher<GetSummonerResponse, Error> {
         let target = SummonerAPI.getSummoner
         return networkService.request(target, responseType: GetSummonerResponse.self)
-            .map { $0.toDomain() }
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }

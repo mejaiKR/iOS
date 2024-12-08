@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol SummonerSearchViewControllerDelegate: AnyObject {
-    func summonerSearchViewControllerDidFinish()
+    func summonerSearchViewControllerDidFinish(summonerSearchData: SummonerSearchData)
 }
 
 final class SummonerSearchViewController: BaseViewController<SummonerSearchView> {
@@ -63,7 +63,12 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
         
         actionButton?.tapPublisher
             .sink { [weak self] in
-                self?.delegate?.summonerSearchViewControllerDidFinish()
+                guard let self = self,
+                      let summonerSerachData = viewModel.summonerSearchData
+                else { return }
+                delegate?.summonerSearchViewControllerDidFinish(
+                    summonerSearchData: summonerSerachData
+                )
             }
             .store(in: &cancellables)
         

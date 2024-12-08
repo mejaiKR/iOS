@@ -42,8 +42,10 @@ final class OnboardingFlowCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    private func showRelationshipViewController() {
-        let viewController = onboardingDIContainer.makeRelationshipViewController()
+    private func showRelationshipViewController(summonerSearchData: SummonerSearchData) {
+        let viewController = onboardingDIContainer.makeRelationshipViewController(
+            summonerSearchData: summonerSearchData
+        )
         viewController.delegate = self
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -56,8 +58,8 @@ extension OnboardingFlowCoordinator: LoginViewControllerDelegate {
 }
 
 extension OnboardingFlowCoordinator: SummonerSearchViewControllerDelegate {
-    func summonerSearchViewControllerDidFinish() {
-        showRelationshipViewController()
+    func summonerSearchViewControllerDidFinish(summonerSearchData: SummonerSearchData) {
+        showRelationshipViewController(summonerSearchData: summonerSearchData)
     }
 }
 

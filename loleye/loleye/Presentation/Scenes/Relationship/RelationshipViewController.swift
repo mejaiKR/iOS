@@ -14,37 +14,82 @@ protocol RelationshipViewControllerDelegate: AnyObject {
 
 final class RelationshipViewController: BaseViewController<RelationshipView> {
     weak var delegate: RelationshipViewControllerDelegate?
+    private let viewModel: RelationshipViewModel
     private var cancellables = Set<AnyCancellable>()
     private let relationships = Relationship.allCases
+    
+    // MARK: - Init
+    
+    init(viewModel: RelationshipViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDefaultNavigationBar(actionTitle: "완료")
-        configureRelationshipCollectionView()
-        configureBindings()
+        setupRelationshipCollectionView()
+        setupBindings()
     }
     
-    // MARK: - Configure Methods
+    // MARK: - Setup Methods
     
-    private func configureRelationshipCollectionView() {
+    private func setupRelationshipCollectionView() {
         relationshipCollectionView.delegate = self
         relationshipCollectionView.dataSource = self
     }
     
-    private func configureBindings() {
+    private func setupBindings() {
+        // action
         actionButton?.tapPublisher
             .sink { [weak self] in
-                self?.delegate?.relationshipViewControllerDidFinish()
+                self?.viewModel.send(.save)
+            }
+            .store(in: &cancellables)
+        
+        // state
+        viewModel.state.fetchResult
+            .receive(on: RunLoop.main)
+            .sink { [weak self] result in
+                if result {
+                    self?.delegate?.relationshipViewControllerDidFinish()
+                } else {
+                    self?.showAlert(
+                        title: "오류",
+                        message: "오류가 발생했어요\n다시 시도해주세요",
+                        actionText: "확인"
+                    )
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.state.isRelationSet
+            .receive(on: RunLoop.main)
+            .sink { [weak self] isSet in
+                self?.actionButton?.isEnabled = isSet
             }
             .store(in: &cancellables)
     }
 }
 
 extension RelationshipViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 52)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.send(.relationDidTap(relationships[indexPath.row]))
     }
 }
 
