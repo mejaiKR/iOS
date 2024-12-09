@@ -60,6 +60,8 @@ final class TodayDayLogCell: UICollectionViewCell, Reusable {
     
     func configure(with viewModel: TodayDayLogCellViewModel) {
         titleLabel.text = viewModel.cellType.rawValue
-        dataLabel.text = String(viewModel.data)
+        dataLabel.text = viewModel.cellType == .count ?
+        String(viewModel.data) :
+        String(Int(viewModel.data / 60)) // 시간: 초단위 -> 분단위
     }
 }
