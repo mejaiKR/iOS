@@ -10,6 +10,7 @@ import UIKit
 final class HomeDIContainer {
     struct Dependencies {
         let getSummonerDetailUseCase: GetSummonerDetailUseCase
+        let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
     }
 
     private let dependencies: Dependencies
@@ -21,7 +22,10 @@ final class HomeDIContainer {
     // MARK: - View Models
     
     func makeHomeViewModel() -> HomeViewModel {
-        return HomeViewModel(getSummonerDetailUseCase: dependencies.getSummonerDetailUseCase)
+        return HomeViewModel(
+            getSummonerDetailUseCase: dependencies.getSummonerDetailUseCase,
+            postSummonerRefreshUseCase: dependencies.postSummonerRefreshUseCase
+        )
     }
     
     // MARK: - View Controllers

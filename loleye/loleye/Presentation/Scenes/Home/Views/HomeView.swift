@@ -23,6 +23,13 @@ final class HomeView: UIView {
     
     let summonerProfileView = SummonerProfileView()
     
+    let lastUpdatedLabel = {
+        let label = UILabel()
+        label.applyTypography(with: .caption1)
+        label.textColor = .gray04
+        return label
+    }()
+    
     let rankTierView = RankTierView()
     
     let todayView = TodayView()
@@ -41,7 +48,7 @@ final class HomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureLayout()
+        setupLayout()
     }
     
     @available(*, unavailable)
@@ -49,9 +56,9 @@ final class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Configure Methods
+    // MARK: - Setup Methods
     
-    private func configureLayout() {
+    private func setupLayout() {
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -67,6 +74,12 @@ final class HomeView: UIView {
         summonerProfileView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
             make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        contentView.addSubview(lastUpdatedLabel)
+        lastUpdatedLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(20)
+            make.centerY.equalTo(summonerProfileView)
         }
         
         contentView.addSubview(rankTierView)

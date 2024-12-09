@@ -61,7 +61,7 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
     private func saveTokens(accessToken: String, refreshToken: String) throws {
         do {
             try keychainService.save(accessToken, for: .accessToken)
-            try keychainService.save(accessToken, for: .refreshToken)
+            try keychainService.save(refreshToken, for: .refreshToken)
         } catch {
             throw OAuthError.tokenSaveFailed
         }

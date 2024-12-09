@@ -73,10 +73,10 @@ final class RelationshipViewModel: ViewModel {
         .sink { [weak self] completion in
             switch completion {
             case .finished:
-                print("👩🏻‍💻 putSummonerUseCase finished")
+                print("👩🏻‍💻 putSummoner finished")
                 self?.state.fetchResult.send(true)
             case .failure(let error):
-                print("👩🏻‍💻 putSummonerUseCase failed:", error)
+                print("👩🏻‍💻 putSummoner failed:", error)
                 self?.state.fetchResult.send(false)
             }
         } receiveValue: { _ in }

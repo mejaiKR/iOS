@@ -10,6 +10,7 @@ import Foundation
 final class MainDIContainer {
     struct Dependencies {
         let getSummonerDetailUseCase: GetSummonerDetailUseCase
+        let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
     }
 
     private let dependencies: Dependencies
@@ -22,7 +23,8 @@ final class MainDIContainer {
     
     func makeHomeDIContainer() -> HomeDIContainer {
         let dependencies = HomeDIContainer.Dependencies(
-            getSummonerDetailUseCase: dependencies.getSummonerDetailUseCase
+            getSummonerDetailUseCase: dependencies.getSummonerDetailUseCase,
+            postSummonerRefreshUseCase: dependencies.postSummonerRefreshUseCase
         )
         return HomeDIContainer(dependencies: dependencies)
     }

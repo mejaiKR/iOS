@@ -19,4 +19,5 @@ protocol SummonerRepositoryProtocol {
         relationship: String
     ) -> AnyPublisher<PutSummonerResponse, Error>
     func getSummonerDetail() -> AnyPublisher<GetSummonerResponse, Error>
+    func postSummonerRefresh() -> AnyPublisher<PostSummonerRefreshResponse, Error>
 }

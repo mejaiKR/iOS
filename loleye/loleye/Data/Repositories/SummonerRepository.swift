@@ -47,4 +47,11 @@ final class SummonerRepository: SummonerRepositoryProtocol {
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
+    
+    func postSummonerRefresh() -> AnyPublisher<PostSummonerRefreshResponse, Error> {
+        let target = SummonerAPI.postSummonerRefresh
+        return networkService.request(target, responseType: PostSummonerRefreshResponse.self)
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
 }

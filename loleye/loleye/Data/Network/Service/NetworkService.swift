@@ -62,7 +62,8 @@ final class NetworkService: NetworkServiceProtocol {
                                 from: target,
                                 try? self.keychainService.retrieve(for: .accessToken)
                             ) else {
-                                return Fail(error: NetworkError.invalidRequest).eraseToAnyPublisher()
+                                return Fail(error: NetworkError.invalidRequest)
+                                    .eraseToAnyPublisher()
                             }
                             return self.session.dataTaskPublisher(for: retryRequest)
                                 .map(\.data) // 튜플에서 Data만 추출
@@ -93,7 +94,6 @@ final class NetworkService: NetworkServiceProtocol {
         }
         
         let target = UserAPI.postRefresh(refreshToken: refreshToken)
-        
         return self.request(target, responseType: PostRefreshResponse.self)
             .handleEvents(receiveOutput: { [weak self] response in
                 // 새로운 토큰 저장

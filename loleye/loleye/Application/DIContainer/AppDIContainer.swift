@@ -15,6 +15,7 @@ final class AppDIContainer {
     private let getSummonerSearchUseCase: GetSummonerSearchUseCase
     private let putSummonerUseCase: PutSummonerUseCase
     private let getSummonerDetailUseCase: GetSummonerDetailUseCase
+    private let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
     
     init() {
         keychainService = KeychainService()
@@ -28,6 +29,11 @@ final class AppDIContainer {
         getSummonerSearchUseCase = GetSummonerSearchUseCase(repository: summonerRepository)
         putSummonerUseCase = PutSummonerUseCase(repository: summonerRepository)
         getSummonerDetailUseCase = GetSummonerDetailUseCase(repository: summonerRepository)
+        postSummonerRefreshUseCase = PostSummonerRefreshUseCase(repository: summonerRepository)
+        
+        if let accessToken = try? keychainService.retrieve(for: .accessToken) {
+            print("👩🏻‍💻 access token:", accessToken)
+        }
     }
     
     // MARK: - DIContainers of scenes
@@ -43,7 +49,8 @@ final class AppDIContainer {
     
     func makeMainDIContainer() -> MainDIContainer {
         let dependencies = MainDIContainer.Dependencies(
-            getSummonerDetailUseCase: getSummonerDetailUseCase
+            getSummonerDetailUseCase: getSummonerDetailUseCase,
+            postSummonerRefreshUseCase: postSummonerRefreshUseCase
         )
         return MainDIContainer(dependencies: dependencies)
     }
