@@ -33,7 +33,7 @@ final class HomeViewController: BaseViewController<HomeView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLargeTitleNavigationBar(title: "mejai", font: .logo, image: .refresh)
+        configureLargeTitleNavigationBar(title: Strings.appName, font: .logo, image: .refresh)
         setupDataSource()
         setupBindings()
         viewModel.send(.fetchSummoner)
