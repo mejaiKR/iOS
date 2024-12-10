@@ -9,4 +9,5 @@ import Foundation
 
 struct PostRefreshResponse: Codable {
     let accessToken: String
+    let refreshToken: String
 }

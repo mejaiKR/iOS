@@ -55,7 +55,8 @@ final class NetworkService: NetworkServiceProtocol {
                     return Fail(error: NetworkError.unknown(error)).eraseToAnyPublisher()
                 }
                 // 재시도 로직
-                if case NetworkError.tokenExpired = error {
+                switch error {
+                case NetworkError.tokenExpired:
                     return self.refreshToken()
                         .flatMap { _ -> AnyPublisher<Data, NetworkError> in
                             guard let retryRequest = RequestBuilder.buildURLRequest(
@@ -71,7 +72,7 @@ final class NetworkService: NetworkServiceProtocol {
                                 .eraseToAnyPublisher()
                         }
                         .eraseToAnyPublisher()
-                } else {
+                default:
                     return Fail(error: NetworkError.unknown(error)).eraseToAnyPublisher()
                 }
             }
@@ -98,6 +99,7 @@ final class NetworkService: NetworkServiceProtocol {
             .handleEvents(receiveOutput: { [weak self] response in
                 // 새로운 토큰 저장
                 try? self?.keychainService.save(response.accessToken, for: .accessToken)
+                try? self?.keychainService.save(response.refreshToken, for: .refreshToken)
             })
             .map { _ in }
             .eraseToAnyPublisher()
