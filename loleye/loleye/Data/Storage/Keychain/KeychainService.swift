@@ -8,14 +8,12 @@
 import Foundation
 
 final class KeychainService: KeychainServiceProtocol {
-    private let service = "LOLEYE"
     
     init() {}
     
     private func makeQuery(for key: KeychainKey) -> [String: Any] {
         return [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
             kSecAttrAccount as String: key.rawValue
         ]
     }
