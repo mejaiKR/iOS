@@ -47,7 +47,7 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
             subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
             return
         }
-        
+        appleIDCredential.authorizationCode
         subject.send(appleIDCredential.user)
         subject.send(completion: .finished)
     }
