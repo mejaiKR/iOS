@@ -8,9 +8,26 @@
 import Combine
 import UIKit
 
+protocol SettingsViewControllerDelegate: AnyObject {
+    func moveToLogin()
+}
+
 final class SettingsViewController: BaseViewController<SettingsView> {
+    weak var delegate: SettingsViewControllerDelegate?
+    private let viewModel: SettingsViewModel
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Init
+    
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -22,6 +39,7 @@ final class SettingsViewController: BaseViewController<SettingsView> {
     // MARK: - Setup Methods
     
     private func setupBindings() {
+        // action
         logoutButton.tapPublisher
             .sink { [weak self] in
                 self?.showAlert(
@@ -29,8 +47,8 @@ final class SettingsViewController: BaseViewController<SettingsView> {
                     message: "정말로 로그아웃하시겠어요?",
                     leftActionText: "그만두기",
                     rightActionText: "로그아웃",
-                    rightActionCompletion: {
-                        print("fhrmdkdnt")
+                    rightActionCompletion: { [weak self] in
+                        self?.viewModel.send(.logout)
                     }
                 )
             }
@@ -48,6 +66,13 @@ final class SettingsViewController: BaseViewController<SettingsView> {
                     },
                     isRightDangerous: true
                 )
+            }
+            .store(in: &cancellables)
+        
+        // state
+        viewModel.state.isActionDone
+            .sink { [weak self] in
+                self?.delegate?.moveToLogin()
             }
             .store(in: &cancellables)
     }

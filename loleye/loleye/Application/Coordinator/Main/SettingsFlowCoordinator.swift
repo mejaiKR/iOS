@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol SettingsFlowCoordinatorDelegate: AnyObject {
+    func moveToLogin()
+}
+
 final class SettingsFlowCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
+    weak var delegate: SettingsFlowCoordinatorDelegate?
     
     private let navigationController: UINavigationController
     private let settingsDIContainer: SettingsDIContainer
@@ -27,6 +32,13 @@ final class SettingsFlowCoordinator: Coordinator {
     
     private func showSettingsViewController() {
         let viewController = settingsDIContainer.makeSettingsViewController()
+        viewController.delegate = self
         navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension SettingsFlowCoordinator: SettingsViewControllerDelegate {
+    func moveToLogin() {
+        delegate?.moveToLogin()
     }
 }

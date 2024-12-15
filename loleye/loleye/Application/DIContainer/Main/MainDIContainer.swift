@@ -9,6 +9,7 @@ import Foundation
 
 final class MainDIContainer {
     struct Dependencies {
+        let keychainService: KeychainServiceProtocol
         let getSummonerDetailUseCase: GetSummonerDetailUseCase
         let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
     }
@@ -30,7 +31,9 @@ final class MainDIContainer {
     }
     
     func makeSettingsDIContainer() -> SettingsDIContainer {
-        let dependencies = SettingsDIContainer.Dependencies()
+        let dependencies = SettingsDIContainer.Dependencies(
+            keychainService: dependencies.keychainService
+        )
         return SettingsDIContainer(dependencies: dependencies)
     }
 }

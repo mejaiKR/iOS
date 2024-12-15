@@ -8,7 +8,9 @@
 import UIKit
 
 final class SettingsDIContainer {
-    struct Dependencies {}
+    struct Dependencies {
+        let keychainService: KeychainServiceProtocol
+    }
 
     private let dependencies: Dependencies
 
@@ -16,9 +18,15 @@ final class SettingsDIContainer {
         self.dependencies = dependencies
     }
     
+    // MARK: - View Models
+    
+    private func makeSettingsViewModel() -> SettingsViewModel {
+        return SettingsViewModel(keychainService: dependencies.keychainService)
+    }
+    
     // MARK: - View Controllers
     
     func makeSettingsViewController() -> SettingsViewController {
-        return SettingsViewController()
+        return SettingsViewController(viewModel: makeSettingsViewModel())
     }
 }

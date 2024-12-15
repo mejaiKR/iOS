@@ -49,6 +49,7 @@ final class AppDIContainer {
     
     func makeMainDIContainer() -> MainDIContainer {
         let dependencies = MainDIContainer.Dependencies(
+            keychainService: keychainService,
             getSummonerDetailUseCase: getSummonerDetailUseCase,
             postSummonerRefreshUseCase: postSummonerRefreshUseCase
         )
