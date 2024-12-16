@@ -33,7 +33,7 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         }
         
         return service.login()
-            .flatMap { self.verifyUser(provider: provider, id: $0) }
+            .flatMap { self.verifyUser(provider: provider, id: $0.0, idToken: $0.1) }
             .catch { error in
                 Just(OAuthResult.failure(error))
             }
@@ -42,10 +42,15 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
     
     private func verifyUser(
         provider: OAuthProvider,
-        id: String
+        id: String,
+        idToken: String
     ) -> AnyPublisher<OAuthResult, OAuthError> {
         print("👩🏻‍💻", provider, id)
-        let target = UserAPI.postLogin(socialId: id, socialType: provider.rawValue)
+        let target = UserAPI.postLogin(
+            socialId: id,
+            socialType: provider.rawValue,
+            idToken: idToken
+        )
         return networkService.request(target, responseType: PostLoginResponse.self)
             .tryMap { response in
                 do {

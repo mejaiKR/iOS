@@ -76,6 +76,13 @@ final class NetworkService: NetworkServiceProtocol {
                     return Fail(error: NetworkError.unknown(error)).eraseToAnyPublisher()
                 }
             }
+            // 빈 데이터 처리 로직 추가
+            .map { data -> Data in
+                if data.isEmpty {
+                    return "{}".data(using: .utf8)! // 빈 JSON 객체로 처리
+                }
+                return data
+            }
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error in
                 if let networkError = error as? NetworkError {
@@ -93,7 +100,7 @@ final class NetworkService: NetworkServiceProtocol {
         guard let refreshToken = try? keychainService.retrieve(for: .refreshToken) else {
             return Fail(error: NetworkError.unauthorized).eraseToAnyPublisher()
         }
-        
+        try? keychainService.delete(for: .accessToken)
         let target = UserAPI.postRefresh(refreshToken: refreshToken)
         return self.request(target, responseType: PostRefreshResponse.self)
             .handleEvents(receiveOutput: { [weak self] response in

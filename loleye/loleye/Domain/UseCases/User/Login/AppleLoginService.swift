@@ -1,5 +1,5 @@
 //
-//  AppleLoginUsecase.swift
+//  AppleLoginService.swift
 //  mejai
 //
 //  Created by 지연 on 11/26/24.
@@ -11,11 +11,11 @@ import Foundation
 
 final class AppleLoginService: NSObject, OAuthLoginServiceProtocol {
     let provider: OAuthProvider = .apple
-    private var currentSubject: PassthroughSubject<String, OAuthError>?
+    private var currentSubject: PassthroughSubject<(String, String), OAuthError>?
     
-    func login() -> AnyPublisher<String, OAuthError> {
+    func login() -> AnyPublisher<(String, String), OAuthError> {
         // 새로운 subject 생성
-        let subject = PassthroughSubject<String, OAuthError>()
+        let subject = PassthroughSubject<(String, String), OAuthError>()
         currentSubject = subject
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -47,9 +47,12 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
             subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
             return
         }
-        appleIDCredential.authorizationCode
-        subject.send(appleIDCredential.user)
-        subject.send(completion: .finished)
+        if let identityToken = appleIDCredential.identityToken,
+           let idToken = String(data: identityToken, encoding: .utf8) {
+            print("👩🏻‍💻 idToken:", idToken)
+            subject.send((appleIDCredential.user, idToken))
+            subject.send(completion: .finished)
+        }
     }
     
     func authorizationController(

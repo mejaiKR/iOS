@@ -61,8 +61,8 @@ final class SettingsViewController: BaseViewController<SettingsView> {
                     message: "정말로 탈퇴하시겠어요?\n모든 데이터가 삭제됩니다.",
                     leftActionText: "그만두기",
                     rightActionText: "회원 탈퇴",
-                    rightActionCompletion: {
-                        print("fhrmdkdnt")
+                    rightActionCompletion: { [weak self] in
+                        self?.viewModel.send(.widhdraw)
                     },
                     isRightDangerous: true
                 )
@@ -71,6 +71,7 @@ final class SettingsViewController: BaseViewController<SettingsView> {
         
         // state
         viewModel.state.isActionDone
+            .receive(on: RunLoop.main)
             .sink { [weak self] in
                 self?.delegate?.moveToLogin()
             }

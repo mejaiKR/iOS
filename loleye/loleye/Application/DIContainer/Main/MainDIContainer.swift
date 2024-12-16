@@ -12,6 +12,7 @@ final class MainDIContainer {
         let keychainService: KeychainServiceProtocol
         let getSummonerDetailUseCase: GetSummonerDetailUseCase
         let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
+        let postDeleteUseCase: PostDeleteUseCase
     }
 
     private let dependencies: Dependencies
@@ -32,7 +33,8 @@ final class MainDIContainer {
     
     func makeSettingsDIContainer() -> SettingsDIContainer {
         let dependencies = SettingsDIContainer.Dependencies(
-            keychainService: dependencies.keychainService
+            keychainService: dependencies.keychainService,
+            postDeleteUseCase: dependencies.postDeleteUseCase
         )
         return SettingsDIContainer(dependencies: dependencies)
     }

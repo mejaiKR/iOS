@@ -25,11 +25,13 @@ final class SettingsViewModel: ViewModel {
     var state: State
     
     private let keychainService: KeychainServiceProtocol
+    private let postDeleteUseCase: PostDeleteUseCase
     
     // MARK: - Init
     
-    init(keychainService: KeychainServiceProtocol) {
+    init(keychainService: KeychainServiceProtocol, postDeleteUseCase: PostDeleteUseCase) {
         self.keychainService = keychainService
+        self.postDeleteUseCase = postDeleteUseCase
         self.state = State()
         
         self.actionSubject
@@ -61,6 +63,27 @@ final class SettingsViewModel: ViewModel {
     }
     
     private func withdraw() {
-        
+        postDeleteUseCase.execute()
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    print("👩🏻‍💻 postDelete finished")
+                    self?.removeUserData()
+                    self?.state.isActionDone.send()
+                case .failure(let error):
+                    print("👩🏻‍💻 postDelete failed:", error)
+                }
+            } receiveValue: { _ in }
+            .store(in: &cancellables)
+    }
+    
+    private func removeUserData() {
+        do {
+            try keychainService.clear()
+            UserDataStorage.shared.isLogin = false
+            UserDataStorage.shared.isOnboardingCompleted = false
+        } catch {
+            print("👩🏻‍💻 withdraw error")
+        }
     }
 }

@@ -25,9 +25,12 @@ extension SummonerAPI: TargetType {
     
     var method: HTTPMethod {
         switch self {
-        case .getSummonerSearch, .getSummoner: .get
-        case .putSummoner: .put
-        case .postSummonerRefresh: .post
+        case .getSummonerSearch, .getSummoner:
+                .get
+        case .putSummoner:
+                .put
+        case .postSummonerRefresh:
+                .post
         }
     }
     

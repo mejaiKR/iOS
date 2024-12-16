@@ -10,6 +10,7 @@ import UIKit
 final class SettingsDIContainer {
     struct Dependencies {
         let keychainService: KeychainServiceProtocol
+        let postDeleteUseCase: PostDeleteUseCase
     }
 
     private let dependencies: Dependencies
@@ -21,7 +22,10 @@ final class SettingsDIContainer {
     // MARK: - View Models
     
     private func makeSettingsViewModel() -> SettingsViewModel {
-        return SettingsViewModel(keychainService: dependencies.keychainService)
+        return SettingsViewModel(
+            keychainService: dependencies.keychainService,
+            postDeleteUseCase: dependencies.postDeleteUseCase
+        )
     }
     
     // MARK: - View Controllers

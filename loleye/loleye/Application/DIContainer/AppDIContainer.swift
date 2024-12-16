@@ -16,6 +16,7 @@ final class AppDIContainer {
     private let putSummonerUseCase: PutSummonerUseCase
     private let getSummonerDetailUseCase: GetSummonerDetailUseCase
     private let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
+    private let postDeleteUseCase: PostDeleteUseCase
     
     init() {
         keychainService = KeychainService()
@@ -30,6 +31,7 @@ final class AppDIContainer {
         putSummonerUseCase = PutSummonerUseCase(repository: summonerRepository)
         getSummonerDetailUseCase = GetSummonerDetailUseCase(repository: summonerRepository)
         postSummonerRefreshUseCase = PostSummonerRefreshUseCase(repository: summonerRepository)
+        postDeleteUseCase = PostDeleteUseCase(networkService: networkService)
         
         if let accessToken = try? keychainService.retrieve(for: .accessToken) {
             print("👩🏻‍💻 access token:", accessToken)
@@ -51,7 +53,8 @@ final class AppDIContainer {
         let dependencies = MainDIContainer.Dependencies(
             keychainService: keychainService,
             getSummonerDetailUseCase: getSummonerDetailUseCase,
-            postSummonerRefreshUseCase: postSummonerRefreshUseCase
+            postSummonerRefreshUseCase: postSummonerRefreshUseCase,
+            postDeleteUseCase: postDeleteUseCase
         )
         return MainDIContainer(dependencies: dependencies)
     }
