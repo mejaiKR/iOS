@@ -56,6 +56,7 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
                 do {
                     try self.keychainService.save(provider.rawValue, for: .socialProvider)
                     try self.keychainService.save(id, for: .socialId)
+                    try self.keychainService.save(idToken, for: .idToken)
                     try self.keychainService.save(response.accessToken, for: .accessToken)
                     try self.keychainService.save(response.refreshToken, for: .refreshToken)
                     return OAuthResult.success

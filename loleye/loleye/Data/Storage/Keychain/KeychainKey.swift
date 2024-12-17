@@ -12,4 +12,5 @@ enum KeychainKey: String {
     case socialId
     case accessToken
     case refreshToken
+    case idToken
 }
