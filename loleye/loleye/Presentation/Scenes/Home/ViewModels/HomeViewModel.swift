@@ -80,12 +80,14 @@ final class HomeViewModel: ViewModel {
                     fetchSummonerDetails()
                 case .failure(let error):
                     print("👩🏻‍💻 postSummonerRefresh failed:", error)
-                    if case NetworkError.unknown(NetworkError.clientError(statusCode: 429)) = error {
+                    switch error {
+                    case NetworkError.unknown(NetworkError.clientError(statusCode: 429)), // 시간 제한
+                        NetworkError.clientError(statusCode: 429): // 토큰 만료 후 시간 제한
                         fetchSummonerDetails()
                         if isRefresh {
                             state.refreshLimit.send()
                         }
-                    } else {
+                    default:
                         state.homeViewState.send(.error)
                     }
                 }
