@@ -8,6 +8,7 @@
 import Foundation
 
 struct HomeViewData {
+    let lastUpdatedWatchSummoner: String
     let profile: SummonerProfileViewModel
     let rankTiers: [RankTierCellViewModel]
     let todayLogs: [TodayDayLogCellViewModel]

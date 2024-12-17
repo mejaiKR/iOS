@@ -1,5 +1,5 @@
 //
-//  KakaoLoginUsecase.swift
+//  KakaoLoginService.swift
 //  mejai
 //
 //  Created by 지연 on 11/26/24.
@@ -14,10 +14,10 @@ import KakaoSDKUser
 
 final class KakaoLoginService: OAuthLoginServiceProtocol {
     let provider: OAuthProvider = .kakao
-    private var currentSubject: PassthroughSubject<String, OAuthError>?
+    private var currentSubject: PassthroughSubject<(String, String), OAuthError>?
     
-    func login() -> AnyPublisher<String, OAuthError> {
-        let subject = PassthroughSubject<String, OAuthError>()
+    func login() -> AnyPublisher<(String, String), OAuthError> {
+        let subject = PassthroughSubject<(String, String), OAuthError>()
         currentSubject = subject
         
         if UserApi.isKakaoTalkLoginAvailable() {
@@ -25,7 +25,8 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
                 self?.handleLoginResult(oauthToken: oauthToken, error: error)
             }
         } else {
-            UserApi.shared.loginWithKakaoAccount { [weak self] (oauthToken, error) in
+            let scopes = ["openid"]
+            UserApi.shared.loginWithKakaoAccount(scopes: scopes) { [weak self] (oauthToken, error) in
                 self?.handleLoginResult(oauthToken: oauthToken, error: error)
             }
         }
@@ -42,16 +43,16 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
         
         if let error = error as? SdkError {
             subject.send(completion: .failure(.kakaoError(error)))
-        } else if oauthToken != nil {
-            getUserInfo()
+        } else if let idToken = oauthToken?.idToken {
+            getUserInfo(idToken: idToken)
         } else {
             subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
         }
     }
     
-    private func getUserInfo() {
+    private func getUserInfo(idToken: String) {
         guard let subject = currentSubject else { return }
-        
+        print("👩🏻‍💻 idToken:", idToken)
         UserApi.shared.me() { [weak self] (user, error) in
             guard self != nil else {
                 subject.send(completion: .failure(.unknown(NSError(domain: "Self is deallocated", code: 0))))
@@ -61,7 +62,7 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
             if let error = error as? SdkError {
                 subject.send(completion: .failure(.kakaoError(error)))
             } else if let socialID = user?.id {
-                subject.send(String(socialID))
+                subject.send((String(socialID), idToken))
                 subject.send(completion: .finished)
             } else {
                 subject.send(completion: .failure(.networkError(.invalidResponse)))

@@ -16,4 +16,5 @@ struct SummonerInfo {
     let soloRankIconUrl: String
     let flexRankTier: String
     let flexRankIconUrl: String
+    let lastUpdatedWatchSummoner: String
 }

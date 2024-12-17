@@ -16,6 +16,7 @@ struct SummonerInfoEntity: Decodable {
     let soloRankIconUrl: String
     let flexRankTier: String
     let flexRankIconUrl: String
+    let lastUpdatedWatchSummoner: String
     
     func toDomain() -> SummonerInfo {
         return SummonerInfo(
@@ -26,7 +27,8 @@ struct SummonerInfoEntity: Decodable {
             soloRankTier: soloRankTier,
             soloRankIconUrl: soloRankIconUrl,
             flexRankTier: flexRankTier,
-            flexRankIconUrl: flexRankIconUrl
+            flexRankIconUrl: flexRankIconUrl,
+            lastUpdatedWatchSummoner: lastUpdatedWatchSummoner
         )
     }
 }

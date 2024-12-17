@@ -18,14 +18,6 @@ final class TodayView: UIView {
         return label
     }()
     
-    private let descriptionLabel = {
-        let label = UILabel()
-        label.text = "00시 00분 기준"
-        label.applyTypography(with: .caption1)
-        label.textColor = .gray04
-        return label
-    }()
-    
     lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 15
@@ -58,12 +50,6 @@ final class TodayView: UIView {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.leading.equalToSuperview()
-        }
-        
-        addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(titleLabel)
-            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
         }
         
         addSubview(collectionView)

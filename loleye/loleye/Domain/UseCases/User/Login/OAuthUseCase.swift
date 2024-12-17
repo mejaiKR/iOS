@@ -33,7 +33,7 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         }
         
         return service.login()
-            .flatMap { self.verifyUser(provider: provider, id: $0) }
+            .flatMap { self.verifyUser(provider: provider, id: $0.0, idToken: $0.1) }
             .catch { error in
                 Just(OAuthResult.failure(error))
             }
@@ -42,29 +42,30 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
     
     private func verifyUser(
         provider: OAuthProvider,
-        id: String
+        id: String,
+        idToken: String
     ) -> AnyPublisher<OAuthResult, OAuthError> {
         print("👩🏻‍💻", provider, id)
-        let target = UserAPI.postLogin(socialId: id, socialType: provider.rawValue)
+        let target = UserAPI.postLogin(
+            socialId: id,
+            socialType: provider.rawValue,
+            idToken: idToken
+        )
         return networkService.request(target, responseType: PostLoginResponse.self)
             .tryMap { response in
-                try self.saveTokens(
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken
-                )
-                return OAuthResult.success
+                do {
+                    try self.keychainService.save(provider.rawValue, for: .socialProvider)
+                    try self.keychainService.save(id, for: .socialId)
+                    try self.keychainService.save(idToken, for: .idToken)
+                    try self.keychainService.save(response.accessToken, for: .accessToken)
+                    try self.keychainService.save(response.refreshToken, for: .refreshToken)
+                    return OAuthResult.success
+                } catch {
+                    throw OAuthError.loginInfoSaveFailed
+                }
             }
             .mapError { self.mapError($0) }
             .eraseToAnyPublisher()
-    }
-    
-    private func saveTokens(accessToken: String, refreshToken: String) throws {
-        do {
-            try keychainService.save(accessToken, for: .accessToken)
-            try keychainService.save(accessToken, for: .refreshToken)
-        } catch {
-            throw OAuthError.tokenSaveFailed
-        }
     }
     
     private func mapError(_ error: Error) -> OAuthError {

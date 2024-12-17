@@ -33,15 +33,15 @@ final class HomeViewController: BaseViewController<HomeView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLargeTitleNavigationBar(title: "mejai", font: .logo, image: .refresh)
-        configureDataSource()
-        configureBindings()
-        viewModel.send(.fetchSummonerDetail)
+        configureLargeTitleNavigationBar(title: Strings.appName, font: .logo, image: .refresh)
+        setupDataSource()
+        setupBindings()
+        viewModel.send(.fetchSummoner)
     }
     
-    // MARK: - Configure Methods
+    // MARK: - Setup Methods
     
-    private func configureDataSource() {
+    private func setupDataSource() {
         rankTierDataSource = UICollectionViewDiffableDataSource<Int, RankTierCellViewModel>(
             collectionView: rankTierCollectionView,
             cellProvider: { (collectionView, indexPath, viewModel) -> UICollectionViewCell? in
@@ -91,16 +91,17 @@ final class HomeViewController: BaseViewController<HomeView> {
         )
     }
     
-    private func configureBindings() {
-        // Action
+    private func setupBindings() {
+        // action
         actionButton?.tapPublisher
             .sink { [weak self] in
-                self?.viewModel.send(.fetchSummonerDetail)
+                self?.viewModel.send(.refresh)
             }
             .store(in: &cancellables)
         
-        // State
+        // state
         viewModel.state.homeViewState
+            .receive(on: RunLoop.main)
             .sink { [weak self] state in
                 guard let self = self else { return }
                 
@@ -114,25 +115,36 @@ final class HomeViewController: BaseViewController<HomeView> {
             }
             .store(in: &cancellables)
         
+        viewModel.state.lastUpated
+            .receive(on: RunLoop.main)
+            .sink { [weak self] text in
+                self?.lastUpdatedLabel.text = text
+            }
+            .store(in: &cancellables)
+        
         viewModel.state.summonerProfileViewModel
+            .receive(on: RunLoop.main)
             .sink { [weak self] viewModel in
                 self?.summonerProfileView.configure(with: viewModel)
             }
             .store(in: &cancellables)
         
         viewModel.state.rankTierCellViewModels
+            .receive(on: RunLoop.main)
             .sink { [weak self] cellViewModels in
                 self?.applySnapshot(with: cellViewModels)
             }
             .store(in: &cancellables)
         
         viewModel.state.todayDayLogCellViewModels
+            .receive(on: RunLoop.main)
             .sink { [weak self] cellViewModels in
                 self?.applySnapshot(with: cellViewModels)
             }
             .store(in: &cancellables)
         
         viewModel.state.todayPlayLogCellViewModels
+            .receive(on: RunLoop.main)
             .sink { [weak self] cellViewModels in
                 guard let self = self else { return }
                 
@@ -145,8 +157,20 @@ final class HomeViewController: BaseViewController<HomeView> {
             .store(in: &cancellables)
         
         viewModel.state.weekPlayLogCellViewModels
+            .receive(on: RunLoop.main)
             .sink { [weak self] cellViewModels in
                 self?.applySnapshot(with: cellViewModels)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.state.refreshLimit
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                self?.showAlert(
+                    title: "데이터 불러오기",
+                    message: "데이터 불러오기는 1시간마다 가능해요\n잠시 후 다시 시도해주세요",
+                    actionText: "확인"
+                )
             }
             .store(in: &cancellables)
     }
@@ -197,6 +221,10 @@ private extension HomeViewController {
     
     var summonerProfileView: SummonerProfileView {
         contentView.summonerProfileView
+    }
+    
+    var lastUpdatedLabel: UILabel {
+        contentView.lastUpdatedLabel
     }
     
     var rankTierCollectionView: UICollectionView {

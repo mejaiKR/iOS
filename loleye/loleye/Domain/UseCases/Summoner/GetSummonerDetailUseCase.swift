@@ -20,6 +20,7 @@ final class GetSummonerDetailUseCase {
             .map { $0.toDomain() }
             .map { summonerDetail in
                 HomeViewData(
+                    lastUpdatedWatchSummoner: summonerDetail.summoner.lastUpdatedWatchSummoner,
                     profile: .init(
                         relationship: summonerDetail.summoner.relationship.rawValue,
                         name: summonerDetail.summoner.summonerName,

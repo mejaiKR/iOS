@@ -10,4 +10,5 @@ import Foundation
 struct PostLoginRequest: Codable {
     let socialId: String
     let socialType: String
+    let idToken: String
 }

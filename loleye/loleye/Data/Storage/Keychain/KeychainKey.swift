@@ -8,6 +8,9 @@
 import Foundation
 
 enum KeychainKey: String {
+    case socialProvider
+    case socialId
     case accessToken
     case refreshToken
+    case idToken
 }

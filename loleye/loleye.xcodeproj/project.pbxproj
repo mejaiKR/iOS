@@ -27,8 +27,8 @@
 		907F554C2CF612CF00B6E538 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F554B2CF612C500B6E538 /* KeychainServiceProtocol.swift */; };
 		907F554F2CF6132300B6E538 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F554E2CF6132100B6E538 /* KeychainError.swift */; };
 		907F55512CF6133200B6E538 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55502CF6132E00B6E538 /* KeychainKey.swift */; };
-		907F55552CF613BA00B6E538 /* AppleLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */; };
-		907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */; };
+		907F55552CF613BA00B6E538 /* AppleLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55542CF613B500B6E538 /* AppleLoginService.swift */; };
+		907F55572CF613C000B6E538 /* KakaoLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55562CF613BD00B6E538 /* KakaoLoginService.swift */; };
 		907F555A2CF613E300B6E538 /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55592CF613E000B6E538 /* OAuthError.swift */; };
 		907F555F2CF6153700B6E538 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 907F555E2CF6153700B6E538 /* KakaoSDKAuth */; };
 		907F55632CF61A6F00B6E538 /* OAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55622CF61A6C00B6E538 /* OAuthProvider.swift */; };
@@ -37,7 +37,7 @@
 		907F55692CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */; };
 		907F556C2CF61C2B00B6E538 /* OAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */; };
 		907F556E2CFC96E700B6E538 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556D2CFC96E500B6E538 /* LoginViewModel.swift */; };
-		907F55702CFC995B00B6E538 /* UseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556F2CFC995900B6E538 /* UseAPI.swift */; };
+		907F55702CFC995B00B6E538 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F556F2CFC995900B6E538 /* UserAPI.swift */; };
 		907F55732CFC9A1C00B6E538 /* PostLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */; };
 		907F55762CFCA07200B6E538 /* PostLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */; };
 		907F55782CFCAB0900B6E538 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55772CFCAB0400B6E538 /* AlertViewController.swift */; };
@@ -56,6 +56,10 @@
 		907F559B2D05D7E500B6E538 /* PutSummonerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F559A2D05D7E200B6E538 /* PutSummonerResponse.swift */; };
 		907F55A02D05DE4A00B6E538 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F559F2D05DE4600B6E538 /* UserDefaultsData.swift */; };
 		907F55A22D05DEA200B6E538 /* UserDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55A12D05DE9900B6E538 /* UserDataStorage.swift */; };
+		907F55A42D05E99900B6E538 /* PostSummonerRefreshUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55A32D05E99300B6E538 /* PostSummonerRefreshUseCase.swift */; };
+		907F55A62D05E9CC00B6E538 /* PostSummonerRefreshResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55A52D05E9C700B6E538 /* PostSummonerRefreshResponse.swift */; };
+		907F55AB2D0F25BE00B6E538 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55AA2D0F25BC00B6E538 /* SettingsViewModel.swift */; };
+		907F55AE2D0F2A9100B6E538 /* PostDeleteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F55AD2D0F2A8400B6E538 /* PostDeleteUseCase.swift */; };
 		90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9EE2CCC12D7001FA67B /* LoginView.swift */; };
 		90F6B9F12CCC12E8001FA67B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */; };
 		90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F6B9F22CCC1313001FA67B /* Strings.swift */; };
@@ -156,8 +160,8 @@
 		907F554B2CF612C500B6E538 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
 		907F554E2CF6132100B6E538 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
 		907F55502CF6132E00B6E538 /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
-		907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginUsecase.swift; sourceTree = "<group>"; };
-		907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginUsecase.swift; sourceTree = "<group>"; };
+		907F55542CF613B500B6E538 /* AppleLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginService.swift; sourceTree = "<group>"; };
+		907F55562CF613BD00B6E538 /* KakaoLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginService.swift; sourceTree = "<group>"; };
 		907F55592CF613E000B6E538 /* OAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
 		907F55622CF61A6C00B6E538 /* OAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthProvider.swift; sourceTree = "<group>"; };
 		907F55642CF61AA400B6E538 /* OAuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthResult.swift; sourceTree = "<group>"; };
@@ -165,7 +169,7 @@
 		907F55682CF61AFA00B6E538 /* OAuthLoginUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginUseCaseProtocol.swift; sourceTree = "<group>"; };
 		907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthUseCase.swift; sourceTree = "<group>"; };
 		907F556D2CFC96E500B6E538 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		907F556F2CFC995900B6E538 /* UseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAPI.swift; sourceTree = "<group>"; };
+		907F556F2CFC995900B6E538 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		907F55722CFC9A0D00B6E538 /* PostLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginResponse.swift; sourceTree = "<group>"; };
 		907F55742CFC9C7400B6E538 /* loleye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = loleye.entitlements; sourceTree = "<group>"; };
 		907F55752CFCA06E00B6E538 /* PostLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginRequest.swift; sourceTree = "<group>"; };
@@ -184,6 +188,10 @@
 		907F559A2D05D7E200B6E538 /* PutSummonerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutSummonerResponse.swift; sourceTree = "<group>"; };
 		907F559F2D05DE4600B6E538 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
 		907F55A12D05DE9900B6E538 /* UserDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStorage.swift; sourceTree = "<group>"; };
+		907F55A32D05E99300B6E538 /* PostSummonerRefreshUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSummonerRefreshUseCase.swift; sourceTree = "<group>"; };
+		907F55A52D05E9C700B6E538 /* PostSummonerRefreshResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSummonerRefreshResponse.swift; sourceTree = "<group>"; };
+		907F55AA2D0F25BC00B6E538 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		907F55AD2D0F2A8400B6E538 /* PostDeleteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDeleteUseCase.swift; sourceTree = "<group>"; };
 		90F6B9EE2CCC12D7001FA67B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		90F6B9F02CCC12E8001FA67B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F6B9F22CCC1313001FA67B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -380,7 +388,7 @@
 		900893FC2CCAD37D0000B6FE /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				907F55532CF613AE00B6E538 /* OAuth */,
+				907F55532CF613AE00B6E538 /* User */,
 				907F55522CF613A600B6E538 /* Summoner */,
 			);
 			path = UseCases;
@@ -554,6 +562,7 @@
 		9008942F2CCAF7EC0000B6FE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				907F55A92D0F25B600B6E538 /* ViewModels */,
 				900894302CCAF8040000B6FE /* Views */,
 				90F6BA332CCECCAD001FA67B /* SettingsViewController.swift */,
 			);
@@ -626,6 +635,7 @@
 		907F55522CF613A600B6E538 /* Summoner */ = {
 			isa = PBXGroup;
 			children = (
+				907F55A32D05E99300B6E538 /* PostSummonerRefreshUseCase.swift */,
 				907F55962D05D63800B6E538 /* PutSummonerUseCase.swift */,
 				907F558D2D01E4A000B6E538 /* GetSummonerSearchUseCase.swift */,
 				90FF79062CE5C5A6002FEF96 /* GetSummonerDetailUseCase.swift */,
@@ -633,14 +643,13 @@
 			path = Summoner;
 			sourceTree = "<group>";
 		};
-		907F55532CF613AE00B6E538 /* OAuth */ = {
+		907F55532CF613AE00B6E538 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */,
-				907F55562CF613BD00B6E538 /* KakaoLoginUsecase.swift */,
-				907F55542CF613B500B6E538 /* AppleLoginUsecase.swift */,
+				907F55AD2D0F2A8400B6E538 /* PostDeleteUseCase.swift */,
+				907F55AC2D0F2A7600B6E538 /* Login */,
 			);
-			path = OAuth;
+			path = User;
 			sourceTree = "<group>";
 		};
 		907F55582CF613D400B6E538 /* OAuth */ = {
@@ -697,6 +706,24 @@
 				907F559F2D05DE4600B6E538 /* UserDefaultsData.swift */,
 			);
 			path = UserData;
+			sourceTree = "<group>";
+		};
+		907F55A92D0F25B600B6E538 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				907F55AA2D0F25BC00B6E538 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		907F55AC2D0F2A7600B6E538 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				907F556B2CF61C2B00B6E538 /* OAuthUseCase.swift */,
+				907F55562CF613BD00B6E538 /* KakaoLoginService.swift */,
+				907F55542CF613B500B6E538 /* AppleLoginService.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		90F6B9ED2CCC12CD001FA67B /* Login */ = {
@@ -811,7 +838,7 @@
 		90FF78EC2CE5BD8B002FEF96 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				907F556F2CFC995900B6E538 /* UseAPI.swift */,
+				907F556F2CFC995900B6E538 /* UserAPI.swift */,
 				90FF78ED2CE5BDA1002FEF96 /* SummonerAPI.swift */,
 			);
 			path = API;
@@ -820,6 +847,7 @@
 		90FF78EF2CE5BE43002FEF96 /* Summoner */ = {
 			isa = PBXGroup;
 			children = (
+				907F55A52D05E9C700B6E538 /* PostSummonerRefreshResponse.swift */,
 				907F559A2D05D7E200B6E538 /* PutSummonerResponse.swift */,
 				907F55882D01DA5100B6E538 /* GetSummonerSearchResponse.swift */,
 				90FF78F62CE5BE5B002FEF96 /* PlayLogEntity.swift */,
@@ -999,7 +1027,8 @@
 				90F6BA212CCD6473001FA67B /* MainFlowCoordinator.swift in Sources */,
 				90FF79072CE5C5A7002FEF96 /* GetSummonerDetailUseCase.swift in Sources */,
 				90F6BA382CCECD98001FA67B /* HomeFlowCoordinator.swift in Sources */,
-				907F55572CF613C000B6E538 /* KakaoLoginUsecase.swift in Sources */,
+				907F55572CF613C000B6E538 /* KakaoLoginService.swift in Sources */,
+				907F55A62D05E9CC00B6E538 /* PostSummonerRefreshResponse.swift in Sources */,
 				90F6BA722CD2AE85001FA67B /* SummonerProfileView.swift in Sources */,
 				90F6BA072CCD56C3001FA67B /* RelationshipViewController.swift in Sources */,
 				907F55972D05D64900B6E538 /* PutSummonerUseCase.swift in Sources */,
@@ -1009,7 +1038,9 @@
 				907F55922D01ECE300B6E538 /* UITextField+Combine.swift in Sources */,
 				900894212CCAE07E0000B6FE /* UIFont+.swift in Sources */,
 				90F6BA272CCD677A001FA67B /* ControlEvent.swift in Sources */,
+				907F55A42D05E99900B6E538 /* PostSummonerRefreshUseCase.swift in Sources */,
 				90FF78F32CE5BE4F002FEF96 /* SummonerInfoEntity.swift in Sources */,
+				907F55AE2D0F2A9100B6E538 /* PostDeleteUseCase.swift in Sources */,
 				90FF78DA2CE5B822002FEF96 /* NetworkService.swift in Sources */,
 				90F6BA7C2CD4BD3E001FA67B /* TodayPlayLogView.swift in Sources */,
 				90F6BA782CD2C5C4001FA67B /* TodayView.swift in Sources */,
@@ -1019,11 +1050,12 @@
 				90FF78D62CE5B80D002FEF96 /* TargetType.swift in Sources */,
 				90F6BA092CCD5A68001FA67B /* RelationshipView.swift in Sources */,
 				90F6B9EF2CCC12D7001FA67B /* LoginView.swift in Sources */,
-				907F55702CFC995B00B6E538 /* UseAPI.swift in Sources */,
+				907F55702CFC995B00B6E538 /* UserAPI.swift in Sources */,
 				90F6BA762CD2BE62001FA67B /* RankTierCell.swift in Sources */,
 				907F558C2D01E3A400B6E538 /* SummonerSearchViewModel.swift in Sources */,
 				9008942B2CCAF3C30000B6FE /* MainTabBarController.swift in Sources */,
 				90FF79052CE5C57D002FEF96 /* SummonerRepositoryProtocol.swift in Sources */,
+				907F55AB2D0F25BE00B6E538 /* SettingsViewModel.swift in Sources */,
 				907F559B2D05D7E500B6E538 /* PutSummonerResponse.swift in Sources */,
 				900893E22CCAD0C60000B6FE /* AppDelegate.swift in Sources */,
 				90F6BA6F2CD2A91C001FA67B /* ControlTarget.swift in Sources */,
@@ -1051,7 +1083,7 @@
 				90F6BA0E2CCD5B74001FA67B /* Relationship.swift in Sources */,
 				90F6BA2B2CCD67B7001FA67B /* UIButton+Combine.swift in Sources */,
 				90F6B9F32CCC1313001FA67B /* Strings.swift in Sources */,
-				907F55552CF613BA00B6E538 /* AppleLoginUsecase.swift in Sources */,
+				907F55552CF613BA00B6E538 /* AppleLoginService.swift in Sources */,
 				90F6BA3E2CCECE2C001FA67B /* SettingsDIContainer.swift in Sources */,
 				90F6BA842CD92925001FA67B /* RankTierCellViewModel.swift in Sources */,
 				90FF78FA2CE5BE6F002FEF96 /* SummonerDetail.swift in Sources */,

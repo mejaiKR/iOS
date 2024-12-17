@@ -16,16 +16,19 @@ enum HomeViewState {
 
 final class HomeViewModel: ViewModel {
     enum Action {
-        case fetchSummonerDetail
+        case fetchSummoner
+        case refresh
     }
     
     struct State {
         var homeViewState: CurrentValueSubject<HomeViewState, Never>
+        var lastUpated = PassthroughSubject<String, Never>()
         var summonerProfileViewModel: CurrentValueSubject<SummonerProfileViewModel, Never>
         var rankTierCellViewModels: CurrentValueSubject<[RankTierCellViewModel], Never>
         var todayDayLogCellViewModels: CurrentValueSubject<[TodayDayLogCellViewModel], Never>
         var todayPlayLogCellViewModels: CurrentValueSubject<[TodayPlayLogCellViewModel], Never>
         var weekPlayLogCellViewModels: CurrentValueSubject<[WeekPlayLogCellViewModel], Never>
+        var refreshLimit = PassthroughSubject<Void, Never>()
     }
     
     // MARK: - Properties
@@ -35,11 +38,16 @@ final class HomeViewModel: ViewModel {
     private(set) var state: State
     
     private let getSummonerDetailUseCase: GetSummonerDetailUseCase
+    private let postSummonerRefreshUseCase: PostSummonerRefreshUseCase
     
     // MARK: - Init
     
-    init(getSummonerDetailUseCase: GetSummonerDetailUseCase) {
+    init(
+        getSummonerDetailUseCase: GetSummonerDetailUseCase,
+        postSummonerRefreshUseCase: PostSummonerRefreshUseCase
+    ) {
         self.getSummonerDetailUseCase = getSummonerDetailUseCase
+        self.postSummonerRefreshUseCase = postSummonerRefreshUseCase
         self.state = State.initialState
         
         self.actionSubject
@@ -53,27 +61,58 @@ final class HomeViewModel: ViewModel {
     
     private func handleAction(_ action: Action) {
         switch action {
-        case .fetchSummonerDetail:
-            fetchSummonerDetail()
+        case .fetchSummoner:
+            refreshAndFetchDetails(isRefresh: false)
+        case .refresh:
+            refreshAndFetchDetails(isRefresh: true)
         }
     }
     
-    private func fetchSummonerDetail() {
+    private func refreshAndFetchDetails(isRefresh: Bool) {
         state.homeViewState.send(.loading)
         
-        getSummonerDetailUseCase.execute()
-            .receive(on: DispatchQueue.main)
+        postSummonerRefreshUseCase.execute()
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
                 case .finished:
+                    print("👩🏻‍💻 postSummonerRefresh finished")
+                    fetchSummonerDetails()
+                case .failure(let error):
+                    print("👩🏻‍💻 postSummonerRefresh failed:", error)
+                    switch error {
+                    case NetworkError.unknown(NetworkError.clientError(statusCode: 429)), // 시간 제한
+                        NetworkError.clientError(statusCode: 429): // 토큰 만료 후 시간 제한
+                        fetchSummonerDetails()
+                        if isRefresh {
+                            state.refreshLimit.send()
+                        }
+                    default:
+                        state.homeViewState.send(.error)
+                    }
+                }
+            } receiveValue: { _ in }
+            .store(in: &cancellables)
+    }
+    
+    private func fetchSummonerDetails() {
+        getSummonerDetailUseCase.execute()
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    print("👩🏻‍💻 getSummonerDetail finished")
                     state.homeViewState.send(.success)
                 case .failure(let error):
+                    print("👩🏻‍💻 getSummonerDetail failed:", error)
                     state.homeViewState.send(.error)
                     print(error)
                 }
             } receiveValue: { [weak self] viewData in
                 guard let self = self else { return }
+                if let time = extractTime(from: viewData.lastUpdatedWatchSummoner) {
+                    state.lastUpated.send("최근 업데이트: \(time)")
+                }
                 state.summonerProfileViewModel.send(viewData.profile)
                 state.rankTierCellViewModels.send(viewData.rankTiers)
                 state.todayDayLogCellViewModels.send(viewData.todayLogs)
@@ -81,6 +120,21 @@ final class HomeViewModel: ViewModel {
                 state.weekPlayLogCellViewModels.send(viewData.weekPlayLogs)
             }
             .store(in: &cancellables)
+    }
+    
+    private func extractTime(from timestamp: String) -> String? {
+        // DateFormatter 설정
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSS" // 입력 형식
+        
+        // String -> Date 변환
+        guard let date = formatter.date(from: timestamp) else {
+            return nil
+        }
+        
+        // 필요한 시간 형식으로 변환
+        formatter.dateFormat = "HH:mm" // 출력 형식
+        return formatter.string(from: date)
     }
 }
 

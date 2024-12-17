@@ -19,8 +19,9 @@ enum OAuthError: Error {
     // 회원 상태 관련 에러
     case userNotFound          // 회원이 아닌 경우
     case userAlreadyExists     // 이미 가입된 회원인 경우
+    // 키체인 관련 에러
+    case loginInfoSaveFailed   // 키체인 저장 실패
     // 토큰 관련 에러
-    case tokenSaveFailed       // 키체인 저장 실패
     case invalidToken          // 토큰이 유효하지 않음
     case tokenExpired          // 토큰 만료
     // 네트워크 관련 에러
@@ -45,7 +46,7 @@ enum OAuthError: Error {
             return "등록되지 않은 회원입니다."
         case .userAlreadyExists:
             return "이미 가입된 회원입니다."
-        case .tokenSaveFailed:
+        case .loginInfoSaveFailed:
             return "로그인 정보 저장에 실패했습니다."
         case .invalidToken:
             return "유효하지 않은 인증 정보입니다."

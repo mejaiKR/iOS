@@ -91,7 +91,10 @@ final class TodayPlayLogCell: UICollectionViewCell, Reusable {
     }
     
     func configure(with viewModel: TodayPlayLogCellViewModel) {
-        timeLabel.text = "\(viewModel.startTime) ~ \(viewModel.endTime)"
+        guard let startTime = extractTime(from: viewModel.startTime),
+              let endTime = extractTime(from: viewModel.endTime)
+        else { return }
+        timeLabel.text = "\(startTime) ~ \(endTime)"
         resultLabel.text = viewModel.isWin ? "승리" : "패배"
         resultLabel.textColor = viewModel.isWin ? .primary : .disabled
         upperLine.isHidden = viewModel.isFirst
@@ -104,5 +107,20 @@ private extension TodayPlayLogCell {
         let view = UIView()
         view.backgroundColor = color
         return view
+    }
+    
+    func extractTime(from timestamp: String) -> String? {
+        // DateFormatter 설정
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss.SS" // 입력 형식
+        
+        // String -> Date 변환
+        guard let date = formatter.date(from: timestamp) else {
+            return nil
+        }
+        
+        // 필요한 시간 형식으로 변환
+        formatter.dateFormat = "HH:mm" // 출력 형식
+        return formatter.string(from: date)
     }
 }

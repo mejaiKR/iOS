@@ -11,6 +11,7 @@ enum SummonerAPI {
     case getSummonerSearch(summonerName: String, tag: String)
     case putSummoner(summoner: Summoner)
     case getSummoner
+    case postSummonerRefresh
 }
 
 extension SummonerAPI: TargetType {
@@ -18,13 +19,18 @@ extension SummonerAPI: TargetType {
         switch self {
         case .getSummonerSearch:            "/app/watch/summoner/search"
         case .putSummoner, .getSummoner:    "/app/watch/summoner"
+        case .postSummonerRefresh:          "/app/watch/summoner/refresh"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getSummonerSearch, .getSummoner: .get
-        case .putSummoner: .put
+        case .getSummonerSearch, .getSummoner:
+                .get
+        case .putSummoner:
+                .put
+        case .postSummonerRefresh:
+                .post
         }
     }
     
@@ -37,7 +43,7 @@ extension SummonerAPI: TargetType {
                 )
         case let .putSummoner(summoner):
                 .requestJSONEncodable(summoner)
-        case .getSummoner:
+        case .getSummoner, .postSummonerRefresh:
                 .requestPlain
         }
     }

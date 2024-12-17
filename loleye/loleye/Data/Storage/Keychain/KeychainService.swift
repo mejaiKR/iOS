@@ -8,40 +8,36 @@
 import Foundation
 
 final class KeychainService: KeychainServiceProtocol {
-    private let service = "LOLEYE"
     
     init() {}
-    
-    private func makeQuery(for key: KeychainKey) -> [String: Any] {
-        return [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: key.rawValue
-        ]
-    }
     
     func save(_ value: String, for key: KeychainKey) throws {
         guard let data = value.data(using: .utf8) else {
             throw KeychainError.stringConversionFailed
         }
         
-        var query = makeQuery(for: key)
-        query[kSecValueData as String] = data
+        try delete(for: key)
+        
+        var query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key.rawValue,
+            kSecValueData as String: data
+        ]
         
         let status = SecItemAdd(query as CFDictionary, nil)
         
-        if status == errSecDuplicateItem {
-            // 이미 존재하는 경우 업데이트
-            try update(value, for: key)
-        } else if status != errSecSuccess {
+        if status != errSecSuccess {
             throw KeychainError.unexpectedStatus(status)
         }
     }
     
     func retrieve(for key: KeychainKey) throws -> String {
-        var query = makeQuery(for: key)
-        query[kSecReturnData as String] = kCFBooleanTrue
-        query[kSecMatchLimit as String] = kSecMatchLimitOne
+        var query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key.rawValue,
+            kSecReturnData as String: true,
+            kSecMatchLimit as String: kSecMatchLimitOne
+        ]
         
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
@@ -63,7 +59,10 @@ final class KeychainService: KeychainServiceProtocol {
     }
     
     func delete(for key: KeychainKey) throws {
-        let query = makeQuery(for: key)
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key.rawValue
+        ]
         
         let status = SecItemDelete(query as CFDictionary)
         
@@ -72,17 +71,12 @@ final class KeychainService: KeychainServiceProtocol {
         }
     }
     
-    private func update(_ value: String, for key: KeychainKey) throws {
-        guard let data = value.data(using: .utf8) else {
-            throw KeychainError.stringConversionFailed
-        }
+    func clear() throws {
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
         
-        let query = makeQuery(for: key)
-        let attributes: [String: Any] = [kSecValueData as String: data]
+        let status = SecItemDelete(query as CFDictionary)
         
-        let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
-        
-        guard status == errSecSuccess else {
+        guard status == errSecSuccess || status == errSecItemNotFound else {
             throw KeychainError.unexpectedStatus(status)
         }
     }

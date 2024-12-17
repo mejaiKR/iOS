@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol MainFlowCoordinatorDelegate: AnyObject {
+    func mainFlowDidFinish(_ coordinator: MainFlowCoordinator)
+}
+
 final class MainFlowCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
+    weak var delegate: MainFlowCoordinatorDelegate?
     
     private let tabBarController: UITabBarController
     private let mainDIContainer: MainDIContainer
@@ -34,6 +39,7 @@ final class MainFlowCoordinator: Coordinator {
             navigationController: settingsNavigation,
             settingsDIContainer: mainDIContainer.makeSettingsDIContainer()
         )
+        settingsCoordinator.delegate = self
         
         store(coordinator: homeCoordinator)
         store(coordinator: settingsCoordinator)
@@ -53,5 +59,11 @@ final class MainFlowCoordinator: Coordinator {
         )
         
         tabBarController.setViewControllers([homeNavigation, settingsNavigation], animated: false)
+    }
+}
+
+extension MainFlowCoordinator: SettingsFlowCoordinatorDelegate {
+    func moveToLogin() {
+        delegate?.mainFlowDidFinish(self)
     }
 }

@@ -50,7 +50,7 @@ final class RelationshipViewModel: ViewModel {
         case let .relationDidTap(relationship):
             relationDidTap(relationship: relationship)
         case .save:
-            save()
+            registerSummoner()
         }
     }
     
@@ -61,7 +61,7 @@ final class RelationshipViewModel: ViewModel {
         }
     }
     
-    private func save() {
+    private func registerSummoner() {
         let summonerName = summonerSearchData.summonerName
         let tag = summonerSearchData.tag
         guard let relationship = relationship?.rawValue else { return }
@@ -73,10 +73,10 @@ final class RelationshipViewModel: ViewModel {
         .sink { [weak self] completion in
             switch completion {
             case .finished:
-                print("👩🏻‍💻 putSummonerUseCase finished")
+                print("👩🏻‍💻 putSummoner finished")
                 self?.state.fetchResult.send(true)
             case .failure(let error):
-                print("👩🏻‍💻 putSummonerUseCase failed:", error)
+                print("👩🏻‍💻 putSummoner failed:", error)
                 self?.state.fetchResult.send(false)
             }
         } receiveValue: { _ in }
