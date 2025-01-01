@@ -43,17 +43,25 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
     
     private func setupBindings() {
         // action
-        searchBar.searchTextField.returnPublisher
+        searchTextField.returnPublisher
             .compactMap { [weak self] in
-                self?.searchBar.searchTextField.text
+                self?.searchTextField.text
             }
             .filter { !$0.isEmpty } // 빈 문자열 필터링
             .sink { [weak self] text in
                 self?.viewModel.send(.search(text))
             }
             .store(in: &cancellables)
+        
+        searchButton.tapPublisher
+            .sink { [weak self] in
+                guard let self = self else { return }
+                guard let text = searchTextField.text, !text.isEmpty else { return }
+                viewModel.send(.search(text))
+            }
+            .store(in: &cancellables)
 
-        searchBar.searchTextField.textPublisher
+        searchTextField.textPublisher
             .filter { $0.isEmpty }
             .dropFirst()
             .sink { [weak self] text in
@@ -132,8 +140,12 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
 }
 
 private extension SummonerSearchViewController {
-    var searchBar: SearchBar {
-        contentView.searchBar
+    var searchTextField: UITextField {
+        contentView.searchBar.searchTextField
+    }
+    
+    var searchButton: UIButton {
+        contentView.searchBar.searchButton
     }
     
     var summonerSearchResultView: SummonerSearchResultView {

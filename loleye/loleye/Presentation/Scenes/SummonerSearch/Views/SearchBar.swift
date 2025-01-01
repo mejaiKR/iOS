@@ -10,13 +10,6 @@ import UIKit
 final class SearchBar: UIView {
     // MARK: - Components
     
-    private let searchImageView = {
-        let imageView = UIImageView()
-        imageView.image = .search
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     let searchTextField = {
         let textField = UITextField()
         textField.placeholder = Strings.SummonerSearch.searchPlaceholder
@@ -26,6 +19,12 @@ final class SearchBar: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         return textField
+    }()
+    
+    let searchButton = {
+        let button = UIButton()
+        button.setImage(.search, for: .normal)
+        return button
     }()
     
     // MARK: - Init
@@ -49,17 +48,17 @@ final class SearchBar: UIView {
     }
     
     private func configureLayout() {
-        addSubview(searchImageView)
-        searchImageView.snp.makeConstraints { make in
+        addSubview(searchButton)
+        searchButton.snp.makeConstraints { make in
             make.width.height.equalTo(24)
-            make.leading.equalToSuperview().inset(14)
+            make.trailing.equalToSuperview().inset(14)
             make.centerY.equalToSuperview()
         }
         
         addSubview(searchTextField)
         searchTextField.snp.makeConstraints { make in
-            make.leading.equalTo(searchImageView.snp.trailing).offset(14)
-            make.trailing.equalToSuperview().inset(14)
+            make.leading.equalToSuperview().inset(14)
+            make.trailing.equalTo(searchButton.snp.leading).offset(-14)
             make.centerY.equalToSuperview()
         }
     }
