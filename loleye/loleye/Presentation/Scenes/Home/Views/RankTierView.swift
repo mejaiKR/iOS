@@ -63,12 +63,12 @@ final class RankTierView: UIView {
             make.top.leading.equalToSuperview()
         }
         
-        addSubview(infoButton)
-        infoButton.snp.makeConstraints { make in
-            make.width.height.equalTo(15)
-            make.centerY.equalTo(titleLabel)
-            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
-        }
+//        addSubview(infoButton)
+//        infoButton.snp.makeConstraints { make in
+//            make.width.height.equalTo(15)
+//            make.centerY.equalTo(titleLabel)
+//            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
+//        }
         
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
