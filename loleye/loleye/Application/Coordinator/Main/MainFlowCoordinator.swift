@@ -63,7 +63,7 @@ final class MainFlowCoordinator: Coordinator {
 }
 
 extension MainFlowCoordinator: SettingsFlowCoordinatorDelegate {
-    func moveToLogin() {
+    func moveToOnboarding() {
         delegate?.mainFlowDidFinish(self)
     }
 }

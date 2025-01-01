@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol SettingsViewControllerDelegate: AnyObject {
-    func moveToLogin()
+    func moveToOnboarding()
 }
 
 final class SettingsViewController: BaseViewController<SettingsView> {
@@ -40,12 +40,26 @@ final class SettingsViewController: BaseViewController<SettingsView> {
     
     private func setupBindings() {
         // action
+        otherSummonerButton.tapPublisher
+            .sink { [weak self] in
+                self?.showAlert(
+                    title: "다른 소환사 감시하기",
+                    message: "감시할 소환사는\n언제든지 다시 변경할 수 있습니다.",
+                    leftActionText: "취소",
+                    rightActionText: "확인",
+                    rightActionCompletion: { [weak self] in
+                        self?.viewModel.send(.otherSummoner)
+                    }
+                )
+            }
+            .store(in: &cancellables)
+        
         logoutButton.tapPublisher
             .sink { [weak self] in
                 self?.showAlert(
                     title: "로그아웃",
                     message: "정말로 로그아웃하시겠어요?",
-                    leftActionText: "그만두기",
+                    leftActionText: "취소",
                     rightActionText: "로그아웃",
                     rightActionCompletion: { [weak self] in
                         self?.viewModel.send(.logout)
@@ -59,7 +73,7 @@ final class SettingsViewController: BaseViewController<SettingsView> {
                 self?.showAlert(
                     title: "회원 탈퇴",
                     message: "정말로 탈퇴하시겠어요?\n모든 데이터가 삭제됩니다.",
-                    leftActionText: "그만두기",
+                    leftActionText: "취소",
                     rightActionText: "회원 탈퇴",
                     rightActionCompletion: { [weak self] in
                         self?.viewModel.send(.widhdraw)
@@ -73,13 +87,17 @@ final class SettingsViewController: BaseViewController<SettingsView> {
         viewModel.state.isActionDone
             .receive(on: RunLoop.main)
             .sink { [weak self] in
-                self?.delegate?.moveToLogin()
+                self?.delegate?.moveToOnboarding()
             }
             .store(in: &cancellables)
     }
 }
 
 private extension SettingsViewController {
+    var otherSummonerButton: UIButton {
+        contentView.otherSummonerButton
+    }
+    
     var logoutButton: UIButton {
         contentView.logoutButton
     }

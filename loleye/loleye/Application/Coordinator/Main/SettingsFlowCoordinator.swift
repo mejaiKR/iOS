@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingsFlowCoordinatorDelegate: AnyObject {
-    func moveToLogin()
+    func moveToOnboarding()
 }
 
 final class SettingsFlowCoordinator: Coordinator {
@@ -38,7 +38,7 @@ final class SettingsFlowCoordinator: Coordinator {
 }
 
 extension SettingsFlowCoordinator: SettingsViewControllerDelegate {
-    func moveToLogin() {
-        delegate?.moveToLogin()
+    func moveToOnboarding() {
+        delegate?.moveToOnboarding()
     }
 }

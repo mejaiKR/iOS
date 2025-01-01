@@ -10,6 +10,7 @@ import Foundation
 
 final class SettingsViewModel: ViewModel {
     enum Action {
+        case otherSummoner
         case logout
         case widhdraw
     }
@@ -45,11 +46,18 @@ final class SettingsViewModel: ViewModel {
     
     private func handleAction(_ action: Action) {
         switch action {
+        case .otherSummoner:
+            otherSummoner()
         case .logout:
             logout()
         case .widhdraw:
             withdraw()
         }
+    }
+    
+    private func otherSummoner() {
+        UserDataStorage.shared.isOnboardingCompleted = false
+        state.isActionDone.send()
     }
     
     private func logout() {

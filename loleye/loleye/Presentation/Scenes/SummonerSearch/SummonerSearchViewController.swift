@@ -35,11 +35,19 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureDefaultNavigationBar(actionTitle: "다음")
+        setupNavigationBar()
         setupBindings()
     }
     
     // MARK: - Setup Methods
+    
+    private func setupNavigationBar() {
+        configureDefaultNavigationBar(actionTitle: "다음")
+        // 로그인 상태에서 다른 소환사 감시하기 플로우인 경우 백버튼 숨김
+        if UserDataStorage.shared.isLogin {
+            backButton?.isHidden = true
+        }
+    }
     
     private func setupBindings() {
         // action
