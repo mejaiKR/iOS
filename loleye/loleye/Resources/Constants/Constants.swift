@@ -20,6 +20,7 @@ enum Constants {
             static let body1: Double = 16
             static let body2: Double = 14
             static let body3: Double = 14
+            static let body4: Double = 12
             static let caption1: Double = 12
             static let caption2: Double = 10
         }
@@ -35,6 +36,7 @@ enum Constants {
             static let body1: CGFloat = 24
             static let body2: CGFloat = 20
             static let body3: CGFloat = 20
+            static let body4: CGFloat = 16
             static let caption1: CGFloat = 16
             static let caption2: CGFloat = 14
         }

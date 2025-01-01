@@ -26,7 +26,7 @@ final class RankTierCell: UICollectionViewCell, Reusable {
     
     private let tierLabel = {
         let label = UILabel()
-        label.applyTypography(with: .body3)
+        label.applyTypography(with: .body4)
         label.textColor = .gray09
         return label
     }()

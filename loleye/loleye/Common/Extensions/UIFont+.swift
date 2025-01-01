@@ -58,6 +58,10 @@ extension UIFont {
     static var body3: UIFont {
         return pretendard(weight: .regular, size: Constants.Typography.Size.body3)
     }
+    
+    static var body4: UIFont {
+        return pretendard(weight: .regular, size: Constants.Typography.Size.body4)
+    }
 
     static var caption1: UIFont {
         return pretendard(weight: .regular, size: Constants.Typography.Size.caption1)
