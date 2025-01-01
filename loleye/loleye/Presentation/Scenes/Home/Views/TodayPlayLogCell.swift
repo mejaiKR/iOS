@@ -85,7 +85,7 @@ final class TodayPlayLogCell: UICollectionViewCell, Reusable {
         
         contentView.addSubview(resultLabel)
         resultLabel.snp.makeConstraints { make in
-            make.leading.equalTo(timeLabel.snp.trailing).offset(20)
+            make.leading.equalToSuperview().inset(120)
             make.centerY.equalToSuperview()
         }
     }
