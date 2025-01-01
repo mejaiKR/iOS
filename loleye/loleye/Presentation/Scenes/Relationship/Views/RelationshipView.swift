@@ -29,6 +29,12 @@ final class RelationshipView: UIView {
         return collectionView
     }()
     
+    let loadingIndicator = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = .gray
+        return indicator
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -54,6 +60,11 @@ final class RelationshipView: UIView {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(42)
             make.leading.bottom.trailing.equalToSuperview().inset(20)
+        }
+        
+        addSubview(loadingIndicator)
+        loadingIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
 }

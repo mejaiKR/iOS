@@ -55,17 +55,26 @@ final class RelationshipViewController: BaseViewController<RelationshipView> {
             .store(in: &cancellables)
         
         // state
-        viewModel.state.fetchResult
+        viewModel.state.relationshipViewState
             .receive(on: RunLoop.main)
-            .sink { [weak self] result in
-                if result {
-                    self?.delegate?.relationshipViewControllerDidFinish()
-                } else {
-                    self?.showAlert(
+            .sink { [weak self] state in
+                guard let self = self else { return }
+                switch state {
+                case .loading:
+                    loadingIndicator.startAnimating()
+                    actionButton?.isEnabled = false
+                case .success:
+                    loadingIndicator.stopAnimating()
+                    delegate?.relationshipViewControllerDidFinish()
+                    actionButton?.isEnabled = true
+                case .failure:
+                    loadingIndicator.stopAnimating()
+                    showAlert(
                         title: "오류",
                         message: "오류가 발생했어요\n다시 시도해주세요",
                         actionText: "확인"
                     )
+                    actionButton?.isEnabled = true
                 }
             }
             .store(in: &cancellables)
@@ -117,5 +126,9 @@ extension RelationshipViewController: UICollectionViewDataSource {
 private extension RelationshipViewController {
     var relationshipCollectionView: UICollectionView {
         contentView.collectionView
+    }
+    
+    var loadingIndicator: UIActivityIndicatorView {
+        contentView.loadingIndicator
     }
 }

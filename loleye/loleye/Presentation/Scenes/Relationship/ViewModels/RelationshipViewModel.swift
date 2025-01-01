@@ -8,6 +8,12 @@
 import Combine
 import Foundation
 
+enum RelationshipViewState {
+    case loading
+    case success
+    case failure
+}
+
 final class RelationshipViewModel: ViewModel {
     enum Action {
         case relationDidTap(Relationship)
@@ -15,7 +21,7 @@ final class RelationshipViewModel: ViewModel {
     }
     
     struct State {
-        var fetchResult = PassthroughSubject<Bool, Never>()
+        var relationshipViewState = PassthroughSubject<RelationshipViewState, Never>()
         var isRelationSet = CurrentValueSubject<Bool, Never>(false)
     }
     
@@ -62,6 +68,7 @@ final class RelationshipViewModel: ViewModel {
     }
     
     private func registerSummoner() {
+        state.relationshipViewState.send(.loading)
         let summonerName = summonerSearchData.summonerName
         let tag = summonerSearchData.tag
         guard let relationship = relationship?.rawValue else { return }
@@ -74,10 +81,10 @@ final class RelationshipViewModel: ViewModel {
             switch completion {
             case .finished:
                 print("👩🏻‍💻 putSummoner finished")
-                self?.state.fetchResult.send(true)
+                self?.state.relationshipViewState.send(.success)
             case .failure(let error):
                 print("👩🏻‍💻 putSummoner failed:", error)
-                self?.state.fetchResult.send(false)
+                self?.state.relationshipViewState.send(.failure)
             }
         } receiveValue: { _ in }
         .store(in: &cancellables)
