@@ -27,7 +27,11 @@ final class OnboardingFlowCoordinator: Coordinator {
     }
     
     func start() {
-        showLoginViewController()
+        if UserDataStorage.shared.isLogin {
+            showSummonerSearchViewController()
+        } else {
+            showLoginViewController()
+        }
     }
     
     private func showLoginViewController() {

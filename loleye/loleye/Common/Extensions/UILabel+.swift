@@ -51,6 +51,8 @@ extension UILabel {
             setLineHeight(Constants.Typography.LineHeight.body2)
         case .body3:
             setLineHeight(Constants.Typography.LineHeight.body3)
+        case .body4:
+            setLineHeight(Constants.Typography.LineHeight.body4)
         case .caption1:
             setLineHeight(Constants.Typography.LineHeight.caption1)
         case .caption2:

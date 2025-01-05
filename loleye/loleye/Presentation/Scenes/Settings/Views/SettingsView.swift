@@ -10,6 +10,8 @@ import UIKit
 final class SettingsView: UIView {
     // MARK: - Components
     
+    lazy var otherSummonerButton = createButton(with: "다른 소환사 감시하기")
+    
     lazy var logoutButton = createButton(with: "로그아웃")
     
     lazy var withdrawButton = createButton(with: "회원 탈퇴")
@@ -29,9 +31,16 @@ final class SettingsView: UIView {
     // MARK: - Setup Methods
     
     private func setupLayout() {
+        addSubview(otherSummonerButton)
+        otherSummonerButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(52)
+        }
+        
         addSubview(logoutButton)
         logoutButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
+            make.top.equalTo(otherSummonerButton.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(52)
         }

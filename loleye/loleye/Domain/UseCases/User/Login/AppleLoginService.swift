@@ -44,7 +44,9 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         
         guard let appleIDCredential = authorization.credential
                 as? ASAuthorizationAppleIDCredential else {
-            subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
+            subject.send(
+                completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0)))
+            )
             return
         }
         if let identityToken = appleIDCredential.identityToken,
@@ -69,7 +71,9 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
                 subject.send(completion: .failure(.appleError(error)))
             }
         } else {
-            subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
+            subject.send(
+                completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0)))
+            )
         }
     }
 }

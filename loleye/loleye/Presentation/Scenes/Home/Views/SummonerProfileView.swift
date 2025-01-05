@@ -58,7 +58,7 @@ final class SummonerProfileView: UIStackView {
             .forEach { addArrangedSubview($0) }
         
         summonerImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(20)
+            make.width.height.equalTo(25)
         }
     }
     

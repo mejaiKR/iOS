@@ -8,8 +8,6 @@
 import UIKit
 
 final class RankTierView: UIView {
-    private let cellSpacing = 15.0
-    
     // MARK: - Components
     
     private let titleLabel = {
@@ -30,7 +28,7 @@ final class RankTierView: UIView {
     
     lazy var collectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = cellSpacing
+        layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(cellType: RankTierCell.self)
         collectionView.backgroundColor = .backgroundSecondary
@@ -65,12 +63,12 @@ final class RankTierView: UIView {
             make.top.leading.equalToSuperview()
         }
         
-        addSubview(infoButton)
-        infoButton.snp.makeConstraints { make in
-            make.width.height.equalTo(15)
-            make.centerY.equalTo(titleLabel)
-            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
-        }
+//        addSubview(infoButton)
+//        infoButton.snp.makeConstraints { make in
+//            make.width.height.equalTo(15)
+//            make.centerY.equalTo(titleLabel)
+//            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
+//        }
         
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -91,7 +89,7 @@ final class RankTierView: UIView {
 
 extension RankTierView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - cellSpacing) / 2
+        let width = collectionView.frame.width / 2
         return CGSize(width: width, height: collectionView.frame.height)
     }
 }

@@ -52,6 +52,11 @@ final class WeekPlayLogCell: UICollectionViewCell, Reusable {
         frontView.layer.cornerRadius = frame.width / 2
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        countLabel.text = nil
+    }
+    
     // MARK: - Configure Methods
     
     private func configureCell() {

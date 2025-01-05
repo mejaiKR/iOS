@@ -8,7 +8,7 @@
 import Foundation
 
 enum UserAPI {
-    case postLogin(socialId: String, socialType: String, idToken: String)
+    case postLogin(socialType: String, idToken: String)
     case postRefresh(refreshToken: String)
     case postDelete
 }
@@ -30,9 +30,9 @@ extension UserAPI: TargetType {
     
     var task: Task {
         switch self {
-        case let .postLogin(socialId, socialType, idToken):
+        case let .postLogin(socialType, idToken):
                 .requestJSONEncodable(
-                    PostLoginRequest(socialId: socialId, socialType: socialType, idToken: idToken)
+                    PostLoginRequest(socialType: socialType, idToken: idToken)
                 )
         case let .postRefresh(refreshToken):
                 .requestJSONEncodable(PostRefreshRequest(refreshToken: refreshToken))

@@ -45,9 +45,8 @@ final class OAuthUseCase: OAuthLoginUseCaseProtocol {
         id: String,
         idToken: String
     ) -> AnyPublisher<OAuthResult, OAuthError> {
-        print("👩🏻‍💻", provider, id)
+        print("👩🏻‍💻", provider, idToken)
         let target = UserAPI.postLogin(
-            socialId: id,
             socialType: provider.rawValue,
             idToken: idToken
         )

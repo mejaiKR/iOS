@@ -29,14 +29,14 @@ final class GetSummonerDetailUseCase {
                     ),
                     rankTiers: [
                         .init(
-                            cellType: .flex,
-                            rankTier: summonerDetail.summoner.flexRankTier,
-                            image: summonerDetail.summoner.flexRankIconUrl
-                        ),
-                        .init(
                             cellType: .solo,
                             rankTier: summonerDetail.summoner.soloRankTier,
                             image: summonerDetail.summoner.soloRankIconUrl
+                        ),
+                        .init(
+                            cellType: .flex,
+                            rankTier: summonerDetail.summoner.flexRankTier,
+                            image: summonerDetail.summoner.flexRankIconUrl
                         )
                     ],
                     todayLogs: [

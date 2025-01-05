@@ -35,25 +35,41 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureDefaultNavigationBar(actionTitle: "다음")
+        setupNavigationBar()
         setupBindings()
     }
     
     // MARK: - Setup Methods
     
+    private func setupNavigationBar() {
+        configureDefaultNavigationBar(actionTitle: "다음")
+        // 로그인 상태에서 다른 소환사 감시하기 플로우인 경우 백버튼 숨김
+        if UserDataStorage.shared.isLogin {
+            backButton?.isHidden = true
+        }
+    }
+    
     private func setupBindings() {
         // action
-        searchBar.searchTextField.returnPublisher
+        searchTextField.returnPublisher
             .compactMap { [weak self] in
-                self?.searchBar.searchTextField.text
+                self?.searchTextField.text
             }
             .filter { !$0.isEmpty } // 빈 문자열 필터링
             .sink { [weak self] text in
                 self?.viewModel.send(.search(text))
             }
             .store(in: &cancellables)
+        
+        searchButton.tapPublisher
+            .sink { [weak self] in
+                guard let self = self else { return }
+                guard let text = searchTextField.text, !text.isEmpty else { return }
+                viewModel.send(.search(text))
+            }
+            .store(in: &cancellables)
 
-        searchBar.searchTextField.textPublisher
+        searchTextField.textPublisher
             .filter { $0.isEmpty }
             .dropFirst()
             .sink { [weak self] text in
@@ -132,8 +148,12 @@ final class SummonerSearchViewController: BaseViewController<SummonerSearchView>
 }
 
 private extension SummonerSearchViewController {
-    var searchBar: SearchBar {
-        contentView.searchBar
+    var searchTextField: UITextField {
+        contentView.searchBar.searchTextField
+    }
+    
+    var searchButton: UIButton {
+        contentView.searchBar.searchButton
     }
     
     var summonerSearchResultView: SummonerSearchResultView {

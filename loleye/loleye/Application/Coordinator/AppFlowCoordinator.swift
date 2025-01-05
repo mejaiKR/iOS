@@ -29,7 +29,7 @@ final class AppFlowCoordinator: Coordinator {
     }
     
     private func needsOnboarding() -> Bool {
-        return !UserDataStorage.shared.isLogin
+        return !UserDataStorage.shared.isLogin || !UserDataStorage.shared.isOnboardingCompleted
     }
     
     private func showOnboardingFlow() {

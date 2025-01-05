@@ -42,14 +42,12 @@ final class SummonerSearchResultView: UIView {
     
     private let summonerNameLabel = {
         let label = UILabel()
-        label.text = "소환사이름"
         label.font = .body2
         return label
     }()
     
     private let tagLineLabel = {
         let label = UILabel()
-        label.text = "#태그라인"
         label.font = .body3
         label.textColor = .gray05
         return label
@@ -57,7 +55,6 @@ final class SummonerSearchResultView: UIView {
     
     private let rankTierLabel = {
         let label = UILabel()
-        label.text = "솔로 랭크 솔로 랭크 티어 | 자유 랭크 자유 랭크 티어"
         label.font = .caption2
         label.textColor = .gray04
         return label
