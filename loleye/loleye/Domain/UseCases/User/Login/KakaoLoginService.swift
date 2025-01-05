@@ -25,8 +25,7 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
                 self?.handleLoginResult(oauthToken: oauthToken, error: error)
             }
         } else {
-            let scopes = ["openid"]
-            UserApi.shared.loginWithKakaoAccount(scopes: scopes) { [weak self] (oauthToken, error) in
+            UserApi.shared.loginWithKakaoAccount { [weak self] (oauthToken, error) in
                 self?.handleLoginResult(oauthToken: oauthToken, error: error)
             }
         }
@@ -46,7 +45,9 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
         } else if let idToken = oauthToken?.idToken {
             getUserInfo(idToken: idToken)
         } else {
-            subject.send(completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0))))
+            subject.send(
+                completion: .failure(.unknown(NSError(domain: "unexpected error", code: 0)))
+            )
         }
     }
     
@@ -55,7 +56,9 @@ final class KakaoLoginService: OAuthLoginServiceProtocol {
         print("👩🏻‍💻 idToken:", idToken)
         UserApi.shared.me() { [weak self] (user, error) in
             guard self != nil else {
-                subject.send(completion: .failure(.unknown(NSError(domain: "Self is deallocated", code: 0))))
+                subject.send(
+                    completion: .failure(.unknown(NSError(domain: "Self is deallocated", code: 0)))
+                )
                 return
             }
             
